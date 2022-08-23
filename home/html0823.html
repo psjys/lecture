@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제1 연습</title>
+</head>
+
+<body>
+    <form action="#" method="post">
+
+        <fieldset>
+            <legend>신청과목</legend>
+            <p>이 달에 신청할 과목을 선택하세요 (1과목만 가능)</p>
+            <label><input type="radio" name="subject" value="speaking">회화</label>
+            <label><input type="radio" name="subject" value="grammar">문법</label>
+            <label><input type="radio" name="subject" value="writing">작문</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>메일링</legend>
+            <p>메일로 받고 싶은 뉴스를 선택해 주세요 (복수 선택 가능)</p>
+            <label><input type="checkbox" name="mailing1" value="news">해외 단신</label>
+            <label><input type="checkbox" name="mailing2" value="dialog">5분 회화</label>
+            <label><input type="checkbox" name="mailing3" value="pops">모닝 팝스</label>
+        </fieldset>
+
+        <fieldset action="#" method="post">
+            <legend>선택입력</legend>
+            <div>성별 :
+                <label>남<input type="radio" name="gender" value="man"></label>
+                <label>여<input type="radio" name="gender" value="woman" checked></label>
+            </div>
+
+            <div>취미 :
+                <label>독서<input type="checkbox" name="hobby" value="reading"></label>
+                <label>게임<input type="checkbox" name="hobby" value="game"></label>
+                <label>운동<input type="checkbox" name="hobby" value="exercise"></label>
+                <label>등산<input type="checkbox" name="hobby" value="hiking"></label>
+            </div>
+
+            <div>사진첨부
+                <input type="file" name="uploadPicture">
+            </div>
+
+            <div>화면밝기
+                <input type="range" min="1" max="10" value="8">
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>게시판 등록</legend>
+            <div>
+                <textarea name="noticeboard" cols="30" rows="5" placeholder="불편 사항을 적어주세요^^"></textarea>
+            </div>
+            <button>등록</button>
+        </fieldset>
+
+        <fieldset>
+            <legend>기타선택정보</legend>
+            <label>이메일<input type="text" name="email_id"></label>
+            <select>
+                <option value="직접입력">직접입력</option>
+                <option value="naver.com">naver.com</option>
+                <option value="daum.net">daum.net</option>
+                <option value="gmail.com">gmail.com</option>
+            </select>
+            <hr>
+
+            <h3>선호하는 게임 장르</h3>
+
+            <select name="favorite_game" multiple size="3">
+                <option value="전략시뮬레이션">전략시뮬레이션</option>
+                <option value="RPG">RPG</option>
+                <option value="FPS">FPS</option>
+                <option value="슈팅게임">슈팅게임</option>
+                <option value="스포츠게임">스포츠게임</option>
+            </select>
+            <h3>학습 예정 프로그래밍 언어</h3>
+            <select name="language">
+                <optgroup label="Front-end">
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                </optgroup>
+                <optgroup label="Back-end">
+                    <option value="ASP">ASP</option>
+                    <option value="JSP">JSP</option>
+                    <option value="PHP">PHP</option>
+                </optgroup>
+            </select>
+            <hr>
+
+            <label>현재거주자</label>
+            <input list="resisdencelist" name="currentResisdence">
+                <datalist id="resisdencelist">
+                    <option value="수원시">수원시</option>
+                    <option value="서울시">서울시</option</>
+                    <option value="안양시">안양시</option</>
+                    <option value="성남시">성남시</option</>
+                    <option value="광주시">광주시</option>
+                </datalist>
+        </fieldset>
+    </form>
+</body>
+
+</html>
