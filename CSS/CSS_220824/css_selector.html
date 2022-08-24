@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태그, id, 클래스 선택자</title>
+
+    <style>
+        h1 {
+            color : crimson;
+        }
+        .fontSize {
+            font-size: 45px;
+        }
+        .color {
+            color:yellow;
+        }
+
+        .fontSize.color.textDecoration {
+            font-size: 16px;
+            color : blue;
+            text-decoration: underline;
+        }
+        #textAlign_color {
+            text-align : center;
+            color : blue;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>태그 선택자</h1>
+    </div>
+
+    <div>
+        <h2 class="fontSize">클래스 선택자</h2>
+        <h2 id="textAlign_color">id 선택자</h2>
+        <h3 class="fontSize color">다중 클래스 식별자</h3>
+        <h4 class="fontSize color textDecoration">다중 클래스 식별자에 대한 다중 클래스 선택자 지정</h4>
+    </div>
+    
+</body>
+
+</html>
+
+
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태그 선택자와 클래스 선택자</title>
+
+    <style>
+        ol {
+            background-color : orange;
+            color:blue;
+        }
+        ul {
+            background-color: rgb(173, 255, 173);
+            color: rgb(218, 5, 5);
+        }
+        li>ul {
+            background-color:black;
+            color : yellow;
+        }
+        ol {
+            background-color: orange;
+            color: blue;
+
+        }
+        dd {
+            background-color:rgb(177, 4, 4);
+            font-size: 32px;
+            color: yellow;
+        }
+        dt {
+            background-color:beige;
+            font-size: 32px;
+            color: rgb(150, 29, 150);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ol>
+            <li>HTML 문서 생성</li>
+            <li>HTML 기본 구조</li>
+            <li>body 태그</li>
+        </ol>
+    </div>
+    <hr>
+    <div>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS</li>
+            <li>Javascript
+                <ul>
+                    <li>VSCODE 자바스크립트 실행환경 구축</li>
+                    <li>기본 출력 및 실행 테스트</li>
+                    <li>자료형과 변수</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <hr>
+
+    <div> 
+        <dl> 
+            <dt>HTML</dt>
+            <dd>HyperText Markup Language</dd>
+        </dl>
+    </div>
+</body>
+
+</html>

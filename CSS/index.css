@@ -1,0 +1,21 @@
+body {
+    color: #ff00ff;
+    text-align: center;
+}
+
+ol {
+    color: green;
+    text-align: left;
+}
+
+div {
+    font-size: 200%;
+}
+
+#childOfDiv {
+    font-size: 50%;
+}
+
+div>p {
+    font-size: 50%;
+}
