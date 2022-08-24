@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>video 태그</title>
+    <style>
+        video {
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <video src="../video/wave.mp4" controls muted>
+        해당 브라우저에서는 지원되지 않는 형식의 파일입니다.
+    </video>
+    <hr>
+    <video muted autoplay>
+        <source src="../video/wave.mp4" type="video.mp4">
+        <source src="../video/wave.webM" type="video.webM">
+        <source src="../video/wave.ogv" type="video.ogv">
+        <p>
+            해당 브라우저에서는 지원되지 않는 형식의 파일입니다.
+        </p>
+    </video>
+    <hr>
+
+</body>
+</html>
