@@ -11,7 +11,10 @@
         .yellow {
             color: yellow;
         }
-
+        .red {
+            color: red;
+        }
+        
         h1 {
             text-align: center;
             font-size: 50px;
@@ -25,23 +28,38 @@
             color: orange;
             background-color: rgb(218, 218, 218);
         }
+        li {
+            font-size : 20px;
+        }
 
         div {
             background-color: beige;
             color: blue;
         }
+        
 
         div ul ul {
-            color: magenta;
+                        color: magenta;
         }
 
         div ul ul ol {
             color : green;
         }
-
-        body>div>div {
-            background-color: green;
+        div ul ol div{
+            text-decoration : underline;
+            font-size: 30px;
+            color : green;
         }
+
+        body>ul {
+            background-color: rgb(89, 181, 89);
+        }
+        ul ul{
+            color : red;            
+        }
+        
+        
+
     </style>
 </head>
 
@@ -59,7 +77,7 @@
                     <li>K7
                         <ol>
                             <li>가솔린</li>
-                            <li>디젤</li>
+                            <li><div>디젤</div></li>
                         </ol>
                     </li>
                 </ul>
@@ -72,9 +90,10 @@
     <hr>
     <h2>2020년식</h2>
 
-    <ul>
-        <li>세단</li>
-        <li class="yellow">SUV
+    
+    <ul class = "yellow">
+        <li class="red">세단</li>
+        <li>SUV
             <ul>
                 <li>산타페</li>
                 <li>쏘렌토
@@ -86,8 +105,8 @@
                 <li>셀토스</li>
             </ul>
         </li>
-        <li class="yellow">트럭</li>
-        <li class="yellow">봉고</li>
+        <li>트럭</li>
+        <li>봉고</li>
     </ul>
 
 </body>
