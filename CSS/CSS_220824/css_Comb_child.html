@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자식 결합자(Child combinator)</title>
+
+    <style>
+        body>div {
+            color : red;
+        }
+        body>div>div {
+            color : blue;
+        }
+        body>div>div>div {
+            color : green;
+        }
+    </style>
+</head>
+<body>
+    <h1>자식 결합자</h1>
+    <hr>
+
+    <div>할아버지, 할머니
+        <hr>
+        <div>큰아빠, 큰엄마
+            <div>아들</div>
+            <div>딸</div>
+        </div>
+        <hr>
+
+        <div>작은아빠, 작은엄마
+            <div>아들</div>
+            <div>딸</div>
+        </div>
+    </div>
+</body>
+</html>

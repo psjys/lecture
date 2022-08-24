@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자손(하위) 결합자(Descendant combinator)</title>
+
+    <style>
+        body>h2 {
+            color : red;
+        }
+        body ul {
+            color : blue;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>자손 결합자</h1>
+    <hr>
+
+    <h2>조부모</h2>
+    <ul>
+        <li>할아버지</li>
+        <li>할머니</li>
+    </ul>
+    <hr>
+    <div>
+        <h2>부모님</h2>
+        <ul>
+            <li>아빠</li>
+            <li>엄마</li>
+        </ul>
+    </div>
+</body>
+</html>

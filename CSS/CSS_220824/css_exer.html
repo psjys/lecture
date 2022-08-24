@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 활용</title>
+
+    <style>
+        .yellow {
+            color: yellow;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            color: orange;
+            background-color: rgb(218, 218, 218);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 30px;
+            color: orange;
+            background-color: rgb(218, 218, 218);
+        }
+
+        div {
+            background-color: beige;
+            color: blue;
+        }
+
+        div ul ul {
+            color: magenta;
+        }
+
+        div ul ul ol {
+            color : green;
+        }
+
+        body>div>div {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>중고차</h1>
+    <hr>
+    <h2>2021년식</h2>
+    <div>
+        <ul>
+            <li>세단
+                <ul>
+                    <li>그랜저</li>
+                    <li>소나타</li>
+                    <li>아반떼</li>
+                    <li>K7
+                        <ol>
+                            <li>가솔린</li>
+                            <li>디젤</li>
+                        </ol>
+                    </li>
+                </ul>
+            </li>
+            <li>SUV</li>
+            <li>트럭</li>
+            <li>봉고</li>
+        </ul>
+    </div>
+    <hr>
+    <h2>2020년식</h2>
+
+    <ul>
+        <li>세단</li>
+        <li class="yellow">SUV
+            <ul>
+                <li>산타페</li>
+                <li>쏘렌토
+                    <ol>
+                        <li>가솔린</li>
+                        <li>디젤</li>
+                    </ol>
+                </li>
+                <li>셀토스</li>
+            </ul>
+        </li>
+        <li class="yellow">트럭</li>
+        <li class="yellow">봉고</li>
+    </ul>
+
+</body>
+
+</html>
