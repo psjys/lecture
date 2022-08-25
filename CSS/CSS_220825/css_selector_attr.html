@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 선택자(Attribute Selectors)</title>
+    <style>
+        [id] {
+            background-color: bisque;
+        }
+        input[id] {
+            font-weight: bold;
+        }
+        [id="lg"] {
+            list-style-type: none;
+        }
+        [target="_self"] {
+            text-decoration: none;
+        }
+        ol [href] {
+            font-size: 25px;
+        }
+        [href][target] {
+            font-style: italic;
+        }
+        [class^="font"] {
+            color :green;
+        }
+        [class$="Size"] {
+            color : red;
+        }
+        [href*="co."] {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>속성 선택자</h1>
+    <hr>
+    <ul>
+        <li id="naver"><a href="http://www.naver.com">네이버</a></li>
+        <li id="daum"><a href="http://www.daum.net" target="_self">다음</a></li>
+        <li id="google"><a href="http://www.google.com" target="_blank">구글</a></li>
+    </ul>
+    <hr>
+
+    <ol>
+        <li id="samsung"><a href="https://www.samsung.com">삼성</a></li>
+        <li id="lg"><a href="https://www.lge.co.kr">LG</a></li>
+        <li>현대</li>
+        <li>한화</li>
+    </ol>
+    <hr>
+
+    <form action="#">
+        <div>
+            <label for="name" class="fontStyle color">이름</label>
+            <input type="text" id="name" placeholder="이름을 입력하세요">
+        </div>
+
+        <div>
+            <label class="color fontSize">주소
+                <input type="text" placeholder="주소를 입력하세요"
+            </label>
+        </div>
+        <button>전송</button>
+    </form>
+
+</body>
+</html>

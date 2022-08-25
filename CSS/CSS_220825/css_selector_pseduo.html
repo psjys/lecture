@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상 클래스 선택자(Pseduo-class Selectors)</title>
+
+    <style>
+        h1:hover {
+            background-color: aqua;
+        }
+
+        form button:hover {
+            color: red;
+        }
+
+        form:hover label{
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        a:focus,
+        input:focus {
+            outline: none;
+            background-color: darkgrey;
+        }
+
+        a:active {
+            background-color: orange;
+        }
+
+        a:visited {
+            color: red;
+        }
+
+        input:checked+label {
+            background-color: bisque;
+        }
+
+        #title:target {
+            text-decoration: underline;
+        }
+
+        button:enabled {
+            font-weight: bold;
+        }
+
+        button:disabled {
+            font-size: 10px;
+        }
+
+        form:not(button) {
+            background-color: chartreuse;
+        }
+
+        ol li:not([id="kt"]) {
+            font-weight: bold;
+            font-size: 32px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">가상 클래스 선택자</h1>
+    <hr>
+
+    <ul>
+        <li id="naver"><a href="http://www.naver.com">네이버</a></li>
+        <li id="daum"><a href="http://www.daum.net" target="_self">다음</a></li>
+        <li id="google"><a href="http://www.google.com" target="_blank">구글</a></li>
+    </ul>
+    <hr>
+
+    <ol>
+        <li id="samsung"><a href="https://www.samsung.com">삼성</a></li>
+        <li id="lg"><a href="https://www.lge.co.kr">LG</a></li>
+        <li id="kt"><a href="https://www.kt.com">KT</a></li>
+        <li><a href="https://www.hyundai.com"></a>현대자동차</li>
+        <li><a href="https://www.hanwha.com.kr"></a>한화</li>
+    </ol>
+    <hr>
+
+    <form action="#">
+        <div>
+            <label for="name" class="fontStyle color">이름</label>
+            <input type="text" id="name" placeholder="이름을 입력하세요">
+        </div>
+
+        <div>
+            <label class="color fontSize">주소
+                <input type="text" placeholder="주소를 입력하세요" </label>
+        </div>
+        <div>
+            <label for="man">남</label>
+            <input type="radio" name="gender" id="man" value="man">
+            <label for="woman">여</label>
+            <input type="radio" name="gender" id="woman" value="woman">
+        </div>
+        <div>
+            <input type="radio" name="housing-type" id="homeowner" value="homeowner">
+            <label for="homeowner">자가</label>
+            <input type="radio" name="housing-type" id="rental-house" value="rental-house">
+            <label for="rental-house">임대</label>
+        </div>
+        <button type="reset" disabled>초기화</button>
+        <button>전송</button>
+    </form>
+    <hr>
+
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa cumque facilis eveniet. Earum fugit ullam odit
+        asperiores, repellat nobis eos ipsum atque cupiditate accusamus. Laboriosam nihil cum facilis autem
+        perspiciatis.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa cumque facilis eveniet. Earum fugit
+        ullam odit
+    </p>
+
+    <a href="#title">제목으로</a>
+</body>
+
+</html>

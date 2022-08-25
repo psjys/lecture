@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트리 구조 가상 클래스 선택자(Tree-structural poseduo-class Selectors)</title>
+    
+    <style>
+        li:first-child {
+            background-color: antiquewhite;
+        }
+        li:last-child {
+            background-color : chocolate;
+        }
+        p:first-child {
+            color:red;
+        }
+        li:nth_child(3) {
+            font-size:20px;
+        }
+        li:nth-last-child(3) {
+            font-size:10px
+        }
+        li:not(:last-child) a{
+            color:red;
+        }
+        li+li:hober a{
+            color:white;
+        }
+        div p:nth-child(2n) {
+            background-color:darkgrey;
+        }
+        div p:nth-child(2n+1) {
+            background-color:yellow;
+        }
+        li:nth-child(even) {
+            list-style: square;
+        }
+        li:nth-child(odd) {
+            list-style: circle;
+        }
+        div p:nth-child(n+4) {
+            text-decoration: line-through;
+        }
+        div p:nth-child(-n+3) {
+            font-weight: bold;
+        }
+        p:nth-child(n+5):nth-child(-n+10) {
+            color:blue;
+        }
+        p:first-of-type {
+            text-decoration:underline;
+        }
+        body>p:last-of-type {
+            background-color:green;
+        }
+        body>p:nth-of-type(n+2):nth-of-type(-n+5) {
+            font-size:20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>트리 구조 가상 클래스 선택자</h1>
+    <hr>
+
+    <ul>
+        <li id="naver"><a href="http://www.naver.com">네이버</a></li>
+        <li id="daum"><a href="http://www.daum.net" target="_self">다음</a></li>
+        <li id="google"><a href="http://www.google.com" target="_blank">구글</a></li>
+        <li id="samsung"><a href="https://www.samsung.com">삼성</a></li>
+        <li id="lg"><a href="https://www.lge.co.kr">LG</a></li>
+        <li id="kt"><a href="https://www.kt.com">KT</a></li>
+        <li><a href="https://www.hyundai.com">현대자동차</a></li>
+        <li><a href="https://www.hanwha.co.kr">한화</a></li>
+    </ul>
+    <hr>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <hr>
+
+    <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
+
+</body>
+</html>
