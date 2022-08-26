@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>px, %, em, rem</title>
+    <style>
+        h1 {
+            background-color: yellow;
+            width: 400px;
+        }
+        h2 {
+            background-color:greenyellow;
+            width: 50%;
+        }
+        section:nth-child(1) p {
+            background-color:brown;
+            font-size: 80%;
+            /* 16px * 0.8 = 12.8px */
+        }
+        section:nth-child(1) p strong {
+            color:white;
+            font-size:150%;
+            /* 12.8px * 1.5 = 19.2px */
+        }
+        section:nth-child(2) p {
+            background-color: aquamarine;
+            font-size:.8em;
+            /* 16px * 0.8 = 12.8px */
+        }
+        section:nth-child(2) p strong {
+            color:red;
+            font-size: 1.5em;
+            /* 12.8px * 1.5 = 19.2px */
+        }
+        aside {
+            background-color:bisque;
+            width: 20em;
+            /* 16px * 20 = 320px */ 
+        }
+        aside h3 {
+            background-color:blueviolet;
+            width: 80%;
+            /* 320px * 0.8 = 256px */
+        }
+        aside p {
+            background-color:cyan;
+            width:20em;
+            /* 16px * 20 = 320px */
+        }
+        article {
+            background-color: darkseagreen;
+            font-size: 120%;
+            width:30em;
+            /* 16px * 1.2 * 30 = 576px  -width */
+        }
+        article h3 {
+            background-color:coral;
+            font-size : calc(0.5em+5px); 
+            /* 16 * 1.2(120%) * 0.5 + 5px = 14.6px */
+        }
+        article p:nth-of-type(1) {
+            background-color: hotpink;
+            font-size:14px;
+            width: 20em;
+            /* 14px * 20 = 280px */
+        }
+        article p:nth-of-type(2) {
+            background-color: aquamarine;
+            font-size: 1.4em;
+            width: 50%;
+            /* 
+            16px * 1.2 * 1.4 = 26.88px  - font size
+            576px * 0.5 = 288px         - width
+            */
+        }
+        footer {
+            background-color : blue;
+            font-size:30px;
+        }
+        footer h4 {
+            background-color : silver;
+            font-size: 1.3rem;
+            width:20rem;
+            /*
+                16px*1.3 = 20.8px  -font size 
+                16px*20 = 320px    -width
+            */
+        }
+        html {
+            font-size : 20px;
+        }
+        :root {
+            font-size : 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>네이버 로고, 검색 창</h1>
+        <nav>
+            <h2>메일, 카페, 블러그, 지신in (바로 가기 메뉴)</h2>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h3>헤드라인 뉴스</h3>
+            <p>Lorem ipsum <strong>dolor</strong> sit amet consectetur adipisicing elit.</p>
+        </section>
+
+        <section>
+            <h3>주제별 토론</h3>
+            <p>Lorem ipsum <strong>dolor</strong> sit amet consectetur adipisicing elit.</p>
+        </section>
+
+        <aside>
+            <h3>로그인, 광고, 쇼핑</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </aside>
+
+        <article>
+            <h3>카페, 블러그</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p><em>ipsum</em> dolor sit amet consectetur adipisicing elit.</p>
+        </article>
+    </main>
+
+    <footer>
+        <h4>네이버 상호, 약관, 고객센터</h4>
+    </footer>
+
+</body>
+
+</html>

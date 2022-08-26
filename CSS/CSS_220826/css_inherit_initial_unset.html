@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성의 상속과 전역속성(inherit, initial, unset) 값</title>
+    <style>
+        div {
+            padding: 10px 20px;
+        }
+        .model2021>div {
+            color: red; /*상속 속성*/
+            border:1px solid blue; /*비상속 속성*/
+        }
+        .model2021>div:first-child>div {
+            color:initial;
+        }
+        .model2021>div:first-child>div:nth-child(4)>div {
+            border:inherit;
+            color:initial;
+        }
+        .model2021>div:first-child>div:nth-child(4)>div {
+            all:unset;
+        }
+    </style>
+</head>
+<body>
+    <h1>속성의 상속과 전역속성(inherit, initial, unset) 값</h1>
+    <hr>
+
+    <h2>2021년식</h2>
+    <main class="model2021">
+        <div>세단
+            <div>그랜저</div>
+            <div>소나타</div>
+            <div>아반떼</div>
+            <div>K7
+                <div>가솔린</div>
+                <div>디젤</div>
+            </div>
+        </div>
+
+        <div>트럭</div>
+
+        <div>봉고</div>
+
+        <div>SUV
+            <div>산타페</div>
+            <div>쏘렌토
+                <div>가솔린</div>
+                <div>디젤</div>
+            </div>
+            <div>셀토스</div>
+        </div>
+    </main>
+    <hr>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 정의 속성(data-)과 attr 함수</title>
+
+    <style>
+        li {
+            list-style: none;
+        }
+
+        li:first-child:hover::before {
+            content: attr(data-before-heart);
+            color: red;
+        }
+
+        li:nth-child(2):hover::after {
+            content: attr(data-after-heart);
+            color: red;
+        }
+
+        li:last-child:hover::before, 
+        li:last-child:hover::after {
+            content: attr(data-beforeAfter-star);
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>사용자 정의 속성(data)과 attr함수</h1>
+    <hr>
+
+    <h2>커리큘럼</h2>
+    <ul>
+        <li data-before-heart="♡ ">HTML</li>
+        <li data-after-heart=" ♡">CSS</li>
+        <li data-beforeAfter-star=" ★ ">JavaScript</li>
+    </ul>
+</body>
+
+</html>

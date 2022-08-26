@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 우선순위(Priority)</title>
+
+    <style>
+        h1 {
+            color:black;
+        }
+        * {
+            color:brown;
+        }
+        p {
+            color:red;
+        }
+        p {
+            color:blue;
+        }
+        .classStyle {
+            color:green;
+        }
+        #idStyle {
+            color:aqua;
+        }
+        div {
+            color : chartreuse !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Priority</h1>
+    <h2>CSS priority settings!!<br>
+        범용 선택자 스타일 우선 적용!!<br>
+        Complete!!
+    </h2>
+    <p>
+        CSS Priority settings!!<br>
+        태그 선택자 스타일 우선 적용!!<br>
+        Complete!!
+    </p>
+    <p class="classStyle">
+        CSS priority settings!!<br>
+        클래스 선택자 스타일 우선 적용!!<br>
+    </p>
+    <p id="idStyle" class="classStyle">
+        CSS priority settings!!<br>
+        id 선택자 스타일 우선 적용!!<br>
+        Complete!!
+    </p>
+    <p class="classStyle" style="color:deeppink">
+        CSS priority settings<br>
+        인라인 스타일 우선 적용!!<br>
+        Complete!!
+    </p>
+    
+    <div style="color:red">
+        CSS priority settings<br>
+        <em>!important</em> 우선 적용!!<br>
+        Complete!!
+    </div>
+    <div>
+        <p>
+            CSS priority settings!!<br>
+            가장 가깝고 명식적 스타일 우선 적용!!<br>
+            Complete!!
+        </p>
+    </div>
+
+</body>
+</html>

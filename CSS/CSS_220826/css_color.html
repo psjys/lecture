@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>색상(Color) 지정</title>
+
+    <style>
+        body>:not(h1):not(ul) {
+            color:gold;
+        }
+        li {
+            font-size:20px;
+        }
+        ul:first-of-type li:first-child {
+            background-color: red;
+        }
+        ul:first-of-type li:nth-child(2) {
+            background-color: green;
+            opacity:0.7; /*글자색도 같이 opacity적용됨*/
+        }
+        ul:first-of-type li:last-child {
+            background-color:blue;
+            color:white;
+        }
+        ul:nth-of-type(2) li:first-child {
+            /* background-color: #ff0000; */
+            background-color: #f00; /* #ff0000 -> #f00 로 줄여서 쓸 수 있음*/
+        }
+        ul:nth-of-type(2) li:nth-child(2) {
+            background-color : #0f0;
+        }
+        ul:nth-of-type(2) li:nth-child(3) {
+            background-color : #00f;
+            color:white;
+        }
+        ul:nth-of-type(2) li:nth-child(4) {
+            background-color:#000;
+            color : #fff;
+        }
+        ul:nth-of-type(2) li:last-child {
+            background-color:#00f8;
+        }
+        ul:nth-of-type(3) li:first-child {
+            /* color: rgb(250, 0, 0); */
+            color:rgb(250 0 0); /*250,0,0 -> 250 0 0 로 쉼표 생략 가능*/
+        }
+        ul:nth-of-type(3) li:nth-child(2) {
+            /* color:rgb(0, 255, 0); */
+            color:rgb(0%, 100%, 0%); /*%로 표현 가능*/
+        }
+        ul:nth-of-type(3) li:nth-child(3) {
+            color: rgb(0,0,255);
+        }    
+        ul:nth-of-type(3) li:last-child {
+            /* color: rgb(255,0,0, 50%); */
+            color : rgb(255 0 0 / 50%) /*opacity는 / 로 구분*/
+        }
+        ul:nth-of-type(4) li:first-child {
+            background-color: rgba(255, 0, 0, 1);
+            /* background-color: rgba(255, 0, 0, 100%); */
+            /* background-color: rgba(255, 0, 0); */
+        }
+
+        ul:nth-of-type(4) li:nth-child(2) {
+            background-color: rgba(255, 0, 0, .7);
+        }
+
+        ul:nth-of-type(4) li:last-child {
+            background-color: rgba(255, 0, 0, .3);
+            /* background-color: rgba(100%, 0%, 0%, 30%); */
+            /* background-color: rgba(255 0 0 / .3); */
+            /* background-color: rgba(255 0 0 / 30%); */
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <h1>색상 지정</h1>
+    <hr>
+
+    <h2>1. 색상명 지정</h2>
+    <ul>
+        <li>Red</li>
+        <li>Green</li>
+        <li>Blue</li>
+    </ul>
+    <hr>
+
+    <h2>2. RGB 16진수 값 지정</h2>
+    <ul>
+        <li>Red</li>
+        <li>Green</li>
+        <li>Blue</li>
+        <li>black &amp; white</li>
+        <li>blue - opacity</li>
+    </ul>
+    <hr>
+
+    <h2>3. 함수형 RGB 값 지정</h2>
+    <ul>
+        <li>Red</li>
+        <li>Green</li>
+        <li>Blue</li>
+        <li>Red - opacity</li>
+    </ul>
+    <hr>
+
+    <h2>4. 함수형 RGBA(Red Green Blue Alpha)</h2>
+    <ul>
+        <li>Red - opacity 100%</li>
+        <li>Red- opacity 70%</li>
+        <li>Red- opacity 30%</li>
+    </ul>
+
+</body>
+
+</html>
