@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제2</title>
+</head>
+<body>
+    <figure>
+        <figcaption>과일 재고관리</figcaption>
+        <table border="1">
+            <colgroup>
+                <col class="attr1">
+                <col class="attr2">
+                <col class="attr3">
+            </colgroup>
+
+            <tr>
+                <th scope="row" colspan="2">구분</th>
+                <th scope="row">단가</th>
+                <th scope="row">수량</th>
+            </tr>
+            <tr>
+                <th rowspan="4">품목</th>
+                <th>사과</th>
+                <td rowspan="2">5000원</td>
+                <td>30개</td>
+            </tr>
+            <tr>
+                <th>배</th>
+                <td>10개</td>
+            </tr>
+            <tr>
+                <th>참외</th>
+                <td>3500원</td>
+                <td>60개</td>
+            </tr>
+            <tr>
+                <th>수박</th>
+                <td>9000원</td>
+                <td>20개</td>
+            </tr>
+            <tfoot>
+                <th colspan="3">과일 재고수량</th>
+                <td>120개</td>
+            </tfoot>
+        </table>
+    </figure>
+</body>
+</html>

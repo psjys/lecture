@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>colgroup</title>
+    <style>
+        .attr1 {
+            width: 100px;
+        }
+        .attr2 {
+            width: 50px;
+        }
+        .attr3 {
+            width : 50px;
+        }
+    </style>
+</head>
+<body>
+    <figure>
+        <figcaption>테이블 구조</figcaption>
+        <table border="1">
+            <colgroup>
+                <col class="attr1">
+                <col class="attr2">
+                <col class="attr3">
+                <col class="attr2">
+            </colgroup>
+        <thead>
+            <tr>
+                    <th scope="col">구분</th>
+                    <th scope="col">항목1</th>
+                    <th scope="col">항목2</th>
+                    <th scope="col">항목3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">a</th>
+                    <td>1</td>
+                    <td colspan="2">5</td>
+                </tr>
+                <tr>
+                    <th rowspan="3">b</th>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="row">총계</th>
+                    <td>22</td>
+                    <td>26</td>
+                    <td>30</td>
+                </tr>
+            </tfoot>
+
+        </table>
+
+    </figure>
+</body>
+</html>
