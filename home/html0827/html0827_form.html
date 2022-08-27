@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 태그</title>
+</head>
+<body>
+    <fieldset>
+        <legend>선택입력</legend>
+        <div>성별:
+            <label>남</label>
+            <input type="radio" checked>
+            <label>여</label>
+            <input type="radio">
+        </div>
+        <div>취미:
+            <label>독서</label>
+            <input type="checkbox">
+            <label>게임</label>
+            <input type="checkbox">
+            <label>운동</label>
+            <input type="checkbox">
+            <label>등산</label>
+            <input type="checkbox">
+        </div>
+        <div>사진첨부
+            <input type="file">
+        </div>
+        <div>화면 밝기
+            <input type="range" min="1" max="10" value="8">
+        </div>
+    </fieldset>
+    <hr>
+    <fieldset>
+        <div>
+            <legend>게시판 등록</legend>
+            <textarea name="noticeboard" cols="30" rows="5" placeholder="불편사항을 적어주세요^^"></textarea>
+        </div>
+        <button>등록</button>
+    </fieldset>
+</body>
+</html>
