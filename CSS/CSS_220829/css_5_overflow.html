@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>overflow</title>
+    <style>
+        p {
+            background-color:antiquewhite;
+            border: 1px solid;
+            height: 80px;
+            margin-bottom: 200px;
+            overflow:visible; 
+            /* 기본값이 visible이니까 안써도됨 */
+        }
+        p:nth-of-type(2) {
+            overflow:hidden;
+        }
+        p:nth-of-type(2):hover {
+            overflow:visible;
+        }
+        p:nth-of-type(n+3) {
+            width:300px;
+        }
+        p:nth-of-type(3) {
+            white-space: nowrap;
+        }
+        p:nth-of-type(3):hover{
+            overflow-x: hidden;
+        }
+        p:nth-of-type(4):hover {
+            overflow-y: hidden;
+        }
+        p:nth-of-type(5) {
+            overflow-y: hidden;
+            overflow: scroll;
+        }
+        p:nth-of-type(5):hover {
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>overflow</h1>
+    <hr>
+
+    <h2>1 - visible</h2>
+    <P>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+    </P>
+
+    <h2>2 - hidden &amp; hover-visible</h2>
+    <P>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+    </P>
+
+    <h2>3 - white-space(nowrap) &amp; overflow-x(hidden)</h2>
+    <P>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+    </P>
+
+    <h2>4 - overflow-y(hidden)</h2>
+    <P>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+    </P>
+
+    <h2>5 - overflow(scroll, auto)</h2>
+    <P>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+    </P>
+
+</body>
+
+</html>
