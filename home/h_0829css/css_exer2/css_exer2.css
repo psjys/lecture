@@ -1,0 +1,23 @@
+img {
+    width: 500px;
+    height: 500px;
+}
+p {
+    text-align: center;
+}
+a {
+    display: inline-block;
+    background-color: gray;
+    text-decoration: none;
+    color:black;
+    width: 22px;
+    line-height: 22px;
+
+}
+div {
+    text-align: center;
+}
+
+a:not([href="#"]) {
+    opacity: 0.3;
+}
