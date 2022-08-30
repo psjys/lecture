@@ -1,0 +1,50 @@
+li a {
+    background-image: url(../../../image/KakaoTalk_20220830_163111934.jpg);
+    display : inline-block;
+    width:304px;
+    height:113px;
+}
+
+a{
+    text-indent: -9999em;
+}
+li {
+    list-style: none;
+}
+ul {
+    padding:0;
+}
+
+.cafe {
+    background-position: -305px 0;
+}
+.blog {
+    background-position: calc(-305px*2) 0;
+}
+.knowledge {
+    background-position: calc(-305px*3) 0;
+}
+
+.mail:hover {
+    background-position: 0 -114px;
+}
+
+.cafe:hover {
+    background-position: -305px -114px;
+}
+
+.blog:hover {
+    background-position: calc(-305px*2) -114px;
+}
+.knowledge:hover {
+    background-position: calc(-305px*3) -114px;
+}
+
+ul:nth-of-type(2) li {
+    display:inline-block;
+}
+ul {
+    white-space: nowrap;
+}
+
+/*유동성 크면 클래스 */

@@ -1,0 +1,26 @@
+td,
+th {
+    border: solid 2px red;
+    width: 150px;
+}
+
+th {
+    color: blue;
+}
+
+td {
+    height: 100px;
+    text-align: center;
+}
+
+.ver-top {
+    vertical-align: top;
+}
+
+.ver-middle {
+    vertical-align: middle;
+}
+
+.ver-bottom {
+    vertical-align: bottom;
+}

@@ -1,0 +1,32 @@
+.bg_image {
+    border:1px solid blue;
+    width : 300px;
+    height : 300px;
+    margin-bottom: 10px;
+    background-image:url(../../../image/hamburger_image.jpg)
+}
+
+.repeat {
+    background-repeat :repeat;
+}
+
+.no-repeat {
+    background-repeat: no-repeat;
+}
+
+.repeat-x {
+    background-repeat: repeat-x;
+}
+
+.repeat-y {
+    background-repeat:repeat-y;
+}
+
+.position_cc {
+    background-repeat:no-repeat;
+    background-position: center center;
+}
+.position_rb {
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}

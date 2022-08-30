@@ -1,0 +1,57 @@
+div {
+    border: blue solid 2px;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+img {
+    width: 150px;
+    height: 100px;
+}
+
+.vertical_baseline {
+    vertical-align: baseline;
+}
+
+.vertical_bottom {
+    vertical-align: bottom;
+}
+
+.vertical_top {
+    vertical-align: top;
+}
+
+.vertical_middle {
+    vertical-align: middle;
+}
+
+.vertical_length {
+    vertical-align: 20px;
+}
+
+.vertical_percent {
+    vertical-align: 100%;
+}
+
+/* 높이가 결정된 부모요소 내에서의 텍스트 수평, 수직 정렬. */
+p {
+    border: blue solid 2px;
+    font-size: 20px;
+    margin-bottom: 5px;
+    height: 200px;
+
+    text-align: center;
+    line-height: 200px;
+}
+/*
+    높이가 결정된 부모요소 내에서의 이미지 수평, 수직 정렬.
+
+※ 텍스트가 아닌 이미지와 같은 다른 인라인 블록요소의 수직 위치는
+   인라인 블럭요소 자체의 vertical-align 위치가 기준이 아닌 텍스트의
+   vertical-align 위치를 기준으로한 상대적 수직 위치가 결정됨에 주의.
+   즉, vertical-align 의 기준은 무조건 텍스트가 기준.
+*/
+
+p>img {
+    /* vertical-align: middle; */
+}
