@@ -1,0 +1,51 @@
+.deco {
+    color:red;
+}
+.underline {
+    text-decoration: underline;
+}
+.overline {
+    text-decoration: overline;
+}
+.line-through {
+    text-decoration: line-through;
+}
+.line-through2 {
+    text-decoration: line-through;
+    text-decoration-style: double;
+}
+.line-color {
+    text-decoration-color: turquoise;
+}
+.fontstyle,
+em {
+    color:cornflowerblue;
+}
+.italic {
+    font-style:italic;
+}
+.oblique {
+    font-style: oblique;
+}
+[class^="fontStyle"]:hover,
+em:hover {
+    font-style:normal;
+}
+
+.transform {
+    color:darkorange;
+}
+.upper:hover {
+    text-transform: uppercase;
+}
+.lower:hover {
+    text-transform: lowercase;
+}
+
+.capitalize:hover {
+    text-transform: capitalize;
+}
+
+.font-variant_smallCaps:hover {
+    font-variant: small-caps;
+}

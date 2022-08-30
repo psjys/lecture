@@ -1,0 +1,18 @@
+header li img {
+    display: none;
+}
+
+header li {
+    margin-bottom : 1px;
+}
+
+header span:hover {
+    opacity : 1;
+}
+header span:hover+img {
+    display : block;
+    width : 200px;
+    height : 200px;
+    margin : 20px;
+    margin-left: 100px;
+}

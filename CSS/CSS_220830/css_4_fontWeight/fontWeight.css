@@ -1,0 +1,28 @@
+h2 {
+    color:red;
+}
+p {
+    border: 1px solid blue;
+}
+
+.lighter {
+    font-weight: lighter;
+}
+
+.lighter-num {
+    font-weight: 300;
+}
+
+.normal {
+    font-weight : normal;
+}
+
+.normal-num {
+    font-weight: 400;
+}
+.bold {
+    font-weight: 700;
+}
+.bold-num {
+    font-weight: 700;
+}

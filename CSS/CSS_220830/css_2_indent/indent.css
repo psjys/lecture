@@ -1,0 +1,36 @@
+p {
+    border: 3px solid blue;
+}
+
+.text-indent1 {
+    text-indent:50px;
+}
+
+.text-indent2 {
+    text-indent:5000px;
+}
+
+.text-indent3 {
+    text-indent:-9999em;
+}
+
+.jeep_logo span {
+    display: none;
+}
+
+.starbucks_logo a {
+    font-size: 3em;
+    background-image: url(../../../image/starbucks.jpg);
+    display: inline-block;
+    width: 643px;
+    height:500px;
+    text-indent: -9999em;
+}
+
+.starbucks_logo_small span {
+    display: inline-block;
+    text-indent: -9999em;    
+}
+.starbucks_logo_small img {
+    width:50%;
+}
