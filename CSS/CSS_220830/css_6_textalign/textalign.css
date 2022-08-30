@@ -19,13 +19,12 @@ p:nth-of-type(4) {
     text-align: justify;
 }
 
-
 p:nth-of-type(4):hover {
     word-break: break-all;
 }
 
 div {
-    
+
     background-color: bisque;
     text-align: center;
 }
