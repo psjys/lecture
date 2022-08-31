@@ -1,30 +1,28 @@
 body {
-    background-image: url(../../image/subpage4.jpg);
+    background: url(../../image/subpage4.jpg) center/cover;
     background-repeat: no-repeat;
-    background-size: cover;
+    line-height:100vh;
     font-size: 0.8em;
     color:green;
     text-align:center;
+    margin: 0;
 }
+
 
 p {
     display: inline-block;
-    background-image: url(../../image/subpage3.jpg);
-    background-repeat: no-repeat;
+    line-height:normal;
     width : 300px;
     height : 300px;
-    background-size: 300px 300px;
-    white-space: pre;
+    vertical-align:middle;
+    background: url(../../image/subpage3.jpg) 0 0/100% 100%;
+    background-repeat: no-repeat;
+    white-space: pre-line;
     overflow:auto;
-    text-align:center;
     opacity:.8;
-    
-    margin-top: 50%;
-    margin-bottom : 50%;
 }
 
 span {
-    font-size: 1.2em;
+    font: bold 1.5em normal;
     color:blueviolet;
 }
-
