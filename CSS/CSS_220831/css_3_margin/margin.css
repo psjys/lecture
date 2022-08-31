@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+}
+div {
+    height:30px;
+}
+h2+div {
+    background-color: green;
+}
+h2+div+div {
+    background-color: yellow;
+}
+
+.box1, .box2 {
+    padding:10px 0;
+}
+
+.box3, .box4 {
+    margin:10px 0;
+}
+
+.box5 {
+    margin: 20px 0;
+}
+.box6 {
+    margin: 10px 0;
+}
+.box7 {
+    height:70px;
+    border:solid 5px red;
+}
+.box7, .box8 {
+    margin : 20px;
+}
+.box8 {
+    border: 1px solid blue;
+}
+.box7:hover {
+    border:none;
+}

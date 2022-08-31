@@ -1,0 +1,63 @@
+p {
+    margin: 0;
+}
+.box1 {
+    background: bisque;
+    display: inline-block;
+    width: 300px;
+    text-align: justify;
+    word-break : break-all;
+    border-style: solid;
+}
+.box2 {
+    background: bisque;
+    display:inline-block;
+    width: 300px;
+    text-align: justify;
+    word-break: break-all;
+    border-style: solid;
+    border-right:dotted 10px red;
+    border-bottom-color : green;
+}
+.box3 {
+    background: url(../../../image/jeep.png) center/200px no-repeat;
+    display:inline-block;
+    width:200px;
+    height:150px;
+    border: solid 5px red;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius:50px;
+}
+
+.box4 {
+    background: url(../../../image/jeep.png) center/200px no-repeat;
+    display:inline-block;
+    width: 200px;
+    height: 200px;
+    border: solid 5px red;
+    /*원 만들기*/
+    border-radius: 100px; 
+    border-radius: 50%; /*정밀한 원 생성*/
+}
+
+.box5 {
+    background: url(../../../image/jeep.png) center/200px no-repeat;
+    display:inline-block;
+    width:300px;
+    height:200px;
+    border: solid 5px red;
+    /*타원 만들기*/
+    border-radius : 100px;
+    border-radius: 50%;
+}
+.box6 {
+    background: url(../../../image/jeep.png) center/200px no-repeat;
+    display:inline-block;
+    width:300px;
+    height:200px;
+    border: solid 5px red;
+    border-top-right-radius: 50% 30%;
+    border-radius: 50%/20%; 
+}

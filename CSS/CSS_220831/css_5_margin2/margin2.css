@@ -1,0 +1,9 @@
+.parentBox {
+    background-color:antiquewhite;
+    width:400px;
+    height:300px;
+}
+
+.parentBox div {
+    width:100px
+}
