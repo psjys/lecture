@@ -1,0 +1,30 @@
+p {
+    margin:0;
+}
+.parentBox {
+    background-color: antiquewhite;
+    width:400px;
+    border:solid 5px red;
+    text-align: break-all;
+    margin:auto;
+}
+.p2box {
+    padding:20px;
+}
+.p3box {
+    width:360px;
+    padding:20px;
+}
+.p4box p {
+    padding:20px;
+}
+
+.p5box {
+    box-sizing: content-box;
+    padding:20px;
+}
+.p5box:hover {
+    box-sizing: border-box;
+    width:410px;
+}
+

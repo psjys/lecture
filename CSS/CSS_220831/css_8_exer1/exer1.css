@@ -1,0 +1,81 @@
+* {
+    margin:0;
+    padding:0;
+}
+header,
+main,
+footer {
+    width: calc(1024px * 0.8);
+    margin: auto;
+}
+
+header {
+    height: 20vh;
+    background-color: bisque;
+}
+
+footer {
+    text-align: center;
+    line-height: 20vh;
+    background-color: rgb(255, 251, 196);
+}
+
+main {
+    height : 60vh;
+    background-color: rgb(204, 255, 174)
+}
+
+
+
+/*================*/
+ul {
+    list-style: none;
+}
+h1, ul, li, nav, a {
+    display: inline-block;
+}
+
+#section_article {
+    height: 100%;
+    width: 70%;
+    display: inline-block; 
+    text-align: center;
+
+} 
+section {
+    background-color: white;
+    height: 60%;
+    line-height: calc(60vh*0.6)
+}
+article {
+    background-color: aqua;
+    height: 40%;
+    line-height: calc(60vh*0.4)
+}
+aside {
+    background-color: antiquewhite;
+    display:inline-block;
+    width:30%;
+    height: 100%;
+    margin-left: -0.7%;
+    vertical-align: top;
+    text-align: center;
+    line-height: 60vh;
+}
+/*================*/
+
+h1 {
+    background: url(../../../image/starbucks.jpg) center/100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin-left: 100px;
+}
+
+h1 {
+    /* margin-top: 40px; */
+}
+
+li {
+    background-image: url(../../../image/menu.jpg);
+    margin-top: 50px;
+}
