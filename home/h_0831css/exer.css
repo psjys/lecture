@@ -64,19 +64,23 @@ ul {
     height: 100%;
 }
 
-
 h1,
 li,
 nav {
     display: inline-block;
 }
 
+nav {
+    margin-left: 10px;
+    margin-top: 25px;
+}
+
 h1 a {
     background: url(../../image/starbucks.jpg) no-repeat center/cover;
     width: 100px;
     height: 100px;
-    margin-top: 20px;
     margin-left : 30px;
+    margin-bottom: 10px;
 }
 
 h2 a {
@@ -96,14 +100,30 @@ li:nth-of-type(1) a{
     background-position: 0 0;
 }
 
+li:nth-of-type(1) a:hover{
+    background-position: 0 -38px;
+}
+
 li:nth-of-type(2) a {
     background-position: -112px 0;
+}
+
+li:nth-of-type(2) a:hover {
+    background-position: -112px -38px;
 }
 
 li:nth-of-type(3) a {
     background-position: calc(-112px*2) 0;
 }
 
+li:nth-of-type(3) a:hover {
+    background-position: calc(-112px*2) -38px;
+}
+
 li:nth-of-type(4) a {
     background-position: calc(-111px*3) 0;
+}
+
+li:nth-of-type(4) a:hover {
+    background-position: calc(-111px*3) -38px;
 }
