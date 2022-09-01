@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+header,
+main,
+footer {
+    width: calc(1024px*0.8);
+    margin: auto;
+}
+
+header {
+    height: 20vh;
+}
+
+main {
+    height: 60vh;
+}
+
+footer {
+    line-height: 20vh;
+    background-color: lightblue;
+}
+/*==============header===============*/
+header h1 a {
+    background: url(../../../image/starbucks.jpg) center/100% no-repeat;
+    width : 150px;
+    height: 150px;
+    /* vertical-align: middle; */
+}
+
+header nav li {
+    width: 108px;
+    height : 38px;
+    background: url(../../../image/menu.jpg);
+    margin-left: 20px;
+}
+
+li:nth-child(1) a {
+    background-position: -3px -3px;;
+}
+li:nth-child(1) a:hover {
+    background-position: -3px -42px;;
+}
+
+li:nth-child(2) a {
+    background-position: -112px -3px;
+}
+li:nth-child(2) a:hover {
+    background-position: -112px -42px;
+}
+li:nth-child(3) a {
+    background-position: calc(-112px*2 + 1px) -3px;
+}
+li:nth-child(3) a:hover {
+    background-position: calc(-112px*2 + 1px) -42px;
+}
+li:nth-child(4) a {
+    background-position: calc(-112px*3 + 4px) -3px;
+}
+li:nth-child(4) a:hover {
+    background-position: calc(-112px*3 + 4px) -42px;
+}
+
+header h1 {
+    margin: calc((20vh - 150px)/2) 20px;
+}
+
+header nav {
+    margin: calc((20vh - 38px)/2) 20px;
+    vertical-align: top;
+}
+
+/*===============main===============*/
+
+#section_article {
+    width: 70%
+}
+
+#section_article section {
+    background-color: aliceblue;
+    line-height: calc(60vh*0.6);
+}
+
+#section_article article {
+    background-color:azure;
+    line-height: calc(60vh*0.4);
+}
+
+aside {
+    background-color: darkgoldenrod;
+    width: 30%;
+    line-height:60vh;
+    margin-left:-6px;
+    vertical-align: top;
+}
+
+/*=====================================*/
+#section_article,
+main aside,
+header h1,
+header h1 a,
+header nav, 
+header nav li,
+header nav li a {
+    display: inline-block; 
+}
+header h1 a,
+header nav li a {
+    text-indent: -9999em;
+}
+
+
+

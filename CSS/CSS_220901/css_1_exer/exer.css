@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+header,
+main,
+footer {
+    width: calc(1024px * 0.8);
+    margin: auto;
+}
+
+header {
+    height: 20vh;
+}
+
+footer {
+    line-height: 20vh;
+    background-color: blanchedalmond;
+}
+
+/* ========================================================= */
+/* common style */
+
+#section_article,
+main aside,
+header h1,
+header h1 a,
+header nav,
+header nav li,
+header nav li a {
+    display: inline-block;
+}
+
+header h1 a,
+header nav li a {
+    text-indent: -9999em;
+}
+
+/* ========================================================= */
+/* header frame */
+
+header h1 a {
+    width: 150px;
+    height: 150px;
+    background: url(../../../image/starbucks.jpg) center/100% no-repeat;
+}
+
+header li {
+    width: 108px;
+    height: 38px;
+    background: url(../../../image/menu.jpg) -3px -3px;
+    margin-left: 20px;
+}
+
+header nav li:nth-child(2) a {
+    background-position: calc(-3px + -109px) -3px;
+}
+
+header nav li:nth-child(3) a {
+    background-position: calc(-3px + -109px * 2 - 1px) -3px;
+}
+
+header nav li:nth-child(4) a {
+    background-position: calc(-3px + -109px * 3 - 2px) -3px;
+}
+
+header nav li a:hover {
+    background-position: -3px -42px;
+}
+
+header nav li:nth-child(2) a:hover {
+    background-position: calc(-3px + -109px) -42px;
+}
+
+header nav li:nth-child(3) a:hover {
+    background-position: calc(-3px + -109px * 2 - 1px) -42px;
+}
+
+header nav li:nth-child(4) a:hover {
+    background-position: calc(-3px + -109px * 3 - 2px) -42px;
+}
+
+header h1 {
+    margin:calc((20vh - 150px)/2) 20px;
+}
+
+header nav {
+    margin: calc((20vh - 38px)/2) 20px;
+    vertical-align:top;
+}
+
+/* ========================================================= */
+/* main frame */
+
+#section_article {
+    width: 70%;
+}
+
+#section_article section {
+    line-height: calc(60vh * 0.6);
+    background-color: darkgray;
+}
+
+#section_article article {
+    line-height: calc(60vh * 0.4);
+    background-color: cadetblue;
+}
+
+aside {
+    width: 30%;
+    line-height: 60vh;
+    background-color: burlywood;
+    margin-left: -6px;
+    vertical-align: top;
+}
