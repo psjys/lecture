@@ -1,0 +1,35 @@
+* {
+    margin:0;
+}
+
+.box {
+    display: inline-block;
+    width:100px;
+    height:100px;
+    background-color: yellow;
+    border:1px solid red;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 100px;
+    position: relative;
+}
+
+.b1 {
+    left : 300px;
+    top : 50px;
+}
+
+.b2 {
+    right : -300px;
+    top: -50px;
+}
+
+.b3 {
+    bottom : -100px;
+    left : -50px;
+}
+
+.b4 {
+    left : 200px;
+    bottom: 300px;
+}
