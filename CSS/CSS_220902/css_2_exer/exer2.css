@@ -1,0 +1,58 @@
+* {
+    list-style: none;
+    /* margin: 0; */
+    padding: 0;
+}
+
+.container {
+    width: 700px;
+    height: 150px;
+    background-color: bisque;
+}
+
+/*=================================================*/
+
+.leftBox {
+    display: inline-block;
+    width: 115px;
+    height: 115px;
+    background-color: darkkhaki;
+    margin-left: 16px;
+}
+
+.rightBox {
+    display: inline-block;
+    width: 225px;
+    height: 60px;
+    background-color: darkkhaki;
+    float: right;
+    margin-top: 72px;
+    margin-right: 16px;
+}
+
+/*=================================================*/
+
+.leftBox li,
+.rightBox li {
+    text-align: center;
+    background-color: lightblue;
+    box-sizing: border-box;
+    border: solid 1px;
+    width: 50px;
+    height: 50px;
+    /* outline: solid 1px; */
+    line-height: 50px;
+    border-radius: 50px;
+}
+
+.rightBox li {
+    margin-left: 5px;
+    margin-top: 5px;
+    float: left;
+}
+
+.leftBox li {
+    margin-right: 5px;
+    margin-top: 5px;
+    float: right;
+}

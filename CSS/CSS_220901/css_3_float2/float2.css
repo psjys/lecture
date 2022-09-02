@@ -58,7 +58,7 @@ div {
     border: solid 1px red;
     text-align: center;
     line-height: 100px;
-    float:left;
+    float:right;
 }
 
 .container::after {
