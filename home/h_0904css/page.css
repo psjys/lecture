@@ -3,6 +3,8 @@ body {
     background-size: cover;
     font-size: 0.8em;
     color:blueviolet;
+    text-align: center;
+    line-height: 100vh;
 
 }
 span {
@@ -11,11 +13,14 @@ span {
     font-weight: bold;
 }
 p {
+    display: inline-block;
     background: url(../../image/subpage3.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     width : 300px;
     height : 300px;
+    vertical-align : middle;
+    line-height : normal;
     margin : auto;
     opacity: .8;
     white-space: pre-line;
