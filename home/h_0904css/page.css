@@ -1,0 +1,23 @@
+body {
+    background: url(../../image/subpage4.jpg) no-repeat;
+    background-size: cover;
+    font-size: 0.8em;
+    color:blueviolet;
+
+}
+span {
+    color : green;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+p {
+    background: url(../../image/subpage3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width : 300px;
+    height : 300px;
+    margin : auto;
+    opacity: .8;
+    white-space: pre-line;
+    overflow: auto;
+}
