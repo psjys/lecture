@@ -1,0 +1,89 @@
+.profile {
+    width : 100px; 
+    margin-left: 20px; 
+    margin-top:20px; 
+    display:block;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.font {
+    font-size : 150%;
+    text-align : center;
+}
+
+p {
+    text-align : center;
+}
+
+/* 우선 순위 : id선택자 > class선택자 > 태그선택자 */
+
+.box {
+    width:200px;
+    /* height:100px; */
+    background: cadetblue;
+    margin : 10px; /*상하좌우 여백*/
+    padding : 40px; /*상하좌우 안쪽 여백*/
+    /* border: 4px solid black; 테두리 */
+    border-radius : 5px; /*테두리 둥글게*/
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 10px; /*일부 스타일은 상속됨 : font-size, font-family, color~~~*/
+    color : white;
+    box-shadow: 5px 5px black;
+}
+
+/* <div>, <p>, <h> 특징 : 
+display : block 기본으로 있음 / 가로행을 전부 차지함 -> 수평 정렬 불가 */
+
+.container {
+    width : 800px;
+}
+
+.header {
+    width: 100%; /*부모 태그 width의 100%*/
+    height : 100px;
+    background: aquamarine;
+}
+
+.left-menu {
+    width : 20%;
+    height : 400px;
+    background: cornflowerblue;
+    /* float : left; */
+    display: inline-block;
+    vertical-align: top;
+}
+
+.right {
+    width: 80%;
+    height:400px;
+    background:coral;  
+    /* float : right; */
+    display: inline-block;
+}
+
+.footer {
+    width : 100%;
+    height: 100px;
+    background-color: grey;
+    /* clear:both; */
+}
+
+/* display : block - 한 행을 전부 차지
+display : inline-block - 내 크기만큼 차지*/
+
+/*
+inline-block 사용 시 공백 제거 방법 1 : 박스 사이 주석 기호 활용
+inline-block 사용 시 공백 제거 방법 2 : 부모 태그에 font-size:0px;
+*/
+
+/*
+vertical-align : 정렬 
+baseline이 옆에 존재하면 display: inline-block 요소들이
+baseline위에 오려고 함
+display : inline-block - 자기 크기만 큼 자리 차지함
+                        - 공백 제거 필요
+                        - 주변에 글이 있으면 가끔 이상해짐
+                        -> vertical-align 활용해보기
+*/
