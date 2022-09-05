@@ -1,0 +1,134 @@
+body {
+    margin: 30px;
+    padding: 20px;
+    border: 2px dashed;
+}
+
+body>div {
+    background-color: blue;
+}
+
+div div {
+    font-size : 20pt;
+    padding: 5px;
+    border : 1px red solid;
+}
+
+.first {
+    background-color: yellow;
+}
+
+.second {
+    background-color: turquoise;
+    color: red;
+}
+
+.third,
+.second_child { 
+    background-color: violet;
+    color: bisque;
+}
+
+.case1 div {
+    margin-top: -30px;
+}
+
+.case2 .first {
+    position: relative;
+}
+
+.case2 .second {
+    position: relative;
+    top : -20px;
+}
+
+.case2 .third {
+    position: relative;
+    top: -40px;
+}
+
+.case3 .first {
+    position: relative;
+    top: 10px;
+}
+
+.case3 .third {
+    position: relative;
+    top: -10px;
+}
+
+.case4 .first {
+    position: relative;
+    top: 30px;
+    z-index: 3;
+}
+
+.case4 .second {
+    position: relative;
+    top : -20px;
+    z-index: 2;
+}
+
+.case4 .third {
+    position: relative;
+    bottom : 50px;
+    top : -40px;
+    z-index : 1;
+}
+
+.case5 .first {
+    position: relative;
+    bottom : -20px;
+    z-index: 3;
+}
+
+.case5 .second {
+    position: relative;
+    left : 30px;
+    z-index: 2;
+}
+
+.case5 .second_child {
+    position : relative;
+    top : -40px;
+    left : 30px;
+    z-index: 100;
+}
+
+.case6 .first {
+    position : relative;
+    bottom : -30px;
+    z-index: 2;
+}
+
+.case6 .second {
+    position : relative;
+    left : 20px;
+    z-index: 5;
+}
+
+.case6 .second_child {
+    position : relative;
+    top : -20px;
+    z-index: 1;
+}
+
+.case7 .first {
+    position : relative;
+    z-index: 2;
+}
+
+.case7 .second {
+    position : relative;
+    left : 20px;
+    top : -20px;
+    z-index: auto;
+}
+
+.case7 .second_child {
+    position : relative;
+    top : -40px;
+    right : -30px;
+    /* z-index: 3; */
+    z-index : -1;
+}
