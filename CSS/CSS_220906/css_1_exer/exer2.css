@@ -1,0 +1,15 @@
+* {
+    margin : 0;
+    padding : 0;
+}
+
+.container {
+    position : relative;
+}
+
+.main-image {
+    height : 500px;
+    background:url(../../../image/mainpage.jpg) 400px 500px;
+    background-size : cover;
+    background-repeat: ;
+}
