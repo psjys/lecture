@@ -1,0 +1,29 @@
+.img {
+    width : 400px;
+    height : 500px;
+    background: url(../../../image/mainpage.jpg) 0/100% 100%;
+    box-sizing : border-box;
+    border : 1px solid;
+}
+
+.container {
+    margin : calc((100vh - 500px)/2) calc((100% - 400px)/2);
+    position :relative;
+}
+
+.container a {
+    position : absolute;
+    background-color: cadetblue;
+    line-height: 30px;
+    padding : 0 10px;
+    top : calc((100% - 30px)/2);
+
+}
+
+.pre {
+    right : calc(100% + 20px);
+}
+
+.next {
+    left : calc(100% + 20px);
+}
