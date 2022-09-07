@@ -1,0 +1,86 @@
+* {
+    margin : 0;
+    padding : 0;
+    text-align: center;
+}
+
+header,
+main,
+footer {
+    width : calc(1024px * 0.8);
+    margin: auto;
+}
+
+header {
+    background-color: bisque;
+    line-height : 20vh;
+}
+
+main {
+    position : relative;
+}
+
+footer {
+    background-color: bisque;
+    line-height: 20vh;
+}
+
+/*====================================*/
+/* main */
+
+#section_article {
+    width : 70%;
+}
+
+#section_article section {
+    height : calc(60vh * .6);
+}
+
+#section_article article {
+    height : calc(60vh * .4);
+}
+
+#section_article section h2 {
+    background-color: gray;
+    line-height: calc(60vh * .6);
+}
+
+#section_article article h2 {
+    background-color: cadetblue;
+    line-height: calc(60vh * .4);
+}
+
+main aside {
+    position: absolute;
+    width: 30%;
+    top: 0;
+    right : 0;
+}
+
+main aside h2 {
+    background-color: darkgoldenrod;
+    line-height: 60vh;
+}
+
+/*====================================*/
+/* hover */
+
+#section_article section:hover h2 {
+    position: relative;
+    left : calc((100% / 7 * 3)/2);
+    top : calc((100% / 6 * 4)/2);
+    z-index: 2;
+}
+
+
+#section_article article:hover h2 {
+    position: relative;
+    left : calc((100% / 7 * 3)/2);
+    bottom : calc((100% / 4 * 6)/2);
+    z-index: 2;
+}
+
+main aside:hover h2 {
+    position: relative;
+    left: 100%;
+}

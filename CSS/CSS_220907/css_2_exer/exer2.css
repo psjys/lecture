@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header,
+main {
+    width: 600px;
+    margin: 0 auto;
+}
+
+
+.menu {
+    background-color: black;
+    color: white;
+}
+
+.submenu {
+    background-color: cadetblue;
+    position: absolute;
+    top : 100%;
+    left :0;
+    text-align: left;
+    display: none;
+    width : 100%;
+}
+
+.submenu li {
+    padding: 10px;
+    font-size: 13px;
+    
+}
+
+.sub-title {
+    position: relative;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 25%;
+}
+
+nav ul::after {
+    content: "";
+    display : block;
+    clear:left;
+}
+
+/*=============================*/
+/* hover */
+
+.sub-title:hover .submenu {
+    display: block;
+}
+
+/*=============================*/
+/* main */
+
+.text-box {
+    width: 600px;
+    margin-top: 30px;
+    text-align: justify;
+    word-break: break-all;
+}
+
