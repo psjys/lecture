@@ -1,0 +1,103 @@
+.item1 {
+    background-color: red;
+}
+
+.item2 {
+    background-color: blue;
+}
+
+.item3 {
+    background-color: green;
+}
+
+.flex div {
+    color: white;
+}
+
+.flex {
+    width: 500px;
+    height: 200px;
+    border: 1px solid;
+    display: flex;
+}
+
+/* ====================================== */
+/* 1. flex-basis */
+
+.container1 .item1 {
+    flex-basis: auto;
+}
+
+.container1 .item2 {
+    flex-basis: 100px;
+}
+
+.container1 .item3 {
+    flex-basis: 50%;
+}
+
+/* ====================================== */
+/* 2. flex-grow */
+
+.container2 .item1 {
+    flex-grow: 2;
+}
+
+.container2 .item3 {
+    flex-grow: 1;
+    /* flex-basis:300px; */
+}
+
+/* ====================================== */
+/* 3. flex-shrink */
+
+.container3 div {
+    flex-basis: 300px;
+}
+
+.container3 .item1 {
+    flex-shrink: 1;
+}
+
+.container3 .item2 {
+    flex-shrink: 2;
+}
+
+.container3 .item3 {
+    flex-shrink: 3;
+}
+
+/* ====================================== */
+/* 4. basis, grow, shrink 활용 */
+
+.container4 div {
+    flex-basis: 100px;
+}
+
+.container4 .item1 {
+    flex-grow: 1;
+}
+
+.container4 .item2 {
+    flex-grow: 1;
+}
+
+.container4 .item3 {
+    flex-grow: 1;
+}
+
+.container4:hover {
+    width: 200px;
+}
+
+.container4:hover .item1 {
+    flex-shrink: 1;
+}
+
+.container4:hover .item2 {
+    flex-shrink: 2;
+}
+
+.container4:hover .item3 {
+    flex-shrink: 3;
+}

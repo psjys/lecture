@@ -1,0 +1,38 @@
+.item1 {
+    background-color: red;
+}
+
+.item2 {
+    background-color: blue;
+}
+
+.item3 {
+    background-color: green;
+}
+
+.flex div {
+    width : 100%;
+    color : white;
+}
+
+/*=====================================*/
+
+.flex {
+    width : 500px;
+    height : 200px;
+    border : 1px solid;
+
+    display : flex;
+    /* gap : 10px; */
+    flex-wrap : wrap;
+    /* align-items : start; */
+
+    /* align-content : stretch ; */
+    /* align-content : flex-start; */
+    /* align-content : flex-end; */
+    /* align-content : center; */
+    /* align-content : space-between; */
+    /* align-content : space-around; */
+    /* align-content: space-evenly; */
+}
+

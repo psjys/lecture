@@ -1,0 +1,49 @@
+.flex {
+    width : 1000px;
+    height : 600px;
+    border: 1px solid;
+    background-color: antiquewhite;
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+img {
+    height : 200px;
+}
+
+.flex>* {
+    border : 1px solid;
+    box-sizing : border-box;
+}
+
+hr {
+    margin-bottom: 20px;
+}
+
+/* ===================================== */
+/* 1. 주축의 변경 */
+
+.container1 .img1 {
+    width : 300px;
+}
+
+.container1 .img2 {
+    flex-basis: 300px;
+}
+
+.container1 {
+    /* flex-direction : column; */
+}
+
+/* ====================================== */
+/* 2. 아이템 내 더 큰 내부 컨텐트 */
+
+.container2 .item1 {
+    width : 300px;
+}
+
+.container2 .item2 {
+    flex-basis: 300px;
+}
