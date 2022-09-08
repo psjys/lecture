@@ -7,7 +7,7 @@
     height: 430px;
     background-color: magenta;
     display: flex;
-    flex-flow: column wrap-reverse;
+    flex-flow: column-reverse wrap-reverse;
     flex-direction: column-reverse;
     justify-content: space-between;
     align-content: space-between;
