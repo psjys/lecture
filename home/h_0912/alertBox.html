@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div class="alert-box" id="alert">알림창임<button onclick="알림창닫기()">닫기</button></div>
+    <button onclick="알림창열기()">버튼</button>
+
+    <script>
+        function 알림창열기(구멍) {
+            // function : 긴 코드 축약하고 싶을 때 씀. 긴 코드 재사용이 잦을 때도 편리
+            document.getElementById('alert').style.display = 구멍;
+        }
+        // 알림창열기('안녕'); // 구멍에 안녕 넣어서 알림창열기 코드 실행해
+        // 알림창열기('바보');
+        // 알림창열기(123); // 문자는 ''안에, 숫자는 그냥 써도 괜찮음
+
+        알림창열기('block'); //구멍에 'block' 넣어서 실행해줘
+        // function & 파라미터 문법 필수가 아님
+
+
+        function 알림창닫기() {
+            document.getElementById('alert').style.display='none';
+        }
+
+        // 1. 조작할 html의 하단에 코드 짜야 동작이 잘 됨
+        // 2. 셀렉터 오타 주의 - 개발자모드 콘솔에서 에러 확인 가능
+        // 3. 그냥 기본 문법 오타
+    </script>
+</body>
+</html>
