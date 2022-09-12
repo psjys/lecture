@@ -1,0 +1,19 @@
+.container {
+    width : 430px;
+    height : 430px;
+    background-color: pink;
+    display : flex;
+    flex-flow : column-reverse wrap-reverse;
+    justify-content : space-between;
+    align-content : space-between;
+}
+
+.container div {
+    width : 100px;
+    height : 100px;
+    background-color : blue;
+    display : flex;
+    color : white;
+    justify-content : center;
+    align-items : center;
+}
