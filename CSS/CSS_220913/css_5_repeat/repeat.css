@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+}
+
+.box1 {
+    background-color: brown;
+}
+
+.box2 {
+    background-color: blueviolet;
+}
+
+.box3 {
+    background-color: blue;
+}
+
+.box4 {
+    background-color: red;
+}
+
+.box5 {
+    background-color: green;
+}
+
+.box6 {
+    background-color: yellowgreen;
+}
+
+.box7 {
+    background-color: black;
+}
+
+.box8 {
+    background-color: coral;
+}
+
+.box9 {
+    background-color: cadetblue;
+}
+
+.box10 {
+    background-color: deeppink;
+}
+
+h2, hr {
+    margin: 20px 0;
+}
+
+.grid div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.grid {
+    display: grid;
+}
+
+
+/* ==================================== */
+
+.container1 {
+    grid-template : 50px 50px / 200px 200px 200px 200px 200px;
+}
+
+.container2 {
+    grid-template: repeat(2, 100px) repeat(3, 50px) / repeat(2, 300px);
+}
+
+.container3 {
+    grid-template: repeat(2, 50px) / 3fr repeat(3, 1fr) 2fr;
+}
