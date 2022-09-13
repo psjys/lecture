@@ -3,16 +3,16 @@
     padding: 0;
 }
 
-body>div {
-    height : 100vh;
+.container {
     display: grid;
-    grid-template : repeat(9, 1fr) / repeat(9, 1fr);
+    grid-template: repeat(9, 1fr) / repeat(9, 1fr);
+    height : 100vh;
 }
-
-div>div {
+.container>div {
     background-color: cadetblue;
 }
 
-div>div:nth-child(even) {
-    opacity: .7;
+.container>div:nth-child(2n) {
+    opacity: .3;
 }
+
