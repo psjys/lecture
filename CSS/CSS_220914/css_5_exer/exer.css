@@ -1,0 +1,42 @@
+#grid_container {
+    height: 100vh;
+    display: grid;
+    grid-template : 1fr 3fr 1fr / 1fr 1fr .5fr .5fr;
+    grid-template-areas: 
+    "a b . ."
+    "c c d d"
+    ". e e .";
+}
+
+#grid_container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color : white;
+}
+
+.logo {
+    background-color: blueviolet;
+    grid-area : a;
+}
+
+.menu {
+    background-color: lightgreen;
+    grid-area : b;
+}
+
+.contents {
+    background-color: orange;
+    grid-area : c;
+}
+
+.aside {
+    background-color: cadetblue;
+    grid-area: d;
+}
+
+.footer {
+    background-color: hotpink;
+    grid-area : e;
+}
+
