@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+}
+
+.logo {
+    background-color: blueviolet;
+}
+
+.menu {
+    background-color: yellowgreen;
+}
+
+.contents {
+    background-color: coral;
+}
+
+.aside {
+    background-color: cadetblue;
+}
+
+.footer {
+    background-color: deeppink;
+}
+
+#grid_container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* ======================================*/
+
+#grid_container {
+    height : 100vh;
+    display: grid;
+    grid-template-rows: 2fr 8fr 3fr;
+    grid-template-columns: [col-start] 1fr [menu-start logo-end] 1fr [aside-start contents-end] 1fr [col-end];
+}
+
+.menu {
+    grid-column : menu-start / col-end;
+}
+
+.contents {
+    grid-column : col-start / contents-end;
+}
+
+.footer {
+    grid-column : col;
+}
+
+

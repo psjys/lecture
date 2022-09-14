@@ -1,0 +1,66 @@
+.box1 {
+    background-color: brown;
+}
+
+.box2 {
+    background-color: blueviolet;
+}
+
+.box3 {
+    background-color: blue;
+}
+
+.box4 {
+    background-color: red;
+}
+
+.box5 {
+    background-color: green;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+.grid div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-weight: bold;
+    color : white;
+}
+
+/* ================================= */
+
+.grid {
+    display: grid;
+    width : 500px;
+    height : 500px;
+
+    grid-template: 3fr 1fr 2fr / repeat(3, 1fr);
+    grid-template-areas: 
+    "a b b"
+    "a c ."
+    "d d e";
+}
+
+.box1 {
+    grid-area : a;
+}
+
+.box2 {
+    grid-area : b;
+}
+
+.box3 {
+    grid-area : c;
+}
+
+.box4 {
+    grid-area : d;
+}
+
+.box5 {
+    grid-area : e;
+}

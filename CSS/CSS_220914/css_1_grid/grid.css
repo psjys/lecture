@@ -1,0 +1,100 @@
+.box1 {
+    background-color: brown;
+}
+
+.box2 {
+    background-color: blueviolet;
+}
+
+.box3 {
+    background-color: blue;
+}
+
+.box4 {
+    background-color: red;
+}
+
+.box5 {
+    background-color: green;
+}
+
+.box6 {
+    background-color: yellowgreen;
+}
+
+.box7 {
+    background-color: black;
+}
+
+.box8 {
+    background-color: coral;
+}
+
+.box9 {
+    background-color: cadetblue;
+}
+
+.box10 {
+    background-color: deeppink;
+}
+
+.container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* =====================================*/
+
+.container {
+    height: 500px;
+    display: grid;
+
+
+/* 7행 3열 구조의 그리드 레이아웃 */
+
+    grid-template : 1fr repeat(2, 2fr) repeat(4, 1fr) / repeat(2, 1fr) 2fr;
+
+}
+
+.box1 {
+    grid-column-start : 1;
+    grid-column-end : 4;
+}
+
+.box2 {
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+.box3,
+.box4 {
+    grid-column-start : 2;
+    grid-column-end : 4;
+}
+
+.box5 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.box6 {
+
+}
+
+.box7 {
+    grid-column : 1 / 4;
+}
+
+.box8 {
+    grid-column : 1 / span 1;
+}
+
+.box9 {
+    grid-column: 2 / span 2;
+}
+
+.box10 {
+    grid-column: 1 / -1;
+}
