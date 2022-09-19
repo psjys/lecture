@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+}
+
+body {
+    position: relative;
+    width : 375px;
+    height: 667px;
+
+    background-color: #FFFFFF;
+}
+
+.header_bg {
+    position: absolute;
+    width : 375px;
+    height: 143px;
+    left: 0px;
+    top : 0px;
+    background: url(../image/header_background.png);
+}
+
+.status_bar {
+    position : absolute;
+    width : 375px;
+    height: 25px;
+    left: 0px;
+    top : 0px;
+
+    background: url(../image/app_bar.png);
+}
+
+.logo_img {
+    position : absolute;
+    width : 151px;
+    height: 151px;
+    left : 112px;
+    top : 125px;
+    background: url(../image/logo_img.png);
+    filter: drop-shadow(39px -47px 3px lightgrey)
+}

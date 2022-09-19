@@ -1,0 +1,65 @@
+h1 {
+    text-align: center;
+}
+
+.imgContainer {
+    display : flex;
+    flex-wrap : wrap ;
+    margin : auto; 
+}
+
+h1,
+.imgContainer,
+.imgContainer img {
+    transition: all .2s .2s;
+}
+/* ===================================*/
+
+h1 {
+    font-size : 1em;
+}
+
+.imgContainer {
+    width : 12.25em;
+    height: 12.25em;
+}
+
+.imgContainer img {
+    width : 50%;
+    height : 50%;
+}
+
+/* ===================================*/
+
+@media screen and (min-width : 32em) and (max-width : 52em) {
+    h1 {
+        font-size : 2em;
+    }
+
+    .imgContainer {
+        width : 25em;
+        height : 25em;
+    }
+
+    .imgContainer img {
+        width : 50%;
+        height : 50%;
+    }
+}
+
+@media screen and (min-width : 52em) {
+    h1 {
+        font-size : 3em;
+    }
+
+    .imgContainer {
+        flex-wrap: nowrap;
+        width : 50em;
+        height : 12.5em;
+    }
+
+    .imgContainer img {
+        width : 25%;
+        height : 100%;
+    }
+}
