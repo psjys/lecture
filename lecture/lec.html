@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="./reset.css">
+
+</head>
+
+<body>
+    <!-- 가이드라인 영역  -->
+    <div style="
+			position: relative;
+			display: flex;
+			justify-content: center;
+			width: 100vw;
+			height: 100vh;
+		">
+
+        <div id="guideline" style="
+					position: absolute;
+					max-width:1395px; 
+					width: 100%;
+					height: 100%;
+					border-left: 2px solid black; 
+					border-right: 2px solid black; 
+					margin: auto;
+			">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+
+        <!-- 실제 컨텐츠 영역  -->
+        <div style="
+				position: absolute;
+				max-width: 1395px; 
+				width: 100%;
+				height: 100%;
+				margin: auto;
+			">
+            <div style="
+						position: relative;
+						display: flex;
+						margin-left: 20px;
+						margin-right: 20px;
+						height: 100%;
+					">
+                <div style="position: absolute; width: 100%; height: 100%;">
+                    <span style="font-size: 20px; color: blue;">컨테이너 영역에서 마진을 제외한 부분에서만 컨텐츠가 표현됩니다.</span>
+                    <span style="font-size: 20px; color: green;">컨테이너 영역에서 마진을 제외한 부분에서만 컨텐츠가 표현됩니다.</span>
+                    <span style="font-size: 20px; color: red;">컨테이너 영역에서 마진을 제외한 부분에서만 컨텐츠가 표현됩니다.</span>
+                    <span style="font-size: 20px; color: orange;">컨테이너 영역에서 마진을 제외한 부분에서만 컨텐츠가 표현됩니다.</span>
+                    <span style="font-size: 20px; color: purple;">컨테이너 영역에서 마진을 제외한 부분에서만 컨텐츠가 표현됩니다.</span>
+                    <span style="font-size: 20px; color: hotpink;">컨테이너 영역에서 마진을 제외한 부분에서만 컨텐츠가 표현됩니다.</span>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+    <script>
+        function debug(flag) {
+            if (!flag) {
+                console.log(document.getElementById('guideline').style.display = 'none')
+            } else {
+
+            }
+        }
+
+        // 웹 브라우저에서 화면 구성이 완료되었을 경우
+        window.addEventListener('DOMContentLoaded', function () {
+            debug(true);
+        });
+    </script>
+</body>
+
+</html>
