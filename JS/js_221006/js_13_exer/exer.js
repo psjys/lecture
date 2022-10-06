@@ -1,36 +1,43 @@
 'use strict';
 
 let name, kor, eng, math;
-let sum = kor + eng + math;
-let avr = (kor + eng + math) / 3;
+let sum = 0;
 
-// name = prompt(`학생 명 :`);
-// kor = +prompt(`국어 점수 :`);
-// eng = +prompt(`영어 점수 :`);
-// math = +prompt(`수학 점수 :`);
+const subject = ['국어 점수', '영어 점수', '수학 점수'];
+const score = [];
 
-document.write(`
-    <caption><${name}학생의 성적></caption>
-    <table id='table'>
+name = prompt(`학생 명 :`);
+for (let i = 0; i < subject.length; i++) {
+    score[i] = +prompt(`${subject[i]}`);
+    sum += score[i];
+
+    if(score[i] > 100 || score[i] < 0 ) {
+        alert(`0부터 100 까지 입력`);
+        break;
+    }
+}
+
+
+let avr = sum / subject.length;
+let result = Math.trunc(avr);
+
+document.write(`<table>`);
+document.write(`<caption> < ${name} 학생의 성적 > </caption>`);
+for (let i = 0; i < subject.length; i++) {
+    document.write(`
         <tr>
-            <th>국어점수</th>
-            <td>${kor}점</td>
+            <th>${subject[i]}</th>
+            <td>${score[i]}점</td>
         </tr>
-        <tr>
-            <th>영어점수</th>
-            <td>${eng}점</td>
-        </tr>
-        <tr>
-            <th>수학점수</th>
-            <td>${math}점</td>
-        </tr>
-        <tr>
+        `)
+}
+
+document.write(`<tr>
             <th>합계</th>
             <td>${sum}점</td>
-        </tr>
-        <tr>
+        </tr>`);
+document.write(`<tr>
             <th>평균</th>
-            <td>${avr}점</td>
-        </tr>
-    </table>
-`)
+            <td>${result}점</td>
+        </tr>`);
+document.write(`</table >`);

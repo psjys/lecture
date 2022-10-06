@@ -1,7 +1,27 @@
 caption {
     text-align: center;
+    height : 30px;
+    color : blue;
+    font-weight : bold;
 }
 
-tr {
+table, tr, th, td {
     border : 1px solid;
+    border-collapse: collapse;
+}
+
+th, td {
+    width : 100px;
+    height : 30px;
+    box-sizing : border-box;
+}
+
+th {
+    background-color : yellowgreen;
+}
+
+td {
+    background-color : lightpink;
+    padding-right : 20px;
+    text-align: right;
 }
