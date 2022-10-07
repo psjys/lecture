@@ -53,6 +53,10 @@ for (; ;) {
     if (word[0] == '' || word[0].length !== 3) {
         alert(`세 글자 단어만 입력하세요`);
     }
+    if(confirm(`정말 종료하시겠습니까?`)) {
+        alert(`게임 종료`);
+        break;
+    }
 
     alert(`게임 시작`);
     for (; ;) {
