@@ -41,40 +41,52 @@
 */
 
 
-'use strict';
+let word, lastword;
+let num = -1;
 
-let word;
-word = [];
-
-alert(`끝말잇기 start`);
-
+alert('끝말잇기 Start');
 for (; ;) {
-    word[0] = prompt(`처음 한글 세 글자 단어를 입력하세요`);
-    if (word[0] == '' || word[0].length !== 3) {
-        alert(`세 글자 단어만 입력하세요`);
-    }
-    if(confirm(`정말 종료하시겠습니까?`)) {
-        alert(`게임 종료`);
-        break;
+    if (num < 0) {
+        word = prompt('처음 한글 세 글자 단어를 입력하세요');
+    } else {
+        word = prompt(`한글 세 글자 단어를 입력하세요. 종료하려면 "끝"이라고 입력하세요. (이전 단어 : ${lastword})`);
     }
 
-    alert(`게임 시작`);
-    for (; ;) {
-        word[i] = prompt(`한글 세 글자 단어를 입력하세요. 종료하려면 '끝' 이라고 입력하세요. (이전 단어 : ${word[i - 1]})`);
-        if (word[i-1].lastIndexOf(1) == word[i].indexOf(0)) {
-            alert(`ok excellent`);
-        }
-        if (word[i-1].lastIndexOf(1) !== word[i].indexOf(0)) {
-            alert(`입력한 단어의 첫 말이 이전 단어의 끝말과 달라요`);
-        }
-        if (word[i] == '' || word[i].length !== 3) {
-            alert(`세 글자 단어만 입력하세요`);
-        }
-        if(word[i] == '끝') {
-            if(confirm(`정말 종료하시겠습니까?`) {
-                alert(`${word[i].length}개의 끝말잇기를 성공하셨어요`);
-                break;
+    // 정상 입력 시(끝말 판별)
+    if (isNaN(word) && word.length === 3) {
+        if (num < 0) {
+            alert("게임시작");
+
+            lastword = word;
+            num++;
+
+        } else {
+            if (lastword[2] === word[0]) {
+                alert("Ok!! Excellent!");
+                lastword = word;
+                num++;
+
+            } else {
+                alert("입력한 단어의 첫말이 이전 단어의 끝말과 달라요");
             }
         }
+
+        // 취소 클릭 시
+    } else if (word === null) {
+        if (confirm('정말 종료하시겠습니까?')) {
+            break;
+        }
+
+        // 끝 입력 시
+    } else if (num > -1 && word === "끝") {
+        if (confirm('정말 끝내시겠습니까?')) {
+            alert(`${num}개의 끝말잇기를 성공하셨어요`);
+            break;
+        }
+
+        // 빈 문자열이나 글자 수가 안맞을 때
+    } else {
+        alert("세 글자 단어만 입력하세요");
     }
-} 
+}
+alert("게임 종료");
