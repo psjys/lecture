@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../mealbong"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "project"
+	}
+}
