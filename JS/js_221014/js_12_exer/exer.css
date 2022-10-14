@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#main_container {
+    display: flex;
+    width : 500px;
+    height: 540px;
+    justify-content: center;
+}
+
+#main_container img {
+    width : 500px;
+    height: 500px;
+}
+
+.nation_container a {
+    width: 30px;
+    height: 30px;
+    text-decoration: none;
+    color: black;
+    background-color: bisque;
+    text-align: center;
+}
+
+.nation_container,
+.main_container {
+    display: flex;
+    justify-content: center;
+    gap : 10px;
+}
+

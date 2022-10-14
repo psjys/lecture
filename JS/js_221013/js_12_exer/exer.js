@@ -54,9 +54,6 @@ const family = {
     brother: null,
     sister: null,
     outputFamily() {
-        console.log(`아빠 : ${this.father}`)
-        console.log(`엄마 : ${this.mother}`)
-        console.log(`아들 : ${this.son}`)
         console.log(`형 : ${this.brother || '없음'}`)
         console.log(`누나 : ${this.sister || '없음'}`)
     },

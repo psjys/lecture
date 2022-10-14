@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script 태그의 배치와 실행 시점</title>
+    <!-- 
+    스크립트의 내용이 많거나 복잡한 로직이 적용되어 로딩 시간이 오래 걸리면
+    그만큼 HTML 문서의 로딩도 느려지는 문제점.
+    -->
+
+    <script>
+        document.write(`head 내 스크립트 테스트`);
+    </script>
+</head>
+
+<body>
+    <h1>script 태그의 배치와 실행 시점</h1>
+    <hr>
+
+    <p>
+        내부 스크립트나 외부 스크립트 모두 HTML 문서 내의 포함 위치에 따라
+        그 실행 시점이 결정됩니다.
+    </p>
+
+    <!-- 
+    기본적인 HTML 문서는 먼저 로딩되어 표시되지만 디스플레이 자체가 스크립트에
+    상당히 의존적인 경우라면 완전한 페이지 로딩은 마찬가지로 느려질 수 있는
+    문제점은 존재.
+    -->
+    <script>
+        document.write(`body 내 HTML 문서 코드 이후 포함 스크립트 테스트`);
+    </script>
+</body>
+
+</html>
