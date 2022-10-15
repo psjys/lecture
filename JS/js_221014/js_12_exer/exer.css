@@ -5,8 +5,10 @@
 
 body {
     display : flex;
-    align-items: center;
+    align-content: center;
     justify-content : center;
+    line-height : 100vh;
+    margin-top : calc((100vh - 540px) / 2); 
 }
 
 #main_container {
