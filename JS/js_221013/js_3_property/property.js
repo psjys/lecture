@@ -19,4 +19,4 @@ function getProperty2(obj, property) {
     console.log(obj[property]);             // 계산된 프로퍼티를 활용하여 값을 동적으로 얻는 것이 가능.
 }
 
-getProperty2(car, 'carName');
+getProperty2(car, 'carName');ㅜ

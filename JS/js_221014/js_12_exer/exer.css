@@ -3,11 +3,18 @@
     padding: 0;
 }
 
+body {
+    display : flex;
+    align-items: center;
+    justify-content : center;
+}
+
 #main_container {
     display: flex;
     width : 500px;
     height: 540px;
     justify-content: center;
+    position: relative;
 }
 
 #main_container img {
@@ -15,19 +22,29 @@
     height: 500px;
 }
 
+.nation_container {
+    position: absolute;
+    bottom : 0;
+}
+
 .nation_container a {
     width: 30px;
-    height: 30px;
+    line-height: 30px;
     text-decoration: none;
     color: black;
     background-color: bisque;
     text-align: center;
 }
 
+.nation_container a:nth-of-type(1) {
+    opacity : .4;
+}
+
 .nation_container,
 .main_container {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap : 10px;
 }
 
