@@ -5,7 +5,9 @@ let div = document.querySelectorAll('div'),
     id = document.getElementById('main_container');
 
 // 배열로 이미지 html 생성
-let div_array = ['1', '2', '3', '4', '5'];
+let div_array = ['1', '2', '3', '4', '5'],
+    v = 1,
+    x = 0;
 
 for (let i = 0; i < div_array.length; i++) {
     div[1].innerHTML += `<a href="#" class="nationBox nation${i + 1}">${i + 1}</a>`
@@ -15,16 +17,18 @@ for (let i = 0; i < div_array.length; i++) {
 let num = document.querySelectorAll('a');
 
 function imgSlide() {
-    for (let i = 0; i < div_array.length; i++) {
-        img.setAttribute(`src`, `../../../image/${div_array[i]}.jpg`);
-        for (let j = 0; j < div_array.length; j++) {
-            num[j].style.opacity = '0.4';
-        }
-        if (num[i].textContent == `${i + 1}`) {
-            num[i].style.opacity = '1';
-        }
-    }
+    img.setAttribute(`src`, `../../../image/${div_array[v]}.jpg`);
+
+    num[v].style.opacity = '1';
+    num[x].style.opacity = '.4';
+
+    v++;
+    v = v % div_array.length;
+    
+    x++;
+    x = x % div_array.length;
 }
+
 // 이미지 자동으로 넘어가기
 let slide = setInterval(imgSlide, 1000);
 

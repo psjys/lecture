@@ -1,18 +1,19 @@
-'use strict';
+'use strict'
 
-let img = document.querySelector('img'),
-    num = document.querySelectorAll('a');
+let mainContainer = document.getElementById('main_container'),
+    img = mainContainer.getElementsByTagName('img'),
+    nationBox = mainContainer.getElementsByClassName('nationBox');
 
-for (let i = 0; i < num.length; i++) {
-    num[i].addEventListener('click', function () {
-        img.setAttribute(`src`, `../../../image/${i + 1}.jpg`)
-        for (let j = 0; j < num.length; j++) {
-            num[j].style.opacity = '0.4';
-        }
-        if (num[i].textContent == `${i + 1}`) {
-            num[i].style.opacity = '1';
-        }
-    });
+let opacity = 0;
+
+function changeImage() {
+    img[0].setAttribute('src', `../../../image/${this.textContent}.jpg`);
+    nationBox[opacity].style.opacity = .3;
+    this.style.opacity = 1;
+    opacity = this.textContent - 1;
 }
 
+for (let i = 0; i < nationBox.length; i++) {
+    nationBox[i].addEventListener('click', changeImage);
+}
 

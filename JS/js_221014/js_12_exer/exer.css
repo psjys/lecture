@@ -36,10 +36,11 @@ body {
     color: black;
     background-color: bisque;
     text-align: center;
+    opacity: .3;
 }
 
 .nation_container a:nth-of-type(1) {
-    opacity : .4;
+    opacity : 1;
 }
 
 .nation_container,
