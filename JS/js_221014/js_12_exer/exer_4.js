@@ -30,7 +30,9 @@ function imgSlide() {
 }
 
 // 이미지 자동으로 넘어가기
-let slide = setInterval(imgSlide, 1000);
+function clear () {
+    let slide = setInterval(imgSlide, 1000);
+}
 
 // 클릭 중단 설정
 let click = true;
