@@ -26,23 +26,24 @@ function changeImage() {
     beforeNation = nationBox[beforeNation.textContent % imgAr.length];
 }
 
+let btn = true,
+    interval;
+
 function slide() {
-    setInterval(changeImage, 1000);
+    interval = setInterval(changeImage, 1000);
 }
 slide();
 
 function stop() {
-    clearInterval(slide);
+    clearInterval(interval);
 }
 
-let btn = false;
-
 mainContainer.addEventListener('click', function () {
-    btn = !btn;
     if (btn) {
         stop();
     } else {
         slide();
     }
+    btn = !btn;
 });
 
