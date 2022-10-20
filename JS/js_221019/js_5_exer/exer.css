@@ -2,15 +2,13 @@
     line-height : 40px;
     border-radius: 20% 20%;
     background-color: cornflowerblue;
-    opacity: .4;
     color : red;
     text-align: center;
     position: fixed;
     right : 0;
     bottom: 0;
     margin: 10px;
+    opacity : 0;
+    visibility : hidden;
 }
 
-.scrollTop:hover {
-    transition: .5s;
-} 

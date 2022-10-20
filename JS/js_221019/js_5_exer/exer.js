@@ -10,16 +10,19 @@ v 손가락 생기기
 'use strict';
 
 let topBtn = document.querySelector('.scrollTop');
+let body = document.querySelector('body');
 let scrollY;
 
 document.addEventListener('scroll', () => {
     scrollY = parseInt(window.scrollY);
 
-    if (scrollY >= (screen.height) / 3) {
-        topBtn.style.display = 'block';
-        topBtn.style.transition = .5;
+    if (scrollY >= body.scrollHeight / 3) {
+        topBtn.style.opacity = .5;
+        topBtn.style.transition = 'all .5s';
+        topBtn.style.visibility = 'visible';
     } else {
-        topBtn.style.display = 'none';
+        topBtn.style.opacity = 0;
+        topBtn.style.visibility = 'hidden';
     }
 })
 
