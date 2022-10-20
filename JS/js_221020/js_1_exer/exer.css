@@ -1,0 +1,59 @@
+/* 
+이미지 화면 중앙 + radius
+버튼 hover 했을 때 진하게
+클릭 할 때 옆에 버튼 생성 + 슬라이드
+마지막 페이지에 버튼 없어짐
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.button {
+    background: none;
+    border: none;
+    opacity: .3;
+}
+
+.button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.button:nth-of-type(1) {
+    visibility: hidden;
+}
+
+.button img {
+    width: 50px;
+    height: 50px;
+}
+
+.imgContainer {
+    height: 500px;
+    width: 400px;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 10%;
+}
+
+.imgBlock {
+    display: flex;
+    position: relative;
+    list-style-type: none;
+    transition: all .5s;
+    right: 0;
+}
+
+.imgBlock img {
+    width: 400px;
+    height: 500px;
+}
