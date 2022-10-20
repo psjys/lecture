@@ -3,6 +3,7 @@
 버튼 hover 했을 때 진하게
 클릭 할 때 옆에 버튼 생성 + 슬라이드
 마지막 페이지에 버튼 없어짐
+중복 이벤트 적용 안되게 변경하기
 */
 
 'use strict';
@@ -18,7 +19,7 @@ button[1].addEventListener('click', function () {
         button[0].style.visibility = 'visible';
     }
     imgBlock[0].style.right = `${v}%`;
-    if(v == 400) {
+    if(v == imgBlock.length) {
         button[1].style.visibility = 'hidden';
     }
 });

@@ -14,7 +14,8 @@
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap : 450px;
 }
 
 .button {
