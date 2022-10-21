@@ -11,26 +11,37 @@
 
 let button = document.getElementsByClassName('button'),
     imgBlock = document.getElementsByClassName('imgBlock'),
+    li = document.getElementsByTagName('li'),
     v = 0;
 
+let startTime = new Date();
+
 button[1].addEventListener('click', function () {
-    v += 100;
-    if(v == 100) {
-        button[0].style.visibility = 'visible';
-    }
-    imgBlock[0].style.right = `${v}%`;
-    if(v == imgBlock.length) {
-        button[1].style.visibility = 'hidden';
+    let nextTime = new Date();
+    if (nextTime - startTime > 500) {
+        v += 1;
+        if (v == 1) {
+            button[0].style.visibility = 'visible';
+        }
+        imgBlock[0].style.right = `${v}00%`;
+        if (v == li.length-1) {
+            button[1].style.visibility = 'hidden';
+        }
+        startTime = nextTime;
     }
 });
 
-button[0].addEventListener('click', function() {
-    v -= 100;
-    if(v == 0) {
-        button[0].style.visibility = 'hidden';
+button[0].addEventListener('click', function () {
+    let nextTime = new Date();
+    if (nextTime - startTime > 500) {
+        v -= 1;
+        if (v == 0) {
+            button[0].style.visibility = 'hidden';
+        }
+        imgBlock[0].style.right = `${v}00%`;
+        if (v == li.length - 2) {
+            button[1].style.visibility = 'visible';
+        }
+        startTime = nextTime;
     }
-    imgBlock[0].style.right = `${v}%`;
-    if(v == 300) {
-        button[1].style.visibility = 'visible';
-    }
-}) 
+});

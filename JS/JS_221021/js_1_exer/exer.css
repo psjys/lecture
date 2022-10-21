@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 
+    slide_container 에 대한 overflow hidden 설정으로 btn_back 과 btn_foward 의
+    부모 컨테이너로 slide_container 를 설정할 수 없으므로 별도의 main_container
+    를 설정함으로써 자식 컨테이너인 slide_container 의 크기에 의해 main_container
+    의 크기가 결정되도록 하고 main_container 를 relative 로 지정함으로써
+    absolute 로 지정된 btn_back 과 btn_foward 를 main_container 의 좌/우에 배치
+    되도록 설정.
+*/
+.main_container {
+    position: relative;
+}
+
+/* =========================================================================== */
+
+.slide_container {
+    width: 400px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 50px;
+
+    position: relative;
+}
+
+.slide_container .slide_list {
+    display: flex;
+
+    /* 
+        slide_list 의 전체 너비는 li 요소의 갯수에 따라 자동으로 확장/축소
+        됨에 따라 별도의 지정이 불필요.
+    */
+    height: 100%;
+
+    position: absolute;
+    /* 
+        최초 left 반드시 지정 필수.
+        미지정 시 최초 이미지 이동에 대한 트랜지셔 효과 불가.
+    */
+    left: 0;
+
+    /* transition: property duration delay */
+    transition: all .7s .2s;
+}
+
+/* 
+    li 는 .slide_list 에 지정된 flex 와 높이 지정으로 인해 교차축에 대한 기본
+    stretch 특성이 발현되어 별도의 높이 설정 불필요.
+*/
+
+.slide_container .slide_list img {
+    width: 400px;
+    height: 100%;
+}
+
+/* =========================================================================== */
+
+.main_container a {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    opacity: .2;
+    transition: opacity .3s ease-in-out;
+}
+
+.main_container a:hover {
+    opacity: 1;
+}
+
+.btn_back {
+    right: 105%;
+}
+
+.btn_foward {
+    left: 108%;
+}
+
+a.nonVisible {
+    display: none;
+}
