@@ -44,7 +44,7 @@ a img {
     position: relative;
     list-style-type: none;
     transition: all .5s;
-    right: 0;
+    left: 0;
 }
 
 .slide_list img {
