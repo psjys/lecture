@@ -1,0 +1,60 @@
+* {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    background-color:antiquewhite;
+    display: flex;
+    margin: 50px;
+    gap: 30px;
+}
+
+.logo_page,
+.service_container {
+    width: 50%;
+}
+.logo_page img {
+    width: 100%;
+}
+.logo_page p {
+    word-break: break-all;
+    width : 100%;
+}
+
+.service_container {
+    position : relative;
+}
+
+.service_container h1 {
+    margin-bottom: 30px;
+}
+
+.service_header {
+    background-color: darkslategrey;
+    color : white;
+    padding : 7px;
+}
+
+.btn_collapseAll {
+    position : absolute;
+    top : 0;
+    right : 0;
+    color : blue;
+    height: 25px;
+    width: 120px;
+}
+.service_list {
+    margin-bottom: 20px;
+}
+.service_body {
+    width: 100%;
+    background-color: azure;
+}
+
+.hidden .service_body {
+    display: none;
+}
+
