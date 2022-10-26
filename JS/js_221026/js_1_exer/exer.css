@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: khaki;
+    margin: 0 1%;
+}
+
+header {
+    /*
+        header 를 fixed 로 설정하고 옵셋을 지정함으로써 부모가 인접한 body 가
+        아닌 뷰포트가 됨에 주의.
+        또한 body 내에 header 를 맞추기 위해서 body 의 좌우 마진을 감안하여
+        너비 지정.
+    */
+    position: fixed;
+    top: 0;
+    width: 98%;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    /* 
+        main 스크롤 시 header 의 menu 와 contents 부분을 제외한 좌우 부분에
+        main 이 나타나지 않도록 하기 위해 body 와 동일한 백그라운드 색상 지정.
+    */
+    background-color: khaki;
+
+    /* 
+        header 와 main 이 항상 일정한 간격을 유지하기 위한 하단 패딩 설정.
+        header 가 fixed 로 설정되어 마진은 적용되지 않음에 유의.
+    */
+    padding-bottom: .625em;
+}
+
+main {
+    background-color: rgb(242, 173, 150);
+    margin-top: 11em;
+    padding: .625em;
+}
+
+header .menu,
+header .contents {
+    width: 60%;
+}
+
+/* ============================================================================= */
+
+header .menu {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .3125em;
+}
+
+header .menu>li {
+    width: 33%;
+}
+
+header .menu a {
+    background-color: darkseagreen;
+    color: aliceblue;
+    letter-spacing: .4em;
+    padding-left: .4em;
+    line-height: 2.5em;
+
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* ============================================================================= */
+
+header .contents {
+    background-color: rgb(202, 232, 244);
+}
+
+header .contents div {
+    padding: 10px;
+    display: none;
+}
+
+header .contents div:target {
+    display: block;
+}

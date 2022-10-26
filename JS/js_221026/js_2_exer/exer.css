@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: khaki;
+    margin: 0 1%;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 98%;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: khaki;
+    padding-bottom: .625em;
+}
+
+main {
+    background-color: rgb(242, 173, 150);
+    /* margin-top: 11em;  
+    
+    js 에서 마진 설정으로 css 마진 설정 불필요 */ 
+    padding: .625em;
+}
+
+header .menu,
+header .contents {
+    width: 60%;
+}
+
+
+header .menu {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .3125em;
+}
+
+header .menu>li {
+    width: 33%;
+}
+
+.menu li {
+    background-color: darkseagreen;
+}
+
+header .menu a {
+    color: aliceblue;
+    letter-spacing: .4em;
+    padding-left: .4em;
+    line-height: 2.5em;
+
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    transition: all .3s;
+}
+
+header .contents {
+    background-color: rgb(202, 232, 244);
+}
+
+header .contents div {
+    padding: 10px;
+    display: none;
+}
+
+/* header .contents div:target {
+    display: block;
+} */
+
+.selected {
+    background-color: black;
+}
+
