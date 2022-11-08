@@ -20,18 +20,18 @@
 //     것이 바람직.
 // */
 // export default function App() {
-  //   return <h1>모듈 임포트1</h1>;
-  // }
-  
-  // // export default function Appss() {
-    // //     return <h1>모듈 임포트1</h1>;
-    // // }
-    
-    // // export default function () {
-      // //     return <h1>모듈 임포트1</h1>;
-      // // }
-      
-      
+//   return <h1>모듈 임포트1</h1>;
+// }
+
+// // export default function Appss() {
+// //     return <h1>모듈 임포트1</h1>;
+// // }
+
+// // export default function () {
+// //     return <h1>모듈 임포트1</h1>;
+// // }
+
+
 //=================================================================
 
 // // export { TestReact, TestReact2 };
@@ -126,13 +126,83 @@
 
 //======================================================================
 
-import Hello from './Hello';
+// import Hello from './Hello';
 
+// function App() {
+//   return (
+//     <Hello students="학생여러분!!" color="blue" />
+//   );
+// }
+
+// export default App;
+
+
+//======================================================================
+
+// import Hello from './Hello';
+
+// function App() {
+//   return (
+//     <>
+//       <Hello students="학생여러분!!" color="blue" />
+//       <Hello students="선생님!!" />
+//       <Hello />
+//     </>
+//   );
+// }
+
+// export default App;
+
+//======================================================================
+
+// import Parent from "./Parent";
+
+// function App() {
+//   return (
+//     <Parent parentName="박성연"/>
+//   );
+// }
+
+// export default App;
+
+//======================================================================
+// import Parent from "./Parent";
+// import Son from "./Son";
+
+// function App() {
+
+//   /* 
+//       컴포넌트 태그 간 계층 구조 구현.
+//   */
+//   return (
+//     <Parent parentName="박성연" >
+//       <Son sonName="홍길동" />
+//     </Parent>
+//   );
+// }
+
+// export default App;
+
+//======================================================================
+
+import './App.css';
+
+/* 
+  < 이미지 임포트 >
+
+- 이미지 임포트시 리액트의 public 폴더내에 이미지 파일들을 구성하면
+  별도의 임포트 과정 필요없이 문자열 형태의 경로 설정이 직접 가능.
+  설정 경로는 src 폴더내 index.js 파일 계층과 동일한 위치로 인정되어
+  지정 가능.
+*/
 function App() {
   return (
-    <Hello students="학생여러분!!" color="blue" />
+    <div id="main_container">
+        <img src="./image/1.jpg" alt="img"/>
+
+        <div className="nation_container"></div>
+    </div>
   );
 }
 
 export default App;
-
