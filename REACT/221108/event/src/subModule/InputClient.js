@@ -148,65 +148,121 @@
 
 //===============================================================
 
-import {useState} from 'react';
+// import {useState} from 'react';
 
-export default function InputClient () {
-    const [inputValue, setInputValue] = useState(''),
-        [clientName, setclientName] = useState('');
+// export default function InputClient () {
+//     const [inputValue, setInputValue] = useState(''),
+//         [clientName, setclientName] = useState('');
 
-        function onChangeInput (e) {
-            setInputValue(e.target.value);
-        }
-    /*
-            < onKeyDown >
+//         function onChangeInput (e) {
+//             setInputValue(e.target.value);
+//         }
+//     /*
+//             < onKeyDown >
 
-    -   키를 눌렀을 때의 이벤트.
-        해당 요소에 대한 이벤트 객체를 통해 keyCode 나 key 필드를 반환 가능.
+//     -   키를 눌렀을 때의 이벤트.
+//         해당 요소에 대한 이벤트 객체를 통해 keyCode 나 key 필드를 반환 가능.
 
-    keyCode : 해당 키에 대한 정수형태의 유니코드값을 반환.
-    key : 해당 키에 대응되는 문자열 형식의 키값을 반환하며, 해당 키가
-            특수키인 경우 해당 예약 키워드값 반환.
+//     keyCode : 해당 키에 대한 정수형태의 유니코드값을 반환.
+//     key : 해당 키에 대응되는 문자열 형식의 키값을 반환하며, 해당 키가
+//             특수키인 경우 해당 예약 키워드값 반환.
 
-    ==========================================================================
+//     ==========================================================================
 
-        < onKeyDown 이벤트에 대한 콜백 함수 >
+//         < onKeyDown 이벤트에 대한 콜백 함수 >
 
-    -   임의 키가 눌렸을 때 해당 키값이 엔터(Enter) 키로 감지되면 해당
-        요소(input 태그)의 value 값을 반환받아 출력값 변수(clientName)에 할당.
-    */
-    function checkEnter(e) {
-        if(e.keyCode === 13) {
-            setclientName(e.target.value);
-        }
+//     -   임의 키가 눌렸을 때 해당 키값이 엔터(Enter) 키로 감지되면 해당
+//         요소(input 태그)의 value 값을 반환받아 출력값 변수(clientName)에 할당.
+//     */
+//     function checkEnter(e) {
+//         if(e.keyCode === 13) {
+//             setclientName(e.target.value);
+//         }
 
-        if(e.key === 'Enter') {
-            setclientName(e.target.value);
-        }
-    }
-    function confirm () {
-        setclientName (inputValue);
-    }
-    function tryagain () {
-        setInputValue('');
-    }
-    return (
-        <>
-            <div>
-                <div>
-                    <label>고객명
-                        <input type="text" 
-                                value= {inputValue}
-                                onChange = {onChangeInput}
-                                onKeyDown = {checkEnter}
-                        />
-                    </label>
-                    <button onClick={confirm}>확인완료</button>
-                    <button onClick={tryagain}>다시입력</button>
-                </div>
-                <div>
-                    {clientName} 고객님 안녕하세요
-                </div>
-            </div>
-        </>
-    );
-}
+//         if(e.key === 'Enter') {
+//             setclientName(e.target.value);
+//         }
+//     }
+//     function confirm () {
+//         setclientName (inputValue);
+//     }
+//     function tryagain () {
+//         setInputValue('');
+//     }
+//     return (
+//         <>
+//             <div>
+//                 <div>
+//                     <label>고객명
+//                         <input type="text" 
+//                                 value= {inputValue}
+//                                 onChange = {onChangeInput}
+//                                 onKeyDown = {checkEnter}
+//                         />
+//                     </label>
+//                     <button onClick={confirm}>확인완료</button>
+//                     <button onClick={tryagain}>다시입력</button>
+//                 </div>
+//                 <div>
+//                     {clientName} 고객님 안녕하세요
+//                 </div>
+//             </div>
+//         </>
+//     );
+// }
+
+//===============================================================
+// 221111
+
+const obj = {
+    a: 1,
+    b: 2,
+    c: 3,
+};
+
+/* < 구조분해할당 > */
+
+/* 
+    구조분해할당 시 블럭{} 내 할당 변수는 객체의 프로퍼티명과 동일해야함.
+*/
+
+let { a, b, c } = obj;
+cons 
+/*
+    구조분해할당 시 할당 변수명을 변경하고자 하는 경우,
+    콜론(:) 구분자 뒤에 새로운 변수명 명시.
+*/
+
+let { a: cpA, b: cpB, c: cpC } = obj;
+console.log(`cpA = ${cpA}, cpB = ${cpB}, cpC = ${cpC}`);
+
+/* < 전개구문 > */
+
+/* 
+    < 전개구문을 활용한 객체의 복사 >
+*/
+
+let cpObj1 = {
+    ...obj,
+};
+console.log(cpObj1);
+
+/* 
+    < 전개구문을 활용한 객체의 복사와 추가 멤버의 결합 >
+*/
+
+let cpObj2 = {
+    ...obj,
+    d: 4,
+};
+console.log(cpObj2);
+
+/* 
+    < 전개구문을 활용한 객체의 복사와 복사 멤버의 값 변경 >
+*/
+
+let cpObj3 = {
+    ...obj,
+    a: 15,
+};
+console.log(cpObj3);

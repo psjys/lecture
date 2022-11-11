@@ -4,6 +4,7 @@ export default function Exer() {
     // 입력값 변수
     const [inputName, setInputName] = useState(''),
         [inputNum, setInputNum] = useState('');
+    
 
     // 출력값 변수
     const [nameValue, setnameValue] = useState(''),
