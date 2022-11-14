@@ -5,8 +5,8 @@
 // // import React from 'react';
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
-
-// root.render(
+                // 객체이름.키값 (대충 변수이름)
+// root.render( 
 //     /* 
 //         < JSX >
 
