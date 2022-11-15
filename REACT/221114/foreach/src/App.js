@@ -18,3 +18,29 @@
 5) 개별 페이지 내이션들과의 간격과 페이지 내이션과 이미지 사이의 간격은 10px.
 */
 
+import {useState} from 'react';
+import 'App.css';
+import NationBox from './subModule/nationContainer';
+
+function App() {
+    const imgList = [
+        './image/1.jpg',
+        './image/2.jpg',
+        './image/3.jpg',
+        './image/4.jpg',
+        './image/5.jpg',
+    ],
+        [selectedIdx, setSelectedIdx] = useState(0);
+    return (
+        <div className='main_container'>
+            <img src={imgList[selectedIdx]} alt="imgBox" />
+            <NationBox
+                imgSize={imgList.length}
+                selectedIdx={selectedIdx}
+                setSelectedIdx={setSelectedIdx}
+            />
+        </div>
+    );
+}
+
+export default App;
