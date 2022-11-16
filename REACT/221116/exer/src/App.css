@@ -1,6 +1,28 @@
-.textArea {
-  width : 500px;
-  height : 250px;
+.main_container {
   display: flex;
-  flex-flow: row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+textarea {
+  width : 500px;
+  height: 250px;
+  display: flex;
+}
+
+.delete {
+  display: flex;
+}
+
+.span {
+  width : 100%;
+  display: flex;
+  border-bottom : 1px solid;
+}
+
+span {
+  width: 33%;
+  margin-bottom: 10px;
+}
+
