@@ -275,7 +275,7 @@ function App() {
         }
     }
 
-      function removeUserList() {
+    function removeUserList() {
         if (delSerialNum) {
             setUserList(userList.filter((user) => user.serialNum !== +delSerialNum));
 
