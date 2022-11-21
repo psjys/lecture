@@ -18,6 +18,9 @@
     <!-- 헤더 : 로고 / 검색창 /  -->
     <header>
         <div class="space">
+            <div class="top-space">
+                <button class="space-close"></button>
+            </div>
             <ul class="login">
                 <li><a href="html/login/Terms.html">회원가입</a></li>
                 <li><a href="html/login/login.html">로그인</a></li>
@@ -72,11 +75,19 @@
 
     <!-- 메인 :  배너 / 인기 상품 / 카테고리 / 오늘의 추천-->
     <main>
-        <ul class="main-banner">
-            <!-- <li>
-                <a href="#"><img src="image/banner3.png" alt="banner" class="banner"></a>
-            </li> -->
-        </ul>
+        <div class="bannerContainer">
+            <button class="btn_left">
+                <img src="./image/preHover.png">
+            </button>
+            <ul class="main-banner">
+                <li>
+                    <!-- <a href="#"><img src="image/banner3.png" alt="banner" class="banner"></a> -->
+                </li>
+            </ul>
+            <button class="btn_right">
+                <img src="./image/nextHover.png">
+            </button>
+        </div>
         <!-- <div class="main-category">
             <a href="html/menu_list/Korean_menulist.html">한식</a>
             <a href="html/menu_list/Chinese_menulist.html">중식</a>
@@ -90,198 +101,224 @@
                 <h2>이 상품 어때요?</h2>
             </a></div>
 
-        <div class="pop_pro main-width">
-            <div class="product">
-                <a href="html/food_info/Korean_FoodInfo/Korean_SoybeanSoup.html" class="pro1"><img
-                        src="image/Korean/애호박 된장찌개(2인).jpg"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_page.html"><strong>애호박 된장찌개</strong></a>
-                <div>10,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Japanese_FoodInfo/Japanese_millefeuille.html" class="pro1"><img
-                        src="image/Japanese/나혼자 밀푀유(1인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/japanese_menulist/millefeuille.html"><strong>나혼자 밀푀유 샤브전골</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html" class="pro1"><img
-                        src="image/Chinese/얼큰 마라탕(2인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html"><strong>얼큰 마라탕</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Western_Foodinfo/Western_OlioPasta.html" class="pro1"><img
-                        src="image/Western/알리오올리오 파스타(2인).PNG" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Western_Foodinfo/Western_OlioPasta.html"><strong>알리오올리오 파스타</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html" class="pro1"><img
-                        src="image/Asian/불고기 분짜(3~4인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html"><strong>불고기 분짜</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html" class="pro1"><img
-                        src="image/Bunsik/볼케이노 국물닭발(2인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html"><strong>볼케이노 국물닭발</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Japanese_FoodInfo/Japanese_soba.html" class="pro1"><img
-                        src="image/Japanese/메밀소바(1인).jpeg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Japanese_FoodInfo/Japanese_soba.html"><strong>메밀 소바</strong></a>
-                <div>5,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Asian_FoodInfo/Asian_WolnamSsam.html" class="pro1"><img
-                        src="image/Asian/월남쌈(2~3인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="#"><strong>월남쌈</strong></a>
-                <div>12,000원</div>
+        <div class="main-top">
+            <button class="main_btn_left"></button>
+            <button class="main_btn_right"></button>
+            <div class="pop_pro main-width">
+                <div class="product">
+                    <a href="html/food_info/Korean_FoodInfo/Korean_SoybeanSoup.html" class="pro1"><img
+                            src="image/Korean/애호박 된장찌개(2인).jpg"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_page.html"><strong>애호박 된장찌개</strong></a>
+                    <div>10,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Japanese_FoodInfo/Japanese_millefeuille.html" class="pro1"><img
+                            src="image/Japanese/나혼자 밀푀유(1인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/japanese_menulist/millefeuille.html"><strong>나혼자 밀푀유 샤브전골</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html" class="pro1"><img
+                            src="image/Chinese/얼큰 마라탕(2인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html"><strong>얼큰 마라탕</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Western_Foodinfo/Western_OlioPasta.html" class="pro1"><img
+                            src="image/Western/알리오올리오 파스타(2인).PNG" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Western_Foodinfo/Western_OlioPasta.html"><strong>알리오올리오 파스타</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html" class="pro1"><img
+                            src="image/Asian/불고기 분짜(3~4인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html"><strong>불고기 분짜</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html" class="pro1"><img
+                            src="image/Bunsik/볼케이노 국물닭발(2인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html"><strong>볼케이노 국물닭발</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Japanese_FoodInfo/Japanese_soba.html" class="pro1"><img
+                            src="image/Japanese/메밀소바(1인).jpeg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Japanese_FoodInfo/Japanese_soba.html"><strong>메밀 소바</strong></a>
+                    <div>5,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Asian_FoodInfo/Asian_WolnamSsam.html" class="pro1"><img
+                            src="image/Asian/월남쌈(2~3인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="#"><strong>월남쌈</strong></a>
+                    <div>12,000원</div>
+                </div>
             </div>
         </div>
 
         <div class="pop main-width main-flex"><a href="#" name="recommend">
                 <h2>매운게 땡길 땐</h2>
             </a></div>
-        <div class="rec main-width">
-            <div class="product">
-                <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html" class="pro1"><img
-                        src="image/Asian/불고기 분짜(3~4인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html"><strong>불고기 분짜</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html" class="pro1"><img
-                        src="image/Chinese/얼큰 마라탕(2인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html"><strong>얼큰 마라탕</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html" class="pro1"><img
-                        src="image/Bunsik/볼케이노 국물닭발(2인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html"><strong>볼케이노 국물닭발</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Asian_FoodInfo/Asian_WolnamSsam.html" class="pro1"><img
-                        src="image/Asian/월남쌈(2~3인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Asian_FoodInfo/Asian_WolnamSsam.html"><strong>월남쌈</strong></a>
-                <div>12,000원</div>
+        <div class="main-top">
+            <button class="main_btn_left">
+            </button>
+            <button class="main_btn_right">
+            </button>
+            <div class="rec main-width">
+                <div class="product">
+                    <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html" class="pro1"><img
+                            src="image/Asian/불고기 분짜(3~4인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html"><strong>불고기 분짜</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html" class="pro1"><img
+                            src="image/Chinese/얼큰 마라탕(2인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html"><strong>얼큰 마라탕</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html" class="pro1"><img
+                            src="image/Bunsik/볼케이노 국물닭발(2인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html"><strong>볼케이노 국물닭발</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Asian_FoodInfo/Asian_WolnamSsam.html" class="pro1"><img
+                            src="image/Asian/월남쌈(2~3인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Asian_FoodInfo/Asian_WolnamSsam.html"><strong>월남쌈</strong></a>
+                    <div>12,000원</div>
+                </div>
             </div>
         </div>
         <div class="pop main-width main-flex"><a href="#" name="pop">
                 <h2>포장마차 감성</h2>
             </a></div>
-
-        <div class="pop_pro main-width">
-            <div class="product">
-                <a href="html/food_info/Korean_FoodInfo/Korean_SoybeanSoup.html" class="pro1"><img
-                        src="image/Korean/애호박 된장찌개(2인).jpg"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_page.html"><strong>애호박 된장찌개</strong></a>
-                <div>10,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Japanese_FoodInfo/Japanese_millefeuille.html" class="pro1"><img
-                        src="image/Japanese/나혼자 밀푀유(1인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/japanese_menulist/millefeuille.html"><strong>나혼자 밀푀유 샤브전골</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html" class="pro1"><img
-                        src="image/Chinese/얼큰 마라탕(2인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html"><strong>얼큰 마라탕</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Western_Foodinfo/Western_OlioPasta.html" class="pro1"><img
-                        src="image/Western/알리오올리오 파스타(2인).PNG" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Western_Foodinfo/Western_OlioPasta.html"><strong>알리오올리오 파스타</strong></a>
-                <div>12,000원</div>
+        <div class="main-top">
+            <button class="main_btn_left">
+            </button>
+            <button class="main_btn_right">
+            </button>
+            <div class="pop_pro main-width">
+                <div class="product">
+                    <a href="html/food_info/Korean_FoodInfo/Korean_SoybeanSoup.html" class="pro1"><img
+                            src="image/Korean/애호박 된장찌개(2인).jpg"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_page.html"><strong>애호박 된장찌개</strong></a>
+                    <div>10,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Japanese_FoodInfo/Japanese_millefeuille.html" class="pro1"><img
+                            src="image/Japanese/나혼자 밀푀유(1인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/japanese_menulist/millefeuille.html"><strong>나혼자 밀푀유 샤브전골</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html" class="pro1"><img
+                            src="image/Chinese/얼큰 마라탕(2인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html"><strong>얼큰 마라탕</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Western_Foodinfo/Western_OlioPasta.html" class="pro1"><img
+                            src="image/Western/알리오올리오 파스타(2인).PNG" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Western_Foodinfo/Western_OlioPasta.html"><strong>알리오올리오 파스타</strong></a>
+                    <div>12,000원</div>
+                </div>
             </div>
         </div>
 
         <div class="pop main-width main-flex"><a href="#" name="recommend">
                 <h2>가볍게 한 끼</h2>
             </a></div>
-        <div class="rec main-width">
-            <div class="product">
-                <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html" class="pro1"><img
-                        src="image/Asian/불고기 분짜(3~4인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html"><strong>불고기 분짜</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html" class="pro1"><img
-                        src="image/Chinese/얼큰 마라탕(2인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html"><strong>얼큰 마라탕</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html" class="pro1"><img
-                        src="image/Bunsik/볼케이노 국물닭발(2인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html"><strong>볼케이노 국물닭발</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Asian_FoodInfo/Asian_WolnamSsam.html" class="pro1"><img
-                        src="image/Asian/월남쌈(2~3인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Asian_FoodInfo/Asian_WolnamSsam.html"><strong>월남쌈</strong></a>
-                <div>12,000원</div>
+        <div class="main-top">
+            <button class="main_btn_left">
+            </button>
+            <button class="main_btn_right">
+            </button>
+            <div class="rec main-width">
+                <div class="product">
+                    <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html" class="pro1"><img
+                            src="image/Asian/불고기 분짜(3~4인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html"><strong>불고기 분짜</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html" class="pro1"><img
+                            src="image/Chinese/얼큰 마라탕(2인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html"><strong>얼큰 마라탕</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html" class="pro1"><img
+                            src="image/Bunsik/볼케이노 국물닭발(2인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html"><strong>볼케이노 국물닭발</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Asian_FoodInfo/Asian_WolnamSsam.html" class="pro1"><img
+                            src="image/Asian/월남쌈(2~3인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Asian_FoodInfo/Asian_WolnamSsam.html"><strong>월남쌈</strong></a>
+                    <div>12,000원</div>
+                </div>
             </div>
         </div>
         <div class="pop main-width main-flex"><a href="#" name="pop">
                 <h2>오늘 야식은?</h2>
             </a></div>
-
-        <div class="pop_pro main-width">
-            <div class="product">
-                <a href="html/food_info/Korean_FoodInfo/Korean_SoybeanSoup.html" class="pro1"><img
-                        src="image/Korean/애호박 된장찌개(2인).jpg"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_page.html"><strong>애호박 된장찌개</strong></a>
-                <div>10,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Japanese_FoodInfo/Japanese_millefeuille.html" class="pro1"><img
-                        src="image/Japanese/나혼자 밀푀유(1인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/japanese_menulist/millefeuille.html"><strong>나혼자 밀푀유 샤브전골</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html" class="pro1"><img
-                        src="image/Chinese/얼큰 마라탕(2인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html"><strong>얼큰 마라탕</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Western_Foodinfo/Western_OlioPasta.html" class="pro1"><img
-                        src="image/Western/알리오올리오 파스타(2인).PNG" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Western_Foodinfo/Western_OlioPasta.html"><strong>알리오올리오 파스타</strong></a>
-                <div>12,000원</div>
+        <div class="main-top">
+            <button class="main_btn_left">
+            </button>
+            <button class="main_btn_right">
+            </button>
+            <div class="pop_pro main-width">
+                <div class="product">
+                    <a href="html/food_info/Korean_FoodInfo/Korean_SoybeanSoup.html" class="pro1"><img
+                            src="image/Korean/애호박 된장찌개(2인).jpg"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_page.html"><strong>애호박 된장찌개</strong></a>
+                    <div>10,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Japanese_FoodInfo/Japanese_millefeuille.html" class="pro1"><img
+                            src="image/Japanese/나혼자 밀푀유(1인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/japanese_menulist/millefeuille.html"><strong>나혼자 밀푀유 샤브전골</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html" class="pro1"><img
+                            src="image/Chinese/얼큰 마라탕(2인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html"><strong>얼큰 마라탕</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Western_Foodinfo/Western_OlioPasta.html" class="pro1"><img
+                            src="image/Western/알리오올리오 파스타(2인).PNG" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Western_Foodinfo/Western_OlioPasta.html"><strong>알리오올리오 파스타</strong></a>
+                    <div>12,000원</div>
+                </div>
             </div>
 
         </div>
@@ -289,34 +326,40 @@
         <div class="pop main-width main-flex"><a href="#" name="recommend">
                 <h2>소주 한 잔</h2>
             </a></div>
-        <div class="rec main-width">
-            <div class="product">
-                <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html" class="pro1"><img
-                        src="image/Asian/불고기 분짜(3~4인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html"><strong>불고기 분짜</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html" class="pro1"><img
-                        src="image/Chinese/얼큰 마라탕(2인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html"><strong>얼큰 마라탕</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html" class="pro1"><img
-                        src="image/Bunsik/볼케이노 국물닭발(2인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html"><strong>볼케이노 국물닭발</strong></a>
-                <div>12,000원</div>
-            </div>
-            <div class="product">
-                <a href="html/food_info/Asian_FoodInfo/Asian_WolnamSsam.html" class="pro1"><img
-                        src="image/Asian/월남쌈(2~3인).jpg" class="pro1"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <a href="html/food_info/Asian_FoodInfo/Asian_WolnamSsam.html"><strong>월남쌈</strong></a>
-                <div>12,000원</div>
+        <div class="main-top">
+            <button class="main_btn_left">
+            </button>
+            <button class="main_btn_right">
+            </button>
+            <div class="rec main-width">
+                <div class="product">
+                    <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html" class="pro1"><img
+                            src="image/Asian/불고기 분짜(3~4인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Asian_FoodInfo/Asian_Bunzza.html"><strong>불고기 분짜</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html" class="pro1"><img
+                            src="image/Chinese/얼큰 마라탕(2인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Chinese_FoodInfo/Chinese_MaraSoup.html"><strong>얼큰 마라탕</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html" class="pro1"><img
+                            src="image/Bunsik/볼케이노 국물닭발(2인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html"><strong>볼케이노 국물닭발</strong></a>
+                    <div>12,000원</div>
+                </div>
+                <div class="product">
+                    <a href="html/food_info/Asian_FoodInfo/Asian_WolnamSsam.html" class="pro1"><img
+                            src="image/Asian/월남쌈(2~3인).jpg" class="pro1"></a>
+                    <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                    <a href="html/food_info/Asian_FoodInfo/Asian_WolnamSsam.html"><strong>월남쌈</strong></a>
+                    <div>12,000원</div>
+                </div>
             </div>
         </div>
         <div class="game">게임 만들 자리</div>

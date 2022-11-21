@@ -5,9 +5,9 @@ let topBtn = document.querySelector('.topButton'),
 
 // 메인 배너
 let imgArr = [
+    'image/banner3.png',
     'image/banner1.jpg',
     'image/banner2.jpg',
-    'image/banner3.png',
     'image/banner4.jpg',
 ];
 
@@ -20,7 +20,7 @@ for (let i = 0; i < imgArr.length; i++) {
 // }
 
 let imgSlide = setInterval(function () {
-
+    
 });
 
 
