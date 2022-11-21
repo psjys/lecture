@@ -51,4 +51,3 @@ function changeImage() {
 
 for (let i = 0; i < nationBox.length; i++) {
     nationBox[i].addEventListener('click', changeImage);
-}

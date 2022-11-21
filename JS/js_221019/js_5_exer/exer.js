@@ -17,7 +17,7 @@ document.addEventListener('scroll', () => {
     } else {
         topBtn.classList.remove('scroll');
     }
-})
+});
 
 topBtn.addEventListener('mouseenter', () => {
     topBtn.classList.add('btnhover');
@@ -29,6 +29,7 @@ topBtn.addEventListener('mouseleave', () => {
 
 topBtn.addEventListener('click', () => {
     let id = setInterval(function () {
+        console.log(window.scrollY);
         window.scrollBy(0, -5);
         if (parseInt(window.scrollY) <= 0) {
             clearInterval(id);
