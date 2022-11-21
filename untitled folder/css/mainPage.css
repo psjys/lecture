@@ -1,0 +1,579 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Gowun Dodum', sans-serif;
+    outline: none;
+}
+
+/* header 로고 / 검색창 / 로그인 정렬---------*/
+.flex-box {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+    height: 100px;
+}
+
+/* header 상단고정---------*/
+
+header {
+    top: 0;
+    height: 160px;
+    min-width: 1200px;
+    background-color: white;
+    z-index: 2;
+}
+
+/* header 로고---------*/
+
+.logo {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.space {
+    min-width: 1200px;
+    height: 25px;
+    /* background-color: lightsalmon; */
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.login {
+    /* width: 220px; */
+    display: flex;
+    gap: 15px;
+    right: 0;
+    text-align: center;
+}
+
+.login a {
+    text-decoration: none;
+    color: black;
+}
+
+.login li:hover a{
+    text-decoration: underline;
+}
+
+.login>li {
+    width: 60px;
+}
+
+.login>li:nth-of-type(3) {
+    margin-right: 18px;
+}
+
+.hoverbox {
+    width: 90px;
+    border: 1px solid gray;
+    display: none;
+    position: absolute;
+    background-color: white;
+    right: 0;
+    top: 100%;
+}
+
+/* .login li:nth-of-type(3):hover .hoverbox {
+    display: block;
+} */
+
+.hoverbox a {
+    color: black;
+    font-size: .9em;
+    display: block;
+}
+
+/*header 검색창---------*/
+
+.search {
+    width: 350px;
+    height: 40px;
+    border: 2px solid lightsalmon;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search input {
+    width: 300px;
+    font-size: 16px;
+    border: 0;
+}
+
+.button {
+    border: none;
+    background: none;
+}
+
+.button-set {
+    width: 30px;
+    line-height: 30px;
+    margin-right: 8px;
+}
+
+/* 장바구니 찜한 상품 --------- */
+
+.cart_heart {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.cart_heart a {
+    background-position: center;
+    background-size: 100%;
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+}
+
+.cart {
+    background-image: url(../image/cart.png);
+}
+
+.cart:hover {
+    background-image: url(../image/cart_coral.png);
+}
+
+.heart {
+    background-image: url(../image/heart.png);
+}
+
+.heart:hover {
+    background-image: url(../image/heart_coral.png);
+}
+
+.mpage {
+    background-image: url(../image/mypage.png);
+}
+
+.mpage:hover {
+    background-image: url(../image/mypage_coral.png);
+}
+
+/* 메뉴 ---------*/
+.menu {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav {
+    min-width: 1200px;
+    line-height: 50px;
+    display: flex;
+    justify-content: space-around;
+    position: sticky;
+    top: 0px;
+    box-shadow: 0 4px 4px -4px gray;
+    background-color: white;
+    z-index: 1;
+}
+
+.menu>li {
+    text-align: center;
+    width: 150px;
+    line-height: 40px;
+    margin: 0 40px;
+    box-sizing: border-box;
+}
+
+.menu>li>a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    font-size: 19px;
+}
+
+.submenu,
+.submenu2 {
+    display: none;
+    position: absolute;
+}
+
+.submenu a,
+.submenu2 a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.submenu>li,
+.submenu2>li {
+    width: 150px;
+    box-sizing: border-box;
+    line-height: 35px;
+    background-color: white;
+    border: 0.5px solid lightgray;
+}
+
+/* 메뉴 hover ---------*/
+
+.menu li:hover {
+    text-decoration: underline;
+}
+
+/* .menu:hover .submenu
+.menu:hover .submenu2 {
+    transition-duration: all 0.5s;
+}  */
+
+.menu>li:hover>a {
+    color: lightsalmon;
+    font-weight: bold;
+}
+
+nav ul li:nth-child(1):hover .submenu,
+nav ul li:nth-child(4):hover .submenu2 {
+    display: block;
+}
+
+/* banner ------------*/
+
+.banner {
+    object-fit: cover;
+    background-position: center;
+    background-size: 100%;
+}
+
+.main-banner {
+    height: 500px;
+    width: 100%;
+    min-width: 1200px;
+    display: flex;
+    overflow : hidden;
+}
+
+/* main -------------*/
+
+.main-width {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.main-flex,
+.pop_pro,
+.rec {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.pop_pro {
+    margin-bottom: 100px;
+}
+
+.pop {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 30px auto;
+}
+
+.pop a {
+    text-decoration: none;
+    color: black;
+}
+
+.pop_pro {
+    display: grid;
+    grid-template: repeat(1, 1fr) / repeat(4, 1fr);
+    justify-content: center;
+}
+
+.rec {
+    display: grid;
+    grid-template: repeat(1, 1fr) / repeat(4, 1fr);
+    justify-content: center;
+}
+
+.game {
+    border: 1px solid;
+    width: 1200px;
+    line-height: 300px;
+    text-align: center;
+    margin: 50px auto;
+}
+
+.product {
+    margin: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product a {
+    color: black;
+    text-decoration: none;
+}
+
+.product img {
+    border-radius: 5%;
+}
+
+.pro1 img {
+    width: 100%;
+    transition: all 0.2s linear;
+}
+
+.pro1:hover img {
+    opacity: .8;
+}
+
+header {
+    z-index: 3;
+}
+
+.product button {
+    position: absolute;
+    right: 10px;
+    bottom: 60px;
+    background: none;
+    border: none;
+}
+
+.product #wish_icon {
+    color: white;
+}
+
+.product button:hover #wish_icon,
+.product button:focus #wish_icon {
+    color: red;
+}
+
+/* main 카테고리 ----------- */
+
+.main-category {
+    margin: 20px auto;
+    margin-bottom: 120px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 1200px;
+}
+
+.main-category a {
+    width: 110px;
+    height: 110px;
+    border-radius: 10px;
+    background-color: rgb(255, 178, 148);
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.main-category a:hover {
+    opacity: .8;
+}
+
+/* top button ------------ */
+
+.topButton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    object-fit: cover;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.btnScroll {
+    opacity : .5;
+    visibility: visible;
+}
+
+.btnHover {
+    opacity : 1;
+    cursor : pointer;
+}
+
+/* footer ------------ */
+
+footer {
+    /* height: 160px; */
+    min-width: 1200px;
+    margin-top: 50px;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    height: 50px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+    font-size: .8em;
+}
+
+.footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+pre {
+    font-size: .8em;
+}
+
+/* =============================================== */
+/* food_page css */
+/* outerbox1 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.outerbox1 {
+    width: 1200px;
+    height: 500px;
+    margin: 50px auto;
+    margin-bottom: 200px;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.innerbox1>ul {
+    width: 500px;
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.innerbox1>ul>li {
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+}
+
+.innerbox1>ul>li:last-child {
+    border: none;
+}
+
+.innerbox1 img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5%;
+}
+
+#menu,
+#delivery,
+#amount {
+    display: flex;
+    justify-content: space-between;
+}
+
+#icons ul,
+#sale {
+    display: flex;
+    justify-content: space-around;
+}
+
+#amount select {
+    width: 100px;
+}
+
+.foodpage_button {
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: lightsalmon;
+    border: solid 1px lightsalmon;
+    border-radius: 5px;
+    transition-duration: 0.3s;
+    margin: 0 20px;
+    font-size: 20px;
+    color: white;
+}
+
+/* =============================================== */
+/* middle box 설정 */
+
+.middlebox {
+    /* border:1px solid; */
+    width: 1200px;
+    height: 150px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.middlebox a {
+    color: black;
+    text-decoration: none;
+}
+
+/* ================================================ */
+/* outerbox2 설정 */
+
+.outerbox2 {
+    width: 1000px;
+    margin: auto;
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* ================================================ */
+/* 상품후기 및 상품문의 */
+#food_review,
+#food_inquiry {
+    width: 1000px;
+    height: 200px;
+    margin: 120px auto;
+}
+
+.last {
+    width: 1000px;
+    height: 100px;
+    /* border: solid 1px; */
+}
+
+.last button {
+    width: 120px;
+    height: 40px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: lightsalmon;
+    border: solid 1px lightsalmon;
+    border-radius: 5px;
+    transition-duration: 0.3s;
+    color: white;
+}
+
+.review1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.review2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

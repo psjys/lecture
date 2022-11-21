@@ -1,0 +1,241 @@
+* {
+    margin : 0;
+    padding : 0;
+    list-style: none;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+
+
+/* ============================메인상단========================= */
+
+.cart_container {
+    width : 1000px;
+    margin : 0 auto;
+    text-align: center;
+    display : flex;
+    flex-direction: column;
+}
+
+.mainspan {
+    font-weight: 600;
+    font-size: 26px;
+    margin : 55px 0 50px;
+    display : block;
+
+
+}
+
+.div_a {
+    margin-top : 20px;
+    padding-bottom : 15px;
+    border-bottom : 1px solid;
+    align-self : flex-start;
+    width : 70%;
+    display : flex;
+ }
+
+ .a_tag {
+    text-decoration: none;
+    color : black;
+}
+
+.a_tag,
+.label_style {
+    font-size : 18px;
+    font-weight : bold;
+}
+
+.a_tag:visited {
+    color : black;
+}
+
+.spanmargin {
+    margin : 0 10px;
+}
+
+.cartinput {
+    width : 20px;
+    margin-right : 15px;
+    margin-left : 10px;
+}
+
+.cart_divbox {
+    width : 100%;
+    display : flex;
+}
+
+/* ============================메인 본문========================== */
+
+.cart_div1 {
+    width : 70%;
+    padding : 10px;
+    box-sizing : border-box;
+}
+
+.div1_sub {
+    display : flex;
+    align-items : center;
+    justify-content : space-between;
+    height : 90px;
+    margin : 15px 0;
+}
+
+.div1_line {
+    border-bottom : 1px solid rgba(192, 192, 192, 0.588);
+}
+
+.div1_sub_sub {
+    display : flex;
+    align-items : center;
+    height : 90px;
+}
+
+
+.div1_input {
+    width : 20px;
+    height : 20px;
+
+}
+
+.div1_a_img1,
+.div1_a_img2,
+.div1_a_img3,
+.div1_a_img4 {
+    width : 70px;
+    height : 70px;
+    margin-left : 15px;
+}
+
+.div1_a_img1 {
+    background : url(../image/Asian/불고기\ 분짜\(3~4인\).jpg) no-repeat center/cover;
+}
+
+.div1_a_img2 {
+    background : url(../image/Chinese/얼큰\ 마라탕\(2인\).jpg) no-repeat center/cover;
+}
+
+.div1_a_img3 {
+    background : url(../image/Japanese/나혼자\ 밀푀유\(1인\).jpg) no-repeat center/cover;
+}
+
+.div1_a_img4 {
+    background : url(../image/Korean/SoybeanSoup.jpg) no-repeat center/cover;
+}
+
+.div1_a2 {
+    font-weight : bold;
+    margin-left : 20px;
+    text-decoration: none;
+    font-size : 20px;
+    color : black;
+}
+
+.div1_a2:visited {
+    color : black;
+}
+
+.div1_span {
+    font-weight : bold;
+    font-size : 18px;
+}
+
+.div1_inputNumber {
+    margin-right : 40px;
+    width : 40.6px;
+}
+
+.cart_div2 {
+    width : 30%;
+    height : 700px;
+    display : flex;
+    text-align : left;
+    flex-direction : column;
+}
+
+.cart_subdiv3 {
+    height : 52px;
+}
+
+.cart_subdiv12 {
+    height : 420px;
+    border : 1px solid;
+    display : flex;
+    flex-direction : column;
+}
+
+.cart_subdiv12,
+.cart_subdiv3 {
+    margin-left : 20px;
+}
+
+
+
+.align_p {
+    margin : 10px 0;
+    font-weight : bold;
+}
+
+.cart_subdiv1,
+.cart_subdiv2 {
+    padding : 20px;
+    box-sizing : border-box;
+}
+
+.cart_subdiv2 {
+    background-color: gainsboro;
+    display : flex;
+    flex-direction: column;
+    flex-grow : 1;
+}
+
+.subdiv2_box,
+.subdiv2_box2,
+.subdiv2_box3 {
+    display : flex;
+    justify-content : space-between;
+    margin-bottom : 15px;
+}
+
+
+
+.subdiv2_box3 {
+    margin-top : 30px;
+}
+
+.subdiv2_line {
+    border-bottom : 1px solid rgba(192, 192, 192, 0.303)
+    
+
+}
+
+
+.subdiv1_button {
+    width : 100%;
+    height : 40px;
+    background-color: lightsalmon;
+    border-radius : 5px;
+    margin-top : 60px;
+}
+
+.subdiv3_button {
+    width : 100%;
+    height : 52px;
+    background-color: lightsalmon;
+    border-radius : 5px;
+    margin-top : 30px;
+}
+
+.subdiv1_a {
+    width : 100%;
+    height : 100%;
+    color : white;
+    text-decoration: none;
+    display : flex;
+    justify-content: center;
+    align-items : center;
+}
+
+.subdiv1_a:visited {
+    color : white;
+}

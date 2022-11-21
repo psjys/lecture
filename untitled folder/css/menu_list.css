@@ -1,0 +1,142 @@
+/* ======================================================================== */
+/* outerbox */
+
+.outerbox {
+    width: 1200px;
+    margin: auto;
+    /* border: 1px solid; */
+}
+
+.innerbox1 a,
+.innerbox2 a {
+    color: black;
+    text-decoration: none;
+}
+
+/* ========================================================================== */
+/* innerbox 3개 */
+
+.innerbox1 {
+    height: 80px;
+    width: 1100px;
+    margin: 10px auto;
+    /* border: 1px solid; */
+}
+
+.innerbox2 {
+    height: 50px;
+    width: 1100px;
+    margin: 10px auto;
+}
+
+.innerbox1 a:hover,
+.innerbox2 a:focus {
+    font-weight: bold;
+    color: orange;
+}
+
+.innerbox3 {
+    height: 1500px;
+    width: 1100px;
+    margin: 10px auto;
+
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+}
+
+/* ============================================================================ */
+/* innerbox1 innerbox2 안에 a태그들 정렬 */
+
+.innerbox1 {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.innerbox2 a:nth-child(1) {
+    padding-left: 55px;
+}
+
+.innerbox2 a {
+    padding: 10px;
+}
+
+/* =========================================================================== */
+/* innerbox 2, 3 사이에 테마 표시 */
+
+.innerbox1 a[href="#"] {
+    color: orange;
+    font-weight: bold;
+}
+
+.innerbox23 h2 {
+    font-size:2.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom:10px;
+}
+
+/* ============================================================================ */
+/* innerbox3 안에 food box 나열 */
+
+.innerbox3 .food_box {
+    width: 250px;
+    height: 300px;
+    margin: auto;
+
+    position: relative;
+}
+
+.innerbox3 .food_box:hover {
+    opacity: 0.8;
+    transition: all 0.2s linear;
+}
+
+header {
+    z-index: 3;
+}
+
+.food_box button {
+    position: absolute;
+    right: 10px;
+    bottom: 100px;
+    background: none;
+    border: none;
+}
+
+.food_box button #wish_icon {
+    color: white;
+}
+
+.food_box #wish_icon:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.food_box button:focus #wish_icon {
+    color: red;
+}
+
+.innerbox3 .food_box {
+    text-align: center;
+}
+
+.food_box .menu {
+    display: inline-block;
+}
+
+.innerbox3 a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* ============================================================================== */
+/* food_box 안에 img + menu name + menu price */
+/* 찜하기 + 장바구니 */
+
+.food_box img {
+    width: 100%;
+    height: 70%;
+    border-radius: 5%;
+}

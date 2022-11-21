@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 밀키트 쇼핑몰 :: Meal Bong </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/account.css">
+</head>
+
+<body>
+
+    <div class="account_container">
+    <div class="imgdiv">
+        <a href="../../index.html"><img src="../../image/logo4.png"></a>
+    </div>
+
+    <main>
+        <div class="maindiv">
+            <div class="maindiv2">
+                <span class="mainspan">회원가입</span>
+                </div>
+
+                <div class="divline align">
+                    <div>
+                        <label class="font1">
+                            <span class="spanstyle">*</span>필수입력사항
+                        </label>
+                    </div>
+                </div>
+
+
+                <form action="./account_submit.html" name="Create-Account">
+                    <fieldset>
+                        <div class="container">
+                            <div class="mainbox">
+                                <div class="box1">
+                                    <div class="inner">
+                                        <label class="font">
+                                            <span>아이디</span><span class="spanstyle">*</span>
+                                        </label>
+                                    </div>
+                                    <div class="box2">
+                                        <input type="text" name="user-id" class="inputstyle" placeholder="아이디를 입력해주세요" minlength="8"
+                                            required>
+                                    </div>
+                                    <div class="box3">
+                                        <button type="button" class="buttonstyle">
+                                            중복확인
+                                        </button>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            <div class="box1">
+                                <div class="inner">
+                                    <label class="font">
+                                        비밀번호<span class="spanstyle">*</span>
+                                    </label>
+                                </div>
+                                <div class="box2">
+                                    <input type="password" name="user-pw" class="inputstyle" placeholder="비밀번호를 입력해주세요" minlength="10"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="box1">
+                                <div class="inner">
+                                    <label class="font">
+                                        비밀번호확인<span class="spanstyle">*</span>
+                                    </label>
+                                </div>
+                                <div class="box2">
+                                    <input type="password" name="user-pw2" class="inputstyle" placeholder="비밀번호를 한번 더 입력해주세요"
+                                        minlength="10" required>
+                                </div>
+                            </div>
+
+                            <div class="box1">
+                                <div class="inner">
+                                    <label class="font">
+                                        이름<span class="spanstyle">*</span>
+                                    </label>
+                                </div>
+                                <div class="box2">
+                                    <input type="text" name="user-name" class="inputstyle" placeholder="이름을 입력해주세요" required>
+                                </div>
+                            </div>
+
+                            <div class="box1">
+                                <div class="inner">
+                                    <label class="font">
+                                        이메일<span class="spanstyle">*</span>
+                                    </label>
+                                </div>
+                                <div class="box2">
+                                    <input type="email" name="user-email" class="inputstyle" placeholder="예: mealbong@meal.com" required>
+                                </div>
+
+                                <div class="box3">
+                                    <button type="button" class="buttonstyle">
+                                        중복확인
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="box1">
+                                <div class="inner">
+                                    <label class="font">
+                                        휴대폰<span class="spanstyle">*</span>
+                                    </label>
+                                </div>
+                                <div class="box2">
+                                    <input type="tel" name="user-phone" class="inputstyle" placeholder="숫자만 입력해주세요." required>
+                                </div>
+
+                                <div class="box3">
+                                    <button type="button" class="buttonstyle2 button_opacity">
+                                        인증번호 받기
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="box1">
+                                <div class="inner">
+                                    <label class="font">
+                                        주소<span class="spanstyle">*</span>
+                                    </label>
+                                </div>
+                                <div class="box2">
+                                    <button type="button" class="addressbutton">주소 검색</button>
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="box1">
+                                <div class="inner genderlabel">
+                                    <label class="font">
+                                        성별
+                                    </label>
+                                </div>
+                                <div class="box2 gender">
+                                    <input type="radio" class="genderinput" name="gender" id="man">
+                                    <label for="man" name="gender" class="genderlabel2">남자</label>
+                                    <input type="radio" class="genderinput" name="gender" id="woman">
+                                    <label for="woman" name="gender" class="genderlabel2">여자</label>
+                                    <input type="radio" class="genderinput" name="gender" id="none">
+                                    <label for="none" name="gender">선택안함</label>
+                                </div>
+
+                            </div>
+
+                            <div class="box1 birthmainbox">
+                                <div class="inner">
+                                    <label class="font birthlabel">
+                                        생년월일
+                                    </label>
+                                </div>
+                                <div class="birth">
+                                    <div class="birthchild birthchild1">
+
+                                        <input type="text" name="birth-years" class="inputstyle2" placeholder="YYYY" maxlength="4"
+                                            >
+
+                                    </div>
+                                    <div class="birthchild birthchild2">
+                                       <select name="birth-month" id="month" class="month">
+                                        <option value="1">1월</option>
+                                        <option value="2">2월</option>
+                                        <option value="3">3월</option>
+                                        <option value="4">4월</option>
+                                        <option value="5">5월</option>
+                                        <option value="6">6월</option>
+                                        <option value="7">7월</option>
+                                        <option value="8">8월</option>
+                                        <option value="9">9월</option>
+                                        <option value="10">10월</option>
+                                        <option value="11">11월</option>
+                                        <option value="12">12월</option>
+                                       </select>
+
+                                    </div>
+                                    <div class="birthchild">
+
+                                        <input type="text" name="birth-day" class="inputstyle2" placeholder="DD" maxlength="2">
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+            </div>
+
+            </fieldset>
+            <div class="buttonBox">
+                <button class="button_submit">
+                    가입하기
+                </button>
+            </div>
+
+            </form>
+        </div>
+
+    </main>
+</div>
+
+     <!-- footer : 법적 필수 항목 -->
+     <footer>
+        <hr>
+        <div class="footer">
+            <div><a href="../footer/personal.html"><strong>개인정보처리방침</strong></a></div>
+            <div><a href="../footer/using.html">이용약관</a></div>
+            <div><a href="../service_page/notice.html">공지사항</a></div>
+            <div><a href="../service_page/inquriy/inquiry_list.html">1:1 문의</a></div>
+        </div>
+
+        <pre>
+    회사명 : MealBong
+    사업자 번호 : 123-45-678910
+    대표자 : 박규민
+    주소 : 경기도 성남시 분당구 돌마로 46
+    연락처 : 031 - 789 - 1234
+    E-mail : abcedfg@gmail.com
+    Copyright © 2022 MealBong. All rights reserved.
+        </pre>
+    </footer>
+
+</body>
+
+</html>

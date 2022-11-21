@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../../css/mainPage.css">
+    <link rel="stylesheet" href="../../../css/food_info.css">
+    <script src="https://kit.fontawesome.com/219136e9eb.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- 헤더 : 로고 / 검색창 /  -->
+    <header>
+        <div class="space">
+            <ul class="login">
+                <li><a href="../../login/Terms.html">회원가입</a></li>
+                <li><a href="../../login/login.html">로그인</a></li>
+                <li class="l_hover"><a href="../../service_page/notice.html">고객센터</a>
+                    <ul class="hoverbox">
+                        <li><a href="../../service_page/notice.html">공지사항</a></li>
+                        <li><a href="../../service_page/faq/faq.html">자주하는 질문</a></li>
+                        <li><a href="../../service_page/inquriy/inquiry_list.html">1:1 문의</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="flex-box">
+            <a href="../../../index.html"><img src="../../../image/logo4.png" alt="logo" class="logo"></a>
+            <form>
+                <div class="search">
+                    <input type="text" placeholder="검색어를 입력 하세요" required>
+                    <button class="button"><img class="button-set" src="../../../image/search.png"></button>
+                </div>
+            </form>
+            <div class="cart_heart">
+                <a href="../../my_page/mypage.html" class="mpage" alt="마이페이지"></a>
+                <a href="../../login/cart.html" class="cart" alt="장바구니"></a>
+                <a href="../../my_page/wish.html" class="heart" alt="찜한 상품"></a>
+            </div>
+        </div>
+        <!-- nav / position : fixed -->
+        <nav>
+            <ul class="menu">
+                <li><a href="../../menu_list/Korean_menulist.html">카테고리</a>
+                    <ul class="submenu">
+                        <li><a href="../../menu_list/Korean_menulist.html">한식</a></li>
+                        <li><a href="../../menu_list/Chinese_menulist.html">중식</a></li>
+                        <li><a href="../../menu_list/Japanese_menulist.html">일식</a></li>
+                        <li><a href="../../menu_list/Western_menulist.html">양식</a></li>
+                        <li><a href="../../menu_list/Bunsik_menulist.html">분식/야식</a></li>
+                        <li><a href="../../menu_list/Asian_menulist.html">아시안</a></li>
+                    </ul>
+                </li>
+                <li><a href="../../../index.html#pop">인기상품</a></li>
+                <li><a href="../../../index.html#recommend">오늘의 추천</a></li>
+                <li><a href="../../service_page/notice.html">고객센터</a>
+                    <ul class="submenu2">
+                        <li><a href="../../service_page/notice.html">공지사항</a></li>
+                        <li><a href="../../service_page/faq/faq.html">자주하는 질문</a></li>
+                        <li><a href="../../service_page/inquriy/inquiry_list.html">1:1 문의</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ============================================================================= -->
+    <!-- food_page -->
+
+    <div class="outerbox1">
+        <div class="innerbox1">
+            <img src="../../../image/Bunsik/볼케이노 국물닭발(2인).jpg" alt="Food main img">
+        </div>
+        <div class="innerbox1">
+            <ul>
+                <li id="menu">
+                    <div>
+                        <h1>볼케이노 국물 닭발</h1>
+                    </div>
+                    <div>
+                        <h2>12,000원</h2>
+                    </div>
+                </li>
+                <li id="icons">
+                    <ul>
+                        <li>
+                            <div><i class="fa-regular fa-clock fa-2x"></i> 조리 5분</div>
+                        </li>
+                        <li>
+                            <div><i class="fa-solid fa-user-group fa-2x"></i> 1인분</div>
+                        </li>
+                        <li>
+                            <div><i class="fa-solid fa-bars-staggered fa-2x"></i> 난이도 3</div>
+                        </li>
+                        <li>
+                            <div><i class="fa-regular fa-hard-drive fa-2x"></i> 냉장보관</div>
+                        </li>
+                    </ul>
+                </li>
+                <li id="delivery">
+                    <div>
+                        <h2>배송비</h2>
+                    </div>
+                    <div>
+                        3,000원
+                    </div>
+                </li>
+                <li id="amount">
+                    <h2>수량</h2>
+                    <!-- <input type="number" name="foodamount" min="0"> -->
+                    <select name="foodamount">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                </li>
+                <li id="sale">
+                    <h2><button class="foodpage_button"><a href="">구매하기</a></button>
+                        <button class="foodpage_button"><a href="">장바구니</a></button>
+                        <button class="foodpage_button"><a href="">찜하기</a></button>
+                    </h2>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="total_amount">
+        <div class="product_price">
+            <span class="expenditure">상품 금액 : </span>
+            <span class="amount">30,000</span>
+            <span class="won">원</span>
+        </div>
+        <div class="plus">
+            <span>+</span>
+        </div>
+        <div class="delivery_price">
+            <span class="expenditure">배송비 : </span>
+            <span class="amount">3,000</span>
+            <span class="won">원</span>
+        </div>
+        <hr>
+        <div class="total_price">
+            <span class="expenditure">총 합계금액 : </span>
+            <span class="amount">33,000</span>
+            <span class="won">원</span>
+        </div>
+    </div>
+    <!-- ============================================================================ -->
+    <!-- middle box -->
+
+    <div class="tab_box">
+        <div class="tab_middlebox">
+            <a href="#food_info">상세정보</a>
+            <a href="#food_delivery">배송안내</a>
+            <a href="#food_refund">교환 및 반품안내</a>
+            <a href="#food_review">상품후기(0)</a>
+            <a href="#food_inquiry">상품문의(0)</a>
+        </div>
+    </div>
+
+    <div class="outerbox2">
+        <div id="food_info">
+            <img src=https://mychef.godohosting.com/godo5/product/hellcano_chicken_feet.jpg alt="food_detail1">
+        </div>
+        <div id="food_delivery">
+            <img src="https://www.mychef.kr/data/editor/policy/220609/about_mychef_01_120136.jpg" name="food_delivery"
+                alt="food_detail2">
+        </div>
+        <div id="food_refund">
+            <img src="   https://www.mychef.kr/data/editor/policy/220609/about_mychef_02_120033.jpg" name="food_refund"
+                alt="food_detail3">
+        </div>
+        <div id="food_review">
+            <div class="last review1">
+                <div>
+                    <h2>상품후기</h2>
+                </div>
+                <div>
+                    <button><a href="">상품후기 글쓰기</a></button>
+                </div>
+            </div>
+            <hr>
+            <div class="last review2">
+                등록된 상품후기가 없습니다.
+            </div>
+        </div>
+        <div id="food_inquiry">
+            <div class="last review1">
+                <div>
+                    <h2>상품문의</h2>
+                </div>
+                <div>
+                    <button><a href="">상품문의 글쓰기</a></button>
+                </div>
+            </div>
+            <hr>
+            <div class="last review2">
+                등록된 상품문의가 없습니다.
+            </div>
+        </div>
+    </div>
+
+    <div class="topButton">
+        <a href="#"><img src="../../../image/topbutton.png" title="위로 가기"></a>
+    </div>
+    
+    <!-- footer : 법적 필수 항목 -->
+    <footer>
+        <hr>
+        <div class="footer">
+            <div><a href="../../footer/personal.html"><strong>개인정보처리방침</strong></a></div>
+            <div><a href="../../footer/using.html">이용약관</a></div>
+            <div><a href="../../service_page/notice.html">공지사항</a></div>
+            <div><a href="../../service_page/inquriy/inquiry_list.html">1:1 문의</a></div>
+        </div>
+
+        <pre>
+            회사명 : MealBong
+            사업자 번호 : 123-45-678910
+            대표자 : 박규민
+            주소 : 경기도 성남시 분당구 돌마로 46
+            연락처 : 031 - 789 - 1234
+            E-mail : abcedfg@gmail.com
+            Copyright © 2022 MealBong. All rights reserved.
+                </pre>
+    </footer>
+</body>
+
+</html>

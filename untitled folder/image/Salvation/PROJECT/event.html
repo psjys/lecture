@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FESTIVAL EVENT</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/project.css">
+    <link rel="stylesheet" href="css/notosans.css">
+    <link rel="Icon" href="img/icon.png">
+</head>
+<body>
+    <div class="body-wrap">
+        <div class="head-wrap">
+            <div class="logo">
+                <a href="main.html"><img src="img/logo.png"></a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="notice.html">NOTICE</a></li>
+                    <li><a href="location.html">LOCATION</a></li>
+                    <li><a href="lineup.html">LINE UP</a></li>
+                    <li><a href="event.html">EVENT</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-wrap" id="event">
+            <div class="contentheader" id="event-header">
+                <h1>EVENT</h1>
+            </div>
+            <div class="event-titile" id="title2">
+                    <h2>개강 기념 선착순 이벤트</h2>
+                </div>
+            </div>
+            <div class="event-wrap">
+                <div class="event-detail" id="event-detail">
+                    <button type="button" id="sub"><img src="img/eventpost.png"></button>
+                </div>
+            </div>
+            <div class="event-modal" id="event-modal">
+                <div class="modal" id="modal">
+                    <div class="modal-top">
+                        <div class="modalclose" id="modalcloseBtn">
+                            <span class="material-icons">close</span>
+                        </div>
+                        <h2>선착순 이벤트</h2>
+                    </div>
+                    <!--이벤트 동의 약관을 전체 체크 시 이벤트폼 단계로 넘어감-->
+                    <div class="modal-mid">
+                        <!--약관 확인-->
+                        <div class="content">
+                            <div class="contentDetail">
+                                <h3 class="title">이벤트 약관 확인 및 동의</h3>
+                                <div class="agreebox">
+                                    <input type="checkbox" id="eventAgreement" class="agreeCheck">
+                                    <label for="eventAgreement">이벤트 참여를 위한 개인정보 수집에 대한 동의<span class="fcBlue">(필수)</span></label>
+                                    <div class="agreeContent">
+                                        <ul>
+                                            <li>수집항목 : 이름, 휴대전화번호, 생년월일</li>
+                                            <li>수집 및 이용목적 : 이벤트 참여를 위한 필수 정보 수집</li>
+                                            <li>보유 및 이용기간 : 페스티벌 종료일까지</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="btnBox">
+                                    <button class="nextBtn" id="nextBtn">다음</button>
+                                </div>
+                            </div>
+
+                            <!--필수 정보 입력칸-->
+                            <div class="contentDetail" id="formwrap">
+                                <h3 class="title">필수정보 입력</h3>
+                                <form action="eventsup.html" method="post" id="eventfrm">
+                                    <div class="inputbox">
+                                        <div>이름</div>
+                                        <div><input type="text" name=name id=name required placeholder="이름을 입력해주세요">
+                                            <span class="comment"></span>  
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="inputbox">
+                                        <div>생년월일</div>
+                                        <div><input type="text" name=birth id="birth" required placeholder="생년월일 6자리를 입력해주세요">
+                                        <span class="comment"></span>  
+                                        </div>
+                                    </div>
+                                    <div class="inputbox">
+                                        <div>핸드폰 번호</div>
+                                        <div class="phone" id="phone">
+                                            <select id="phone1">
+                                                <option value="010">010</option>
+                                                <option value="011">011</option>
+                                                <option value="016">016</option>
+                                            </select> -
+                                            <input type="text" name="phone" id="phone2" required> -
+                                            <input type="text" name="phone" id="phone3" required>
+                                            <span class="comment"></span>
+                                        </div>
+                                    </div>
+                                    <div class="btnBox">
+                                        <button type="button" id="submitBtn">이벤트 응모하기</button>
+                                    </div> 
+                                </form>      
+
+
+                            </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            JAVA페스티벌 ｜ 사업자등록번호 : 110-20-12345 ｜ 서울 당산 제2014-01호 ｜ 주최자 : 홍길동
+            Copyright © 2022 KH FESTIVAL All Right Reserved
+        </div>
+    </div>
+
+    <script src="js/event.js"></script>
+</body>
+</html>
