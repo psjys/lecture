@@ -57,7 +57,7 @@ header {
     color: black;
 }
 
-.login li:hover a{
+.login li:hover a {
     text-decoration: underline;
 }
 
@@ -237,27 +237,36 @@ nav ul li:nth-child(4):hover .submenu2 {
 /* banner ------------*/
 .bannerContainer {
     position: relative;
-    width : 100%;
+    width: 100%;
+    /* display: flex; */
 }
 
-.bannerContainer button {
+.btn_left,
+.btn_right {
     position: absolute;
-    width : 50px;
-    height: 50px;    
+    width: 50px;
+    height: 50px;
     background: none;
     border: none;
+    top: calc(500px / 2 - 50px);
+    transform: translateY(50%);
+    z-index: 1;
+    cursor: pointer;
 }
-.bannerContainer>button img {
-    width : 50px;
+
+.btn_left img,
+.btn_right img {
+    width: 50px;
     height: 50px;
     opacity: .5;
 }
 
 .btn_left {
-    top : 45%;
-    z-index: 1;
-    left : 2%;
-    cursor: pointer;
+    left: 20px;
+}
+
+.btn_right {
+    right: 20px;
 }
 
 .btn_left:hover img,
@@ -266,12 +275,6 @@ nav ul li:nth-child(4):hover .submenu2 {
     transition: all .5s;
 }
 
-.btn_right {
-    top : 45%;
-    z-index: 1;
-    right: 2%;
-    cursor: pointer;
-}
 
 .banner {
     object-fit: cover;
@@ -289,54 +292,79 @@ nav ul li:nth-child(4):hover .submenu2 {
     min-width: 1200px;
     display: flex;
     /* overflow : hidden; */
-    top : 0;
-    bottom : 500px;
+    top: 0;
+    bottom: 500px;
 }
 
 
 /* main -------------*/
 
 .main-width {
-    width: 1200px;
+    width: 1000px;
     margin: 0 auto;
 }
+
 .main-top {
-    min-width : 1200px;
-    position: relative;
-}
-
-main button {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-}
-
-.main_btn_left {
-    top : 40%;
-    left : 10%;
-}
-.main_btn_right {
-    top : 40%;
-    right: 10%;
-}
-
-.main-flex,
-.pop_pro,
-.rec {
+    min-width: 1100px;
+    /* position: relative; */
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: center;
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 400px;
 }
 
 .pop_pro {
     margin-bottom: 100px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    width: 1200px;
+    margin: 0;
+    /* position: absolute; */
+    /* left: 0; */
+}
+
+.btn_forward,
+.btn_back {
+    background: none;
+    border: none;
+    opacity: .3;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.btn_forward:hover,
+.btn_back:hover {
+    opacity: 1;
+    transition: all .5s;
+}
+
+/* .main-top>a:nth-of-type(1) {
+    visibility: hidden;
+} */
+
+.btn_forward img,
+.btn_back img {
+    width: 50px;
+    height: 50px;
+}
+
+.menuContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pop {
     font-size: 1.5em;
     font-weight: bold;
     margin: 30px auto;
+    text-align: center;
 }
 
 .pop a {
@@ -344,7 +372,7 @@ main button {
     color: black;
 }
 
-.pop_pro {
+/* .pop_pro {
     display: grid;
     grid-template: repeat(1, 1fr) / repeat(4, 1fr);
     justify-content: center;
@@ -354,7 +382,7 @@ main button {
     display: grid;
     grid-template: repeat(1, 1fr) / repeat(4, 1fr);
     justify-content: center;
-}
+} */
 
 .game {
     border: 1px solid;
@@ -366,8 +394,11 @@ main button {
 
 .product {
     margin: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
+    width: 270px;
+    height: 300px;
+    transition: all .5s;
 }
 
 .product a {
@@ -452,13 +483,13 @@ header {
 }
 
 .btnScroll {
-    opacity : .5;
+    opacity: .5;
     visibility: visible;
 }
 
 .btnHover {
-    opacity : 1;
-    cursor : pointer;
+    opacity: 1;
+    cursor: pointer;
 }
 
 /* footer ------------ */

@@ -156,150 +156,21 @@
 //	}
 //}
 
-//public class Exer {
-//
-//	public static void main(String[] args) {
-//		int [][] a = new int [2][];
-//		for (int i = 0; i < a.length ; i++) {
-//			a[i] = new int [3];
-//		}
-//		for (int i = 0, v = 1 ; i < a.length ; i++) {
-//			for (int j = 0 ; j < a[i].length; j++) {
-//				a[i][j] = v++;
-//			}
-//		}
-//		for (int [] is : a) {
-//			for (int i:is) {
-//				System.out.print(i);
-//			}
-//			System.out.println();
-//		}
-//	}
-//}
-
-//public class Exer {
-//
-//	public static void main(String[] args) {
-//		
-//		int [][] ar1 = {	// 2차원 배열의 선언과 초기화 
-//				{1, 2, 3},
-//				{4, 5, 6}
-//		};
-//		
-//		int [][][] ar2 = {	// 3차원 배열의 선언과 초기화 
-//			{
-//				{1, 2, 3},
-//				{4, 5, 6}		
-//			},
-//			{
-//				{7, 8, 9},
-//				{10, 11, 12}
-//			}
-//		};
-//		for ( : ar1) // 배열 첫주소 : 
-//			// 좌변에 배열의 요소값을 받을 수 있는 임시 변수 넣음 
-//			
-//		for (int i = 0 ; i < ar1.length ; i++) {
-//			for (int j = 0 ; j <ar1[0].length; j++) {
-//				System.out.print(ar1[i][j] + " ");
-//			}
-//			System.out.println();
-//		}
-//		System.out.println();
-//		
-//		for (int i = 0 ; i < ar2.length ; i++) {
-//			for (int j = 0 ; j <ar2[0].length ; j++) {
-//				for (int j2 = 0; j2 < ar2[0][0].length ; j2++) {
-//					System.out.print(ar2[i][j][j2] + " ");
-//				}
-//				System.out.println();
-//			}
-//			System.out.println();
-//		}
-//	}
-//}
-//public class Exer {
-//
-//	public static void main(String[] args) {
-//		char [] str = {'a', 'b', 'c'};
-//		
-//		System.out.println(str);
-//	}
-//}
-//
-//public class Exer {
-//
-//	public static void main(String[] args) {
-//		int[] a1 = {1, 2, 3};
-//		int[] a2 = {1, 2};
-//		int[] a3 = {1, 2, 3, 4};
-//		int[] a4 = {1, 2, 3, 4, 5, 6, 7};
-//		int[] a5 = {1, 2, 3, 4, 5, 6};
-//		
-////		int[][] a = new int [][] {a1, a2, a3, a4, a5}; - 원식 
-//		int[][] a = {a1, a2, a3, a4, a5};
-//		
-//		for (int [] i : a) {
-//			for (int j : i) {
-//				System.out.printf("%d ",j);
-//			}
-//			System.out.println();
-//		}
-//	}
-//}
-import java.util.Scanner;
-
 public class Exer {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int boardSize = 10;
-		int n1 = 0;
-		int n2 = 0;
-
-		char[][] board = new char[boardSize][boardSize]; // 출력 할 배열
-		int[][] shipBoard = { // 배가 존재하는 위치를 저장한 배열. ( 0 : 없음, 1 : 있음 )
-				// char type 배열
-				// 1 2 3 4 5 6 7 8 9
-				{ 0, 0, 0, 0, 0, 0, 1, 0, 0 }, // 1
-				{ 1, 1, 1, 1, 0, 0, 1, 0, 0 }, // 2
-				{ 0, 0, 0, 0, 0, 0, 1, 0, 0 }, // 3
-				{ 0, 0, 0, 0, 0, 0, 1, 0, 0 }, // 4
-				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, // 5
-				{ 1, 1, 0, 1, 0, 0, 0, 0, 0 }, // 6
-				{ 0, 0, 0, 1, 0, 0, 0, 0, 0 }, // 7
-				{ 0, 0, 0, 1, 0, 0, 0, 0, 0 }, // 8
-				{ 0, 0, 0, 0, 0, 1, 1, 1, 0 }, // 9
-		};
-
-		for (int i = 0; i < boardSize; i++) {
-			for (int j = 0; j < boardSize; j++) {
-				board[i][j] = ' ';
+		int [][] a = new int [2][];
+		for (int i = 0; i < a.length ; i++) {
+			a[i] = new int [3];
+		}
+		for (int i = 0, v = 1 ; i < a.length ; i++) {
+			for (int j = 0 ; j < a[i].length; j++) {
+				a[i][j] = v++;
 			}
 		}
-
-		for (int i = 1; i < boardSize; i++) {
-			board[0][i] = board[i][0] = (char) (i + '0');
-		}
-
-		while (true) {
-			System.out.print("좌표를 입력하세요. (종료는 00) >");
-			String num = sc.nextLine();
-			if (num.length() == 2) {
-				n1 = num.charAt(0) - '0';
-				n2 = num.charAt(1) - '0';
-				if (n1 == 0 && n2 == 0) {
-					System.out.println("게임 종료");
-					break;
-				}
-				if (num.length() != 2 || n1 < 0 || n2 < 0 || n1 > boardSize || n2 > boardSize) {
-					System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
-					continue;
-				}
-				board[n1][n2] = shipBoard[n1 - 1][n2 - 1] == 1 ? 'O' : 'X';
-			}
-			for (int i = 0; i < boardSize; i++) {
-				System.out.println(board[i]);
+		for (int [] is : a) {
+			for (int i:is) {
+				System.out.print(i);
 			}
 			System.out.println();
 		}

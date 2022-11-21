@@ -271,17 +271,9 @@ public class Exer {
 				{ 0, 0, 0, 1, 0, 0, 0, 0, 0 }, // 8
 				{ 0, 0, 0, 0, 0, 1, 1, 1, 0 }, // 9
 		};
-
 		for (int i = 0; i < boardSize; i++) {
-			for (int j = 0; j < boardSize; j++) {
-				board[i][j] = ' ';
-			}
-		}
 
-		for (int i = 1; i < boardSize; i++) {
-			board[0][i] = board[i][0] = (char) (i + '0');
 		}
-
 		while (true) {
 			System.out.print("좌표를 입력하세요. (종료는 00) >");
 			String num = sc.nextLine();
@@ -289,19 +281,16 @@ public class Exer {
 				n1 = num.charAt(0) - '0';
 				n2 = num.charAt(1) - '0';
 				if (n1 == 0 && n2 == 0) {
-					System.out.println("게임 종료");
-					break;
+					System.out.println("종료");
 				}
-				if (num.length() != 2 || n1 < 0 || n2 < 0 || n1 > boardSize || n2 > boardSize) {
-					System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
-					continue;
-				}
-				board[n1][n2] = shipBoard[n1 - 1][n2 - 1] == 1 ? 'O' : 'X';
+				break;
+					
+			} else {
+				System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
+				continue;
 			}
-			for (int i = 0; i < boardSize; i++) {
-				System.out.println(board[i]);
-			}
-			System.out.println();
 		}
+
 	}
+
 }
