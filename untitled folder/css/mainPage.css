@@ -174,7 +174,7 @@ nav {
     top: 0px;
     box-shadow: 0 4px 4px -4px gray;
     background-color: white;
-    z-index: 1;
+    z-index: 2;
 }
 
 .menu>li {
@@ -275,45 +275,49 @@ nav ul li:nth-child(4):hover .submenu2 {
     transition: all .5s;
 }
 
-
 .banner {
     object-fit: cover;
-    /* background-size: 100%; */
-    position: absolute;
     background-position: center;
+    background-size: 100%;
     height: 500px;
     width: 100%;
-    display: flex;
 }
 
 .main-banner {
-    position: relative;
+    white-space: nowrap;
     height: 500px;
     min-width: 1200px;
-    display: flex;
-    /* overflow : hidden; */
-    top: 0;
-    bottom: 500px;
+    width : 100%;
+    transition: all 1s;
 }
 
+
+
+.main-banner li {
+    position: absolute;
+    display: inline-block;
+}
+
+.slide-container {
+    position: relative;
+    overflow : hidden;
+}
 
 /* main -------------*/
 
 .main-width {
-    width: 1000px;
+    /* width: 1000px; */
     margin: 0 auto;
 }
 
 .main-top {
-    min-width: 1100px;
-    /* position: relative; */
+    width: 1200px;
     display: flex;
-    /* flex-direction: row; */
-    /* flex-wrap: wrap; */
     align-items: center;
     justify-content: center;
     overflow: hidden;
     height: 400px;
+    position: relative;
 }
 
 .pop_pro {
@@ -322,10 +326,9 @@ nav ul li:nth-child(4):hover .submenu2 {
     align-content: center;
     justify-content: center;
     text-align: center;
-    width: 1200px;
+    width: 1100px;
     margin: 0;
-    /* position: absolute; */
-    /* left: 0; */
+    position: absolute;
 }
 
 .btn_forward,
@@ -335,7 +338,7 @@ nav ul li:nth-child(4):hover .submenu2 {
     opacity: .3;
     width: 50px;
     height: 50px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 .btn_forward:hover,
@@ -358,6 +361,7 @@ nav ul li:nth-child(4):hover .submenu2 {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .pop {
@@ -490,6 +494,10 @@ header {
 .btnHover {
     opacity: 1;
     cursor: pointer;
+}
+
+.nonVisible {
+    visibility:hidden;
 }
 
 /* footer ------------ */
