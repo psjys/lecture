@@ -12,14 +12,14 @@ let slide_idx = 0,
     beforeTime = -new Date();
 
 //연속클릭방지 지연시간
-function time() {
-    let currentTime = new Date();
+// function time() {
+//     let currentTime = new Date();
 
-    if (currentTime - beforeTime > 1000) {
-        beforeTime = currentTime;
-        return true;
-    }
-}
+//     if (currentTime - beforeTime > 1000) {
+//         beforeTime = currentTime;
+//         return true;
+//     }
+// }
 
 // 버튼
 function back() {
@@ -43,13 +43,13 @@ function forward() {
 
 menuContainer.addEventListener('click', function (e) {
     e.preventDefault();
-    if (time()) {
-        const btn = e.target.closest('a');
-        if (btn === menuBackBtn) {
-            back();
-        } else if (btn === menuForwardBtn) {
-            forward();
-        }
-        menu[0].style.left = `${slide_idx * -100}%`;
+    const btn = e.target.closest('a');
+    if (btn === menuBackBtn) {
+        back();
+    } else if (btn === menuForwardBtn) {
+        forward();
     }
+    // if (time()) {
+        menuDiv.style.left = `${slide_idx * -100}%`;
+    // }
 });

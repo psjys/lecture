@@ -9,6 +9,7 @@ let slide_idx = 0,
     slide_endidx = li.length - 1,
     beforeTime = -new Date();
 
+
 //연속클릭방지 지연시간
 function time() {
     let currentTime = new Date();
@@ -18,6 +19,7 @@ function time() {
         return true;
     }
 }
+
 
 // =========================================================
 // 버튼입력

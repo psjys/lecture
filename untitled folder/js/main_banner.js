@@ -1,80 +1,35 @@
 'use strict';
 
-let mainBanner = document.querySelector('.main-banner'),
-    button = mainBanner.querySelectorAll('.mainButton');
+let slides = document.querySelector('.main-banner'),
+    slide = document.querySelectorAll('.main-banner li'),
+    currentIdx = 0,
+    slideCount = slide.length,
+    container = document.querySelector('.slide-container'),
+    prevBtn = container.querySelector('.btn_left img'),
+    nextBtn = container.querySelector('.btn_right img');
 
-// 메인 배너
-let imgArr = [
-    'image/banner3.png',
-    'image/banner1.jpg',
-    'image/banner2.jpg',
-    'image/banner4.jpg',
-];
-
-for (let i = 0; i < imgArr.length; i++) {
-    mainBanner.innerHTML += `<li><img src="${imgArr[i]}" alt="banner" class="banner"></li>`;
+function moveSlide(num) {
+    slides.style.left = -num * 100 + '%';
+    currentIdx = num;
 }
 
-let beforeIdx = 0,
-    i = 0,
-    slide_list_li = mainBanner.querySelectorAll('li');
-
-function slideImg() {
-    slide_list_li[i].style.left = `0`;
-    // 이미지 슬라이드
-    if (beforeIdx > i) {
-        slide_list_li[beforeIdx].style.left = '100%';
+nextBtn.addEventListener('click', function (e) {
+    // e.preventDefault();
+    console.log(e.target);
+    if (currentIdx < slideCount - 1) {
+        moveSlide(currentIdx + 1);
+    } else {
+        moveSlide(0);
     }
-    else if (beforeIdx < i) {
-        slide_list_li[beforeIdx].style.left = '-100%';
-    }
-
-    slide_list_li[i].classList.remove('nonVisible');
-    slide_list_li[beforeIdx].classList.add('nonVisible');
-    slide_list_li[(i + 1) % slide_list_li.length].style.left = '100%';
-
-    beforeIdx = i;
-}
-
-// 자동 슬라이드 
-let slide;
-function autoSlide() {
-    slide = setInterval(function () {
-        i = ++i % slide_list_li.length;
-        slideImg();
-    }, 1500);
-}
-
-autoSlide();
-
-mainBanner.addEventListener('mouseenter', () => {
-    clearInterval(slide);
 });
 
-mainBanner.addEventListener('mouseleave', () => {
-    autoSlide();
+//  이미지 백그라운드
+
+prevBtn.addEventListener('click', function (e) {
+    console.log(e.target);
+    if (currentIdx > 0) {
+        moveSlide(currentIdx - 1);
+    } else {
+        moveSlide(slideCount - 1);
+    }
 });
-
-
-
-// let nationBox = mainContainer.getElementsByClassName('nationBox');
-
-// let beforeNation = nationBox[0];
-
-// function changeImage() {
-//     img.src = imgAr[beforeNation.textContent % imgAr.length];
-//     nationBox[beforeNation.textContent % imgAr.length].style.opacity = 1;
-//     beforeNation = nationBox[beforeNation.textContent % imgAr.length];
-// }
-
-// let btn = true,
-//     interval;
-
-// function slide() {
-//     interval = setInterval(changeImage, 1000);
-// }
-// slide();
-
-// function stop() {
-//     clearInterval(interval);
-// }
