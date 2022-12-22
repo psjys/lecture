@@ -2,6 +2,8 @@ package jdbc01;
 
 import java.sql.*;
 
+//import com.sun.crypto.provider.RSACipher;
+
 import jdbc02.StudentVO;
 
 public class Ex01_Start {
@@ -11,7 +13,9 @@ public class Ex01_Start {
 	private static PreparedStatement pst;
 	private static ResultSet rs; // result set 불러옴? 응?
 	private static String sql;
-
+	
+	String name = "ghdrlfehd";
+	
 	// ** Student List
 	public static void selectList() {
 		// 1) DBConnection
@@ -154,17 +158,34 @@ public class Ex01_Start {
 		} catch (Exception e) {
 			System.out.println("** insert Exception -> " + e.toString());
 		}
-	}
-
+	} // insert 
+	
+	public static void cnClose() {
+		// 항상 역순으로 써야함 (역순으로 쓰지 않아도 오류는 아님) 
+		try {
+			if(rs!=null) rs.close();
+			if(st!=null) st.close();
+			if(pst!=null) pst.close();
+			if(cn!=null) cn.close();
+			
+		} catch (Exception e) {
+			System.out.println("** cnClose Exception -> " + e.toString());
+		} 
+	} // cnClose
+	
 	public static void main(String[] args) {
 
 		// ** JDBC
 		// -> Java로 CRUD 구현
 		// Student List 출력
 		// 순서 : DBconnection -> SQL 구문 처리 -> 결과처리
+		
+		// SQL 구문 처리
 //		selectList();
 		joListSt(3);
 		joListPst(3, "c"); // c이상 사람은 나오면 안됨
+		
+		cnClose();
 
 	} // main
 

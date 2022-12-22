@@ -18,6 +18,34 @@ public class StudentVO { // 조상이 object
 	private Double point;
 	private String birthday;
 	
+	// ** static Test 
+	static String country="Korea";
+	
+	// ** 생성자
+	// -> class 명과 이름 동일, return 값 (void 포함) 없음 
+	// -> default 생성자 : 생성자가 없으면 컴파일러가 자동 생성
+	//					 매개변수가 없음
+	//					 생성자를 1개라도 작성하면 자동생성 안됨 
+	// 					 (매개변수 있는 것을 하나라도 만들면 default생성자 안만들어짐) 
+	public StudentVO() {
+		System.out.println("** default 생성자 **"); 
+	}
+	
+	// 모든 컬럼을 초기화 하는 생성자 
+	public StudentVO(String id) {
+		this.id=id;
+	}
+	
+	public StudentVO(String id, String name, int age, int jno, String info, Double point, String birthday) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.jno = jno;
+		this.info = info;
+		this.point = point;
+		this.birthday = birthday;
+	}
 	public String getId() { //컬럼명의 첫글자를 대문자로 작성 
 		return id;
 	}
