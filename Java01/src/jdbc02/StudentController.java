@@ -4,11 +4,13 @@ import java.util.List;
 
 // ** Controller
 // -> 요청 받아서 해당 서비스를 처리 한 후 결과 출력 
+// -> 유저와의 만남에 접점이 있음 / 전방에 위치  
 
 public class StudentController {
 
 	StudentService service = new StudentService();
-
+	
+	// 1. 
 	public void selectList() {
 //		service.selectList() 의 처리결과를 받아 출력 
 		List<StudentVO> list = service.selectList();
@@ -59,7 +61,7 @@ public class StudentController {
 		}
 	} // update 
 	
-	// 4. delete
+	// 5. delete
 	public void delete (StudentVO vo) {
 		if (service.delete(vo) > 0) {
 			// update 성공
@@ -69,6 +71,25 @@ public class StudentController {
 			System.out.println("** delete 실패 **");
 		}
 	} // delete 
+	
+	// 6. groupTest 
+	public void groupTest (StudentVO vo) {
+		List<GroupDTO> list = service.groupTest();
+		if(list != null) {
+			// 결과 출력 
+			for (GroupDTO j:list) { // groupDTO의 list를 꺼낸다 
+				System.out.println(j);
+			}
+		} else {
+			// 출력할 결과 없음 
+			System.out.println("** 출력할 조별 통계 결과 없음 **");
+		}
+	} // groupTest 
+	
+	// 7. Transaction Test
+	public void transactionTest() {
+		service.transactionTest();
+	} // transactionTest
 
 	public static void main(String[] args) {
 		// ** 기본 인스턴스 정의
@@ -83,7 +104,7 @@ public class StudentController {
 		sc.selectOne(vo);
 		
 		// 3. insert 
-		// -> 입력 Data set / 처음 한 번만 실행됨. 다시 실행하면 중복 데이터 들어가
+		// -> 입력 Data set / 처음 한 번만 실행됨. 다시 실행하면 중복 데이터 들어가서
 		vo.setId("apple");
 		vo.setName("사과나무");
 		vo.setAge(99);
@@ -106,6 +127,14 @@ public class StudentController {
 		// -> "apple" 삭제 
 		vo.setId("apple");
 		sc.delete(vo);
+		
+		// 6. group 통계
+		// -> GroupDTO 작성, Service, DAO 작성 
+		sc.groupTest(vo); // ???
+		
+		// 7. Transaction Test
+		sc.transactionTest();
+		System.out.println("** program 정상 종료 **");
 
 	} // main
 
