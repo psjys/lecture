@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 //@(애너테이션) : 자바 소스 코드에 추가하여 사용할 수 있는 메타데이터의 일종
-@WebServlet("/Ex01HelloServlet") //Ex01HelloServlet : 요청명 / 메인 없이 실행 - get요청, post요청 
+//Ex01HelloServlet : 요청명 / 메인 없이 실행 - get요청, post요청 
+@WebServlet("/hello") 
+//@WebServlet("/gugu") // 매핑네임 중복 test -> Error server start 못함 
 public class Ex01HelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
