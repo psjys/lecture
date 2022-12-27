@@ -1,4 +1,4 @@
-package servlet02;
+package servlet02_form;
 
 import java.io.IOException;
 import java.io.PrintWriter;

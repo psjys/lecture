@@ -22,17 +22,19 @@ public class Ex04_LifeCycle extends HttpServlet {
 	int gno=1;	// doGet() 메서드 호출 횟수 
 	
 	// 생성자 메서드 : 메모리 로드 
+	// -> 서버 스타트 후 첫 요청 들어오면 자동생성 
     public Ex04_LifeCycle() {
         super();
         System.out.println("** 생성자 메서드 호출 횟수 => "+cno++);
     }
     
-    // init() 메서드 
+    // init() 메서드 : 인스턴스 생성 직후 자동 호출
     public void init(ServletConfig config) throws ServletException {
     	System.out.println("** init() 메서드 호출 횟수 => "+ino++);
     }
 
     // destroy() 메서드 : 메모리에서 소멸 
+    // -> 서버 종료 시 (모든 자원 close) 
 	public void destroy() {
 		System.out.println("** destroy() 메서드 호출 횟수 => " + dno++);
 	}
@@ -45,7 +47,7 @@ public class Ex04_LifeCycle extends HttpServlet {
 		out.print("<h2>** Servlet LifeCycle Test **</h2>");
 		out.print("<pre><h3>");
 		out.println("** 현재시간 : "+new Date()); 
-		out.println("** doGet() 호출 횟수 : "+gno); 
+		out.println("** doGet() 호출 횟수 : "+gno);
 		// out.println : pre 태그 내에서 자동 줄바꿈 할 때 
 		out.print("</h3></pre>");
 		System.out.println("** doGet() 메서드 호출 횟수 -> "+gno++);

@@ -14,9 +14,9 @@
 		  	<input type="radio" name="gender" id="me" value="남성">
 			<label for="me">남성</label><br>
 			
-	메일수신:	<input type="radio" name="mailcheck" id="yes" value="Yes" checked>
+	메일수신:	<input type="radio" name="mailcheck" id="yes" value="수신 동의" checked>
 			<label for="yes">예</label>&nbsp;&nbsp;	
-			<input type="radio" name="mailcheck" id="no" value="No">
+			<input type="radio" name="mailcheck" id="no" value="수신 거부">
 			<label for="no">아니오</label><br><br>
 			<hr>
 	<label for="con">가입인사:</label><br>

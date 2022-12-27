@@ -75,6 +75,9 @@ public class Ex03_GetPost extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		// -> Parameter_Data 처리 & 서비스 실행
+		// 	 request.getParameter("id"); 
+		// 	-> 해당하는 parameter (id)가 없으면 null 을 return 
+		//	-> 단, parameter (id) 는 존재하지만 값이 없는 경우와는 구별됨 (null 값이 아님 "") 
 		String id = request.getParameter("id");
 		String name = request.getParameter("name"); // name 이라는 parameter가 전달하는 값을 string으로 리턴
 		int age = Integer.parseInt(request.getParameter("age")); // String -> integer : parseInt 래퍼클래스

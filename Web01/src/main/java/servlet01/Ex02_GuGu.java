@@ -24,9 +24,6 @@ public class Ex02_GuGu extends HttpServlet {
         super();
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// ** 구구단 2~9단 
 		// -> 한글처리
@@ -51,9 +48,6 @@ public class Ex02_GuGu extends HttpServlet {
 		out.print("</body></html>");
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response); // 어떤 요청이 들어와도 실행되게 하고 싶을 때 
 	}
