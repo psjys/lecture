@@ -26,6 +26,7 @@ public class Ex03_SessionInfo extends HttpServlet {
 		// 1. Session 생성
 		// => 클라이언트가 접속함과 동시에 서버에서 자동생성됨
 		// => 이 값을 코드내에서 사용하기 위해 전달받음
+		// 인스턴스 들은 주소값을 전달 받음 
 		HttpSession session = request.getSession();
 
 		// 2. Session info 출력
@@ -47,9 +48,10 @@ public class Ex03_SessionInfo extends HttpServlet {
 		// 3. Session 시간 제한
 		// => 유효시간 설정 (초단위, 1시간 60*60 )
 		// => 확인: 10초 후 새로고침 버튼 누르면, session_id 와 모두 변경됨
-		// => 설정화일 (web.xml) 에서도 설정 가능
+		// => 설정파일 (web.xml) 에서도 설정 가능
 		// Tag session-config 의 subTag session-timeout
-		session.setMaxInactiveInterval(10); // 10초
+		session.setMaxInactiveInterval(10); // 10초 (매개변수는 초 기준) 
+		// -> 10초 동안 아무 요청이 없으면 자동으로 세션 무효화 됨 
 
 		// 4. Session 종료 (삭제)
 		// if (equest.getParameter("jCode").equals("D")) {
