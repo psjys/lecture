@@ -31,6 +31,7 @@
 <hr>
 <a href="/Web01/servletTestForm/flowEx05_LoginForm.jsp">LoginF</a><br>
 <a href="/Web01/slist">StudentList</a><br>
+<a href="/Web01/jsp08_MVCTest/mvc1_01sList.jsp">StudentList_JSP</a><br>
 
 </body>
 </html>
