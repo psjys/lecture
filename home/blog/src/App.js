@@ -35,11 +35,11 @@ function App() {
   let [따봉, 따봉변경] = useState(0);
   let [modal, setModal] = useState(false); // true : 모달창이 보이는 상태 false : 안보이는 상태
 
-    /*  map 함수 특징 : 
+    /*  
+    map 함수 특징 : 
     1. 왼쪽 array 자료 개수 만큼 함수 안의 코드 실행해줌
     2. 함수의 파라미터는 array 안에 있던 자료임
     3. return에 뭐 적으면 오른쪽에 있는걸 array로 담아줌
-
     */
 
   // a : state에 보관한 자리 나옴
