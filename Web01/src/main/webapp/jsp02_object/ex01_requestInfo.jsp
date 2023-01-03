@@ -14,6 +14,7 @@
 => JSP에서 별도 선언 없이 사용 가능
 => request, response, out, session, 
    pageContext, application 등 9종류
+   
 * ContextPath => <%=request.getContextPath()%>
 * Method => <%=request.getMethod() %>
 * RequestURL => <%=request.getRequestURL() %>

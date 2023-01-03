@@ -9,7 +9,6 @@
 <%
 StudentService service = new StudentService();
 List<StudentVO> list = service.selectList();
-
 %>
 </head>
 <body>

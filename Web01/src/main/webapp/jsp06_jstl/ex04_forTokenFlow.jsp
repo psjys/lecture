@@ -48,5 +48,6 @@ ${iform}
 </pre></h3>
 <c:url var="iName" value="../images/aaa.gif"/>
 <img alt="urlTest" src="${iName}">
+
 </body>
 </html>

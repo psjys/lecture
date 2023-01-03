@@ -8,9 +8,8 @@
 <title>** JSTL if(조건분기) Test Main **</title>
 </head>
 <body>
-	<h2>** JSTL if(조건분기) Test Main **</h2>
-	<pre>
-		<h3>
+<h2>** JSTL if(조건분기) Test Main **</h2>
+<pre><h3>
 => if, choose (java 의 switch ~ case)
 
 1) if
@@ -24,35 +23,34 @@
 3) 특징 
 => test 속성에 EL을 이용해서 조건지정
 => EL 관계식 활용 : 모든 Type 에 "==" 사용가능
-</h3>
-	</pre>
-	<hr>
-	=> Java Code 와 비교
-	<br>
-	<%
+</h3></pre>
+<hr>
+=> Java Code 와 비교
+<br>
+<%
 	String color = request.getParameter("color");
 	if (color.equals("1")) {
-	%>
+%>
 	<span style='color: red;'>~~ Red 선택 ~~</span>
-	<%
+<%
 	} else if (color.equals("2")) {
-	%>
+%>
 	<span style='color: green;'>~~ Blue 선택 ~~</span>
-	<%
+<%
 	} else if (color.equals("3")) {
-	%>
+%>
 	<span style='color: blue;'>~~ Blue 선택 ~~</span>
-	<%
+<%
 	} else if (color.equals("4")) {
-	%>
+%>
 	<span style='color: yellow;'>~~ Blue 선택 ~~</span>
-	<%
+<%
 	} else {
-	%>
+%>
 	<span style='color: purple;'>~~ Error ~~</span>
-	<%
+<%
 	}
-	%>
+%>
 	<br>
 	<br> => if tag
 	<br>

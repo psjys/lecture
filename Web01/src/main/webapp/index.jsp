@@ -28,10 +28,13 @@
 <a href="/Web01/sessioni">SessionInfo</a><br>
 <a href="/Web01/reqinfo">RequestInfo</a><br>
 <a href="/Web01/01seta">setAttribute</a><br>
+<a href="/Web01/jsp07_cookie/ex01_viewCookies.jsp">ViewCookies</a>
 <hr>
 <a href="/Web01/servletTestForm/flowEx05_LoginForm.jsp">LoginF</a><br>
 <a href="/Web01/slist">StudentList</a><br>
 <a href="/Web01/jsp08_MVCTest/mvc1_01sList.jsp">StudentList_JSP</a><br>
+<a href="/Web01/jsp08_MVCTest/mvc1_03sList_Jstl.jsp">StudentList_JSTL</a><br>
+<a href="/Web01/slist2">StudentList_MVC2</a><br>
 
 </body>
 </html>
