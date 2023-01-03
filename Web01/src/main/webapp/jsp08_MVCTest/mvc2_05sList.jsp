@@ -39,7 +39,7 @@ pageContext.setAttribute("slist",list);
 		</tr>
 		</c:forEach>
 	</c:if>
-	<c:if test="${empty slist}">
+	<c:if test="${empty banana}">
 		** 출력할 자료가 1건도 없습니다. **
 	</c:if>
 </table>
