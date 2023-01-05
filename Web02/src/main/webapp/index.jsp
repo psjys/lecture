@@ -16,6 +16,10 @@
 <c:if test="${not empty requestScope.message}">
  * Message : ${requestScope.message} <br>
 </c:if>
+<c:if test="${not empty sessionScope.message}">
+ * Message : ${sessionScope.message} <br>
+ <% session.removeAttribute("message"); %>
+</c:if>
 
 <hr>
 
@@ -23,6 +27,8 @@
 <hr>
 <c:if test="${not empty sessionScope.loginID}">
 	<a href="/Web02/logout">Logout</a>&nbsp;&nbsp;
+	<a href="/Web02/mdetail">내정보보기</a>&nbsp;&nbsp;
+	<a href="/Web02/mdetail?jCode=U">내정보수정</a>&nbsp;&nbsp;
 	<a href="/Web02/mdelete">회원탈퇴</a>&nbsp;&nbsp;
 </c:if>
 <c:if test="${empty sessionScope.loginID}">

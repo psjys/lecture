@@ -45,5 +45,15 @@
 	</tr>
 </table>
 </c:if>
+<c:if test="${empty apple}">
+<h3>** 출력할 자료가 1건도 없습니다. **</h3>
+</c:if>
+<hr>
+&nbsp;<a href="/Web02/mdetail?jCode=U&id=${apple.id}">내정보수정</a>&nbsp;
+&nbsp;<a href="/Web02/logout">Logout</a>&nbsp;
+&nbsp;<a href="/Web02/mdelete">회원탈퇴</a>&nbsp;
+<hr>
+&nbsp;<a href="javascript:history.go(-1)">이전으로</a>&nbsp;
+&nbsp;<a href="/Web02/index.jsp">[Home]</a>&nbsp;
 </body>
 </html>

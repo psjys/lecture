@@ -26,7 +26,10 @@ public class C03_mLogin extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1) 요청 분석 & 해당하는 Service 실행 
-		// => Service : id 존재만 확인 
+		// => Service : id 존재만 확인 -> selectOne(...)
+	    //         -> id, password 오류 구분 가능
+	    //         -> DAO, Service 에 메서드 추가하지 않아도 됨.
+	    //         -> password 암호화 적용된 경우에도 비교 가능함.
 		// => Controller : id가 존재하는 경우 DB의 password와 입력한 password 확인
 		// 					(이것을 위해 입력한 password 보관) 
 		MemberService service = new MemberService();
@@ -47,7 +50,7 @@ public class C03_mLogin extends HttpServlet {
 		String uri = "index.jsp";
 		
 		if (vo != null) {
-			// id 는 ok -> password 확인
+			// id 는 ok -> password 확인 (저장된 password와 입력한 password 비교) 
 			if(vo.getPassword().equals(password)) {
 				// 로그인 성공 
 				// -> 로그인 정보 보관 후 (session의 Attribute에 보관), index 페이지로

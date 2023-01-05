@@ -132,13 +132,17 @@ public class MemberDAO {
 
 	// 4. update
 	public int update(MemberVO vo) {
-		sql = "update member set name=?,point=?,birthday=? where id=?";
+		sql = "update member set password=?, name=?, age=?, jno=?, info=?, point=?,birthday=? where id=?";
 		try {
 			pst = cn.prepareStatement(sql);
-			pst.setString(1, vo.getName());
-			pst.setDouble(2, vo.getPoint());
-			pst.setString(3, vo.getBirthday());
-			pst.setString(4, vo.getId());
+			pst.setString(1, vo.getPassword());
+			pst.setString(2, vo.getName());
+			pst.setInt(3, vo.getAge());
+			pst.setInt(4, vo.getJno());
+			pst.setString(5, vo.getInfo());
+			pst.setDouble(6, vo.getPoint());
+			pst.setString(7, vo.getBirthday());
+			pst.setString(8, vo.getId());
 
 			return pst.executeUpdate();
 		} catch (Exception e) {

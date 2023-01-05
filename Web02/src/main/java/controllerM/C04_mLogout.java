@@ -30,13 +30,13 @@ public class C04_mLogout extends HttpServlet {
 		// => Logout : session 무효화, index 
 		// => session 객체 정의 
 		//	-> request.getSession() 메서드의 매개변수 사용  
-		//	-> 매개변수 없음과 true는 동일 : session이 없을 때 생성해서 제공
+		//	-> 매개변수 없음과 true는 동일 : session이 없을 때 생성해서 제공 - 그러므로 session 이 null인 경우 없음
 		//	-> false : session이 없을 떄 null return
 		//				(사용 전에 반드시 null 확인해야함 -> NullPointerException 예방)
 		
 		HttpSession session = request.getSession(false);
 		if (session != null) {
-			session.invalidate();
+			session.invalidate(); // session 무효화
 			request.setAttribute("message", "~~ logout 성공 ~~");
 		}
 		

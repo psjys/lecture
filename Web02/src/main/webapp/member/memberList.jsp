@@ -45,5 +45,8 @@ List<MemberVO> list = service.selectList();
 		** 출력할 자료가 1건도 없습니다. **
 	</c:if>
 </table>
+<hr>
+&nbsp;<a href="javascript:history.go(-1)">이전으로</a>&nbsp;
+&nbsp;<a href="/Web02/index.jsp">[Home]</a>&nbsp;
 </body>
 </html>

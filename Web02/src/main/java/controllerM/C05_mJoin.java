@@ -39,6 +39,7 @@ public class C05_mJoin extends HttpServlet {
       MemberVO vo = new MemberVO();
       
       vo.setId(id);
+      // vo.setID(request.getParameter("id")); 이렇게 쓰기 가능
       vo.setPassword(password);
       vo.setName(name);
       vo.setAge(age);
