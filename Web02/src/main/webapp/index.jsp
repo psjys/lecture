@@ -38,6 +38,7 @@
 <hr>
 <a href="/Web02/slist">StudentList</a><br>
 <a href="/Web02/mlist">MemberList</a><br>
+<a href="/Web02/blist">BoardList</a>
 
 </body>
 </html>

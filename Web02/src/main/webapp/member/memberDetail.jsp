@@ -51,7 +51,12 @@
 <hr>
 &nbsp;<a href="/Web02/mdetail?jCode=U&id=${apple.id}">내정보수정</a>&nbsp;
 &nbsp;<a href="/Web02/logout">Logout</a>&nbsp;
-&nbsp;<a href="/Web02/mdelete">회원탈퇴</a>&nbsp;
+<c:if test="${sessionScope.loginID == 'admin' }">
+	&nbsp;<a href="/Web02/mdelete?id=${apple.id}">강제탈퇴</a>&nbsp;
+</c:if>
+<c:if test="${sessionScope.loginID != 'admin' }">
+	&nbsp;<a href="/Web02/mdelete">회원탈퇴</a>&nbsp;
+</c:if>
 <hr>
 &nbsp;<a href="javascript:history.go(-1)">이전으로</a>&nbsp;
 &nbsp;<a href="/Web02/index.jsp">[Home]</a>&nbsp;

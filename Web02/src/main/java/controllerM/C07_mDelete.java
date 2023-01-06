@@ -27,26 +27,41 @@ public class C07_mDelete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 1) 요청 분석 & 해당하는 Service 실행
-		// => login 정보 : session 에서 loginID 를 get
-
-		String id = request.getParameter("id");
+		// 1.1) login 정보 : session 에서 loginID 를 get
+		// 1.2) 관리자 기능 : loginID=='admin' and Parameter ID 가 존재하는 경우  
+		
+		MemberService service = new MemberService();
+		MemberVO vo = new MemberVO();
+		String loginID = "";
 
 		if (request.getSession().getAttribute("loginID") != null) {
-			id = (String) request.getSession().getAttribute("loginID");
+			loginID = (String) request.getSession().getAttribute("loginID");
+			
 		} else {
-			request.setAttribute("message", "~~ session id 없음. 로그인 후 이용하세요 ~~");
+			request.setAttribute("message", "~~ session loginID 없음. 로그인 후 이용하세요 ~~");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			return; // return을 void 메서드에서 사용하면 이 위치에서 메서드 종료
 		}
+		// => 관리자에 의한 강제 탈퇴 확인 : 
+		// 	  Parameter로 전달된 id를 삭제해야함
+		if (loginID.equals("admin") && request.getParameter("id") != null) {
+			vo.setId(request.getParameter("id"));
+		} else {
+			vo.setId(loginID);
+		}
+		
+		System.out.println("*********** delete id => " + loginID );
 
 		// 2) Service 실행 & 결과 처리 (setAttribute)
-		// => 성공 : 반드시 session 처리 해야함
-		MemberService service = new MemberService();
-		MemberVO vo = new MemberVO();
-		vo.setId(id);
+		// => 성공
+		// 	-> 본인 탈퇴 : 반드시 session 처리 해야함
+		//	-> 강제 탈퇴 : 관리자의 session 유지
+		
 		if (service.delete(vo)>0) {
 			// 탈퇴 성공
-			request.getSession().invalidate();			
+			if (!(loginID.equals("admin"))) {
+				request.getSession().invalidate();							
+			}
 			// request.setAttribute("message", "~~ 회원 탈퇴 성공 1개월 후 재가입 가능합니다. ~~");
 			// => Redirect : message 를 session 에 보관하고 사용 후에는 삭제해야함 (목적지인 index.jsp 에서)
 			request.getSession().setAttribute("message", "~~ 회원 탈퇴 성공 1개월 후 재가입 가능합니다. ~~");

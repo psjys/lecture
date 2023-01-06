@@ -30,6 +30,7 @@
          <option value="3">3조:백업은 기본이조</option>
          <option value="4">4조:상호형 빵사조</option>
          <option value="5">5조:(주)식빵</option>
+         <option value="5">7조:칠면조</option>
       </select>
       </td>
    </tr>

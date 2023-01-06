@@ -30,7 +30,14 @@ List<MemberVO> list = service.selectList();
 	<c:if test="${not empty banana}">
 		<c:forEach var="s" items="${banana}" >
 		<tr>
-			<td><a href="/Web02/mdetail?id=${s.id}">${s.id}</a></td>
+			<td>
+			<c:if test="${sessionScope.loginID == 'admin'}">
+				<a href="/Web02/mdetail?id=${s.id}">${s.id}</a>
+			</c:if>
+			<c:if test="${sessionScope.loginID != 'admin'}">
+				${s.id}
+			</c:if>
+			</td>
 			<td>${s.password}</td>
 			<td>${s.name}</td>
 			<td>${s.age}</td>
