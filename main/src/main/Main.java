@@ -1,19 +1,13 @@
 package main;
 
-import java.util.*;
-
 class Main {
-	public static void main(String[] args) {
-		String id;
-		
-		Scanner sc = new Scanner(System.in);
-		
-		id = sc.next();
-		
-		System.out.println(id + "??!");
-	
-		sc.close();
-	}
+    public static void main(String [] arg) {
+        System.out.println("         ,r'\"7");
+        System.out.println("r`-_   ,'  ,/");
+        System.out.println(" \\. \". L_r'");
+        System.out.println("   `~\\/");
+        System.out.println("      |");
+        System.out.println("      |");
+    }
 }
-
 
