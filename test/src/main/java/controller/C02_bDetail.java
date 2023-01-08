@@ -10,11 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import service.BoardService;
-import service.MemberService;
-import service.StudentService;
 import vo.BoardVO;
-import vo.MemberVO;
-import vo.StudentVO;
 
 
 // ** Student Detail 

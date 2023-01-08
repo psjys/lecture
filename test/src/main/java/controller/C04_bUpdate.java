@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import service.BoardService;
-import service.MemberService;
 import vo.BoardVO;
-import vo.MemberVO;
 
 // ** Student Detail
 
