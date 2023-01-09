@@ -31,11 +31,17 @@ public class C02_bDetail extends HttpServlet {
 		
 		BoardService service = new BoardService();
 		BoardVO vo = new BoardVO();
-
-		int seq = Integer.parseInt(request.getParameter("seq"));
-		vo.setSeq(seq);
 		
+		// 2. service 처리 
+		
+		vo.setSeq(Integer.parseInt(request.getParameter("seq")));
 		vo = service.selectOne(vo); // select 한 후 결과를 vo에 담아줌 
+		
+		if (vo != null ) {
+			// 조회수 증가 메서드 -> DAO 에 작성 
+			String loginID = (String)request.getSession().getAttribute("");
+		}
+		
 		
 		request.setAttribute("apple", vo);
 		request.getRequestDispatcher("board/boardDetail.jsp").forward(request, response);

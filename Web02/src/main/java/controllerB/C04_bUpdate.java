@@ -23,45 +23,43 @@ public class C04_bUpdate extends HttpServlet {
 		super();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// 1) 요청분석 & 해당하는 Service 실행
-		// => 한글처리 (post 요청시에도 현재 메서드 사용하기 때문)
-		// => request의 Parameter 처리 -> set vo
-		request.setCharacterEncoding("UTF-8");
-		
-	      String title=request.getParameter("title");
-	      String content=request.getParameter("content");
-	      String regdate=request.getParameter("regdate");
-
-		BoardService service = new BoardService();
-		BoardVO vo = new BoardVO();
-
-		vo.setTitle(title);
-		vo.setContent(content);
-		vo.setRegdate(regdate);
-
-		request.setAttribute("apple", vo);
-		// -> Update 성공 / 실패 모두 출력 시 필요하므로
-
-		// 2) Service 처리 (update)
-		String uri = "board/boardDetail.jsp";
-
-		if (service.update(vo) > 0) {
-			request.setAttribute("message", "~~ 글 수정 성공 ~~");
-			} else {
-				uri = "board/boardUpdate.jsp";
-				request.setAttribute("message", "~~ 글 수정 실패 다시 하세요 ~~");
-			
-		}
-
-		// 3) View 로 Forward
-		request.getRequestDispatcher(uri).forward(request, response);
-
-	} // doGet
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
-	}
+		// 1. 요청분석
+    	// => Service 준비
+		// => request, 한글처리
+		//    한글처리 (utf-8 이면 get 방식은 안해도 되지만, post 방식은 반드시 해야함_getParameter 하기전에)
+		// 	  Parameter -> vo 에 set
+		BoardService service = new BoardService();
+		BoardVO vo = new BoardVO();
+		request.setCharacterEncoding("UTF-8");
+		String uri = "board/boardDetail.jsp";
+		
+		// 수정 후 결과 View 출력시 사용하기 위해 
+		// 수정하지 않는 값들도 전달받아서 setAttribute  
+		vo.setSeq(Integer.parseInt(request.getParameter("seq")));
+		vo.setId(request.getParameter("id"));
+	    vo.setTitle(request.getParameter("title"));
+	    vo.setContent(request.getParameter("content"));
+	    vo.setRegdate(request.getParameter("regdate"));
+	    vo.setCnt(Integer.parseInt(request.getParameter("cnt")));
+
+		request.setAttribute("apple", vo);
+
+		
+		// 2) Service 처리 (update)
+		if (service.update(vo) > 0) {
+			// update 성공 : boardDetail.jsp 
+			request.setAttribute("message", "~~ 글 수정 성공 ~~");
+			
+			} else {
+				// update 실패 : boardUpdate.jsp
+				uri = "board/boardUpdate.jsp";
+				request.setAttribute("message", "~~ 글 수정 실패 다시 하세요 ~~");
+		}
+
+		// 3) 결과처리 : View 로 Forward
+		request.getRequestDispatcher(uri).forward(request, response);
+	} // doPost 
+
 } // class

@@ -36,22 +36,22 @@ public class C03_bInsert extends HttpServlet {
       vo.setContent(content);
       vo.setRegdate(regdate); // date 넘기기 
       vo.setCnt(0);
-         
-      // 2) Service 처리 (insert)
+
+      // 2) Service & 결과 처리 (insert) 
       // => 성공 : boardList
       // => 실패 : 다시 작성 -> boardInsert
-      String uri="/blist" ;
       
       if(service.insert(vo)>0) {
          request.setAttribute("message", "~~ 글 등록 성공 ~~");
+         response.sendRedirect("Web02/blist");
       } else {
-         uri="board/boardInsert.jsp" ;
          request.setAttribute("message", "~~ 글 등록 실패, Data 오류! 다시 하세요 ~~");
+         // 결과처리
+         request.getRequestDispatcher("/board/boardInsert.jsp").forward(request, response);
       }
       
       
       // 3) View 로 Forward
-      request.getRequestDispatcher(uri).forward(request, response);
       
    } //doGet
 
