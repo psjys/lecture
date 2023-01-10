@@ -6,8 +6,8 @@ class Main {
     public static void main(String [] arg) {
         Scanner sc = new Scanner();
         int a , b;
-        a = nextInt();
-        b = nextInt();
+        a = sc.nextInt();
+        b = sc.nextInt();
 
         System.out.println((b%10)*a);
         System.out.println((b/10 - ((b/100)*10))*a);

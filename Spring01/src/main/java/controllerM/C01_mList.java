@@ -35,7 +35,7 @@ public class C01_mList extends HttpServlet {
 		// 2) View 를 처리할 수 있도록 준비
 		// => setAttribute, forward 
 		request.setAttribute("banana", list); // 출력할 때 까지만 
-		request.getRequestDispatcher("member/memberList.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/views/member/memberList.jsp").forward(request, response);
 		
 	} // doGet
 
