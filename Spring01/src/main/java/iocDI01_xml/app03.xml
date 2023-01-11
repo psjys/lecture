@@ -25,6 +25,7 @@
    => setter 찾는 규칙 (setPrice)  
       -> name에 지정된 값으로 setter메서드명 setSpeaker, setColor 를 찾기 때문에
          setter 메서드명과 변수명을 일치시켜야함. 
+         (그러므로 index는 사용 불가)
 -->
 	<bean class="iocDI01_xml.AiTVs" id="tva" lazy-init="true" scope="singleton">
 		<property name="speaker" ref="sp"/>
