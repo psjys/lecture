@@ -30,8 +30,10 @@ interface Speakeri {
 	void volumeDown();
 } // Speakeri
 
-//@Component("spa")
-// -> xml 구문으로 생성
+//** xml 에서 JC 사용  Test ( TVUser11 에서 )
+//=> 1) SpeakerA xml 에서 생성후 AiTVsi 에서 @Autowired
+//=> 2) @ 으로 생성후  AiTVsi 에서 @Autowired
+@Component
 class SpeakerA implements Speakeri {
 	public SpeakerA() {
 		System.out.println("~~ SpeakerA Default 생성자 ~~");

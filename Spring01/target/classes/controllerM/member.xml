@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<!-- Member 에 DI 적용하기
+	=> MemberDITest 에서 MemberService 를 주입 받아 (getBean..) 사용 
+	=> MemberService 는 MemberDAO 를 자동주입 (@Autowired) 받아 사용 
+	=> MemberService 는 xml로, MemberDAO 는 @으로 Bean 설정
+-->	
+	<bean class="service.MemberService" id="ms" lazy-init="true"/>
+	<context:component-scan base-package="model"/>
+</beans>

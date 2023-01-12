@@ -5,8 +5,7 @@
 
 <!-- JavaConfig 파일에서 @, xml 과 병행사용 Test 
       	=> SsTVs 생성   -->
-	<bean class="iocDI03_jc.SsTVsi" id="tvs" lazy-init="true">
-	</bean>
+	<bean class="iocDI03_jc.SsTVsi" id="tvs" lazy-init="true"/>
 <!-- AiTVsi 생성 후 Speaker @Autowired 확인  -->
 	<bean class="iocDI03_jc.AiTVsi" id="tva" />
 	

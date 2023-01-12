@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import vo.GroupDTO;
 import vo.MemberVO;
 import vo.StudentVO;
@@ -16,6 +18,7 @@ import vo.StudentVO;
 //=> CRUD 구현 
 //	 Create(insert), Read(select), Update, Delete
 
+@Component
 public class MemberDAO {
 	// ** 전역 변수 정의
 	private static Connection cn = DBConnection.getConnection();

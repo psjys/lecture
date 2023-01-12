@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>** MemberList Web02_MVC2 **</title>
+<title>** MemberList Spring01_MVC2 **</title>
 <%
 MemberService service = new MemberService();
 List<MemberVO> list = service.selectList();
@@ -31,13 +31,15 @@ List<MemberVO> list = service.selectList();
 		<c:forEach var="s" items="${banana}" >
 		<tr>
 			<td>
-			<c:if test="${sessionScope.loginID == 'admin'}">
+			<%-- <c:if test="${sessionScope.loginID == 'admin'}">
 				<a href="/Web02/mdetail?id=${s.id}">${s.id}</a>
 			</c:if>
 			<c:if test="${sessionScope.loginID != 'admin'}">
 				${s.id}
-			</c:if>
+			</c:if> --%>
+				<a href="mdetailsp?id=${ s.id }">${s.id }</a>
 			</td>
+			
 			<td>${s.password}</td>
 			<td>${s.name}</td>
 			<td>${s.age}</td>

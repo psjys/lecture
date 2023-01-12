@@ -56,7 +56,7 @@ class SsTVs implements TV {
 
 } // SsTVs
 
-// 2) IOC / DI 
+// 2) IOC / DI -> 생성자주입
 class LgTVs implements TV {
 	private Speaker speaker;
 
@@ -96,9 +96,7 @@ class LgTVs implements TV {
 
 } // LgTVs
 
-//3) IOC/DI: JC 와 @ Test
-//=> TV, SpeakerB 는 JC 에서 생성하고
-//   @Autowired 로 주입 받음
+//3) IOC/DI -> setter 주입
 class AiTVs implements TV {
 //	@Autowired(required = false)
 	private Speaker speaker;

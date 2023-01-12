@@ -13,6 +13,6 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 <hr>
-<a href="/green/mlist">MemberList</a><br>
+<a href="mlistsp">MemberListSP</a><br>
 </body>
 </html>

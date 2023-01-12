@@ -6,17 +6,19 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 <!-- ** xml 을 통해 JavaConfig 사용하기 **
-      => JavaConfig 파일을 생성 (<bean.. 설정) 해주고 , 
-      => 이 파일의 @을 인식 가능 하도록 해줌 -->
+		=> JavaConfig 파일을 생성 (<bean.. 설정) 해주고 , 
+		=> 이 파일의 @을 인식 가능 하도록 해줌 -->
+	<bean class="iocDI03_jc.JavaConfig04" />
+	<context:annotation-config />
 
-	<bean class="iocDI03_jc.javaConfig04" />
-	<context:annotation-config /> 
-	
 	<!-- SsTVsi xml 생성 -->
-	<bean class="iocDI03_jc.SsTVi" id="tvs" lazy-init="true"/>
+	<bean class="iocDI03_jc.SsTVsi" id="tvs" lazy-init="true" />
 	
-	<!-- SpeakerA xml 생성 후 @Autowired Test -->
+ 	<!-- 1) SpeakerA xml 에서 생성후 AiTVsi 에서 @Autowired
+ 		 2) 소스코드에서 @ 으로 생성후  AiTVsi 에서 @Autowired
+ 		 	-> @Component 를 인식할 수 있도록 package 등록
 	<bean class="iocDI03_jc.SpeakerA" id="spa" lazy-init="true" />
-
-
+	-->
+	<context:component-scan base-package="iocDI03_jc" />
+	
 </beans>

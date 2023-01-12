@@ -2,13 +2,19 @@ package service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import model.MemberDAO;
 import vo.GroupDTO;
 import vo.MemberVO;
 
+//@Component
 public class MemberService {
+	@Autowired
+//	MemberDAO dao;
 	MemberDAO dao = new MemberDAO();
-
+	
 	// 1. selectList
 	public List<MemberVO> selectList() {
 //		dao.selectList() 의 sql 구문 처리결과를 받아 controller 로 전달 
