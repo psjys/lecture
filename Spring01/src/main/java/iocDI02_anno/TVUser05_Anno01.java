@@ -16,7 +16,6 @@ import org.springframework.stereotype.Component;
 //2. 소스코드 
 //=> import 확인  : org.springframework.context.support.*;
 //=> 생성을 원하는 TV 클래스 위에 @Component("tv") 설정
-
 //=> @Component("tv") 
 // <bean ....> </bean> -> xml
 // new 생성자() -> Java Code
