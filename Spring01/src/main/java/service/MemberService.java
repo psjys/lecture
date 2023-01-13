@@ -4,17 +4,19 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import model.MemberDAO;
 import vo.GroupDTO;
 import vo.MemberVO;
 
-//@Component
+@Service 
 public class MemberService {
-	@Autowired
-//	MemberDAO dao;
-	MemberDAO dao = new MemberDAO();
+//	MemberDAO dao = new MemberDAO();
+//	=> IOC/DI 적용, xml 로 생성
 	
+	@Autowired
+	MemberDAO dao;
 	// 1. selectList
 	public List<MemberVO> selectList() {
 //		dao.selectList() 의 sql 구문 처리결과를 받아 controller 로 전달 

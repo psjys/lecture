@@ -7,6 +7,4 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
-	<context:component-scan base-package="service"/>
-	<bean class="model.MemberDAO" lazy-init="true" />
 </beans>

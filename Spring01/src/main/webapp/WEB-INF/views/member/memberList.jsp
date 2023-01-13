@@ -9,10 +9,10 @@
 <head>
 <meta charset="UTF-8">
 <title>** MemberList Spring01_MVC2 **</title>
-<%
+<%-- <%
 MemberService service = new MemberService();
 List<MemberVO> list = service.selectList();
-%>
+%> --%>
 </head>
 <body>
 <h2>** StudentList MVC2 **</h2>

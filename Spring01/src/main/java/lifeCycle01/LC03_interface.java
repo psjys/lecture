@@ -34,6 +34,7 @@ class LifeCycleTestI implements InitializingBean, DisposableBean {
 
 	
 	public void login() { System.out.println("~~ LifeCycleTestI login() ~~");}
+
 	public void list() { System.out.println("~~ LifeCycleTestI list() ~~");}
 	
  } // LifeCycleTestI
@@ -46,7 +47,7 @@ public class LC03_interface {
 	public static void main(String[] args) {
 		AbstractApplicationContext sc = new 
 				GenericXmlApplicationContext("lifeCycle01/lc01.xml");
-		LifeCycleTestI lc = (LifeCycleTestI)sc.getBean("lca");
+		LifeCycleTestI lc = (LifeCycleTestI)sc.getBean("lci");
 		lc.login();
 		lc.list();
 		sc.close();
