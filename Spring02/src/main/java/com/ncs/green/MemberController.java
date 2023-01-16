@@ -171,8 +171,12 @@ public class MemberController {
 
 		if (service.update(vo) > 0) {
 			mv.addObject("message", "~~ 회원정보 수정 성공 ~~");
-
-			if (request.getSession().getAttribute("loginName") != null) {
+			// => 관리자가 member 정보를 변경하는 경우를 제외하고 
+			//	  로그인 한 본인의 정보를 수정하는 경우 name을 변경하면 session 의 loginName 도 동일하게 변경 
+			// => loginID "admin" 이 아니고, loginName과 vo.getName()이 다른 경우 
+			
+			if (!"admin".equals(request.getSession().getAttribute("loginID")) && 
+				!vo.getName().equals(request.getSession().getAttribute("loginID"))) {
 				request.getSession().setAttribute("loginName", vo.getName());
 				// => name 을 수정한 경우에는 session 에 보관해놓은 이름도 변경 해야하므로
 			}
@@ -223,7 +227,7 @@ public class MemberController {
 			rttr.addFlashAttribute("message", "탈퇴 성공");
 		} else {
 			// 오류 
-			rttr.addFlashAttribute("message", "탈퇴 성공");
+			rttr.addFlashAttribute("message", "탈퇴 실패 다시 시도하세요");
 		}
 
 		// 3) View 처리

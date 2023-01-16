@@ -7,9 +7,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import vo.BoardVO;
-import vo.MemberVO;
+import org.springframework.stereotype.Repository;
 
+import vo.BoardVO;
+
+@Repository
 public class BoardDAO {
 
 	private static Connection cn = DBConnection.getConnection();
@@ -20,7 +22,7 @@ public class BoardDAO {
 
 	// 1. selectList
 	public List<BoardVO> selectList() {
-		sql = "select seq, id, title, regdate, cnt from board order by seq desc";
+		sql = "select seq, id, title, regdate, cnt, root, step, indent from board order by root desc, step desc";
 		
 		List<BoardVO> list = new ArrayList<BoardVO>();
 		
@@ -37,6 +39,9 @@ public class BoardDAO {
 					vo.setTitle(rs.getString(3));
 					vo.setRegdate(rs.getString(4));
 					vo.setCnt(rs.getInt(5));
+					vo.setRoot(rs.getInt(6));
+					vo.setStep(rs.getInt(7));
+					vo.setIndent(rs.getInt(8));
 					list.add(vo);
 					
 				} while (rs.next()); // rs.next 가 있는 동안 반복
@@ -71,8 +76,14 @@ public class BoardDAO {
 				vo.setContent(rs.getString(4));
 				vo.setRegdate(rs.getString(5));
 				vo.setCnt(rs.getInt(6));
+				vo.setRoot(rs.getInt(7));
+				vo.setStep(rs.getInt(8));
+				vo.setIndent(rs.getInt(9));
+				return vo;
+				
 			} else {
-				vo = null;
+				System.out.println("** seq 에 해당하는 자료가 없습니다");
+				return null;
 			}
 		} catch (Exception e) {
 			System.out.println("** selectOne Exception -> " + e.toString());
@@ -99,38 +110,47 @@ public class BoardDAO {
 	
 	// 4. update 
 	public int update(BoardVO vo) {
-		sql = "update board set title=?, content=? where id=?";
+		sql="update board set title=?, content=? where seq=?";
 		try {
-			pst = cn.prepareStatement(sql);
-			
+			pst=cn.prepareStatement(sql);
 			pst.setString(1, vo.getTitle());
 			pst.setString(2, vo.getContent());
-			pst.setString(3, vo.getId());
-			
-			// 처리된 row 의 갯수 return 
+			pst.setInt(3, vo.getSeq());
 			return pst.executeUpdate();
-			
+			// executeUpdate() => 처리된 row 의 갯수 return
 		} catch (Exception e) {
-			System.out.println("** update Exception -> " + e.toString());
+			System.out.println("** Board_update Exception => "+e.toString());
 			return 0;
 		}
-	} // update
+	} //update
 	
 	// 5. delete
 	public int delete(BoardVO vo) {
-		sql = "delete from board where id=?";
+		sql="delete from board where seq=?";
 		try {
-			pst = cn.prepareStatement(sql);
+			pst=cn.prepareStatement(sql);
 			pst.setInt(1, vo.getSeq());
 			return pst.executeUpdate();
-
+			// executeUpdate() => 처리된 row 의 갯수 return
 		} catch (Exception e) {
-			System.out.println("** delete Exception -> " + e.toString());
+			System.out.println("** Board_delete Exception => "+e.toString());
 			return 0;
 		}
-	} // delete
+	} //delete
 	
-	// 조회수 증가 메서드  
+	// 조회수 증가 메서드
+	public int countUp(BoardVO vo) {
+		sql="update board set cnt=cnt+1 where seq=?";
+		try {
+			pst=cn.prepareStatement(sql);
+			pst.setInt(1, vo.getSeq());
+			return pst.executeUpdate();
+			// executeUpdate() => 처리된 row 의 갯수 return
+		} catch (Exception e) {
+			System.out.println("** Board_countUp Exception => "+e.toString());
+			return 0;
+		}
+	} //countUp
 //	public 
 
 } // BoardDAO
