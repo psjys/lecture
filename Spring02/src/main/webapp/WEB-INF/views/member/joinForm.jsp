@@ -10,7 +10,7 @@
 </head>
 <body>
 <h2>** MemberJoin Spring02_MVC2 **</h2>
-<form action="mjoin" method="post">
+<form action="mjoin" method="post" enctype="multipart/form-data">
 <table>
    <tr height="40"><td bgcolor="lightBlue">I D</td>
       <td><input type="text" name="id" size="20" placeholder="영문과 숫자 10자 이내"></td>
@@ -43,6 +43,12 @@
    </tr>
    <tr height="40"><td bgcolor="lightBlue">Birthday</td>
       <td><input type="date" name="birthday" size="20"></td>
+   </tr>
+   <tr height="40"><td bgcolor="lightBlue">추천인_ID</td>
+      <td><input type="text" name="rid" size="20"></td>
+   </tr>
+   <tr height="40"><td bgcolor="lightBlue">Image</td>
+      <td><input type="file" name="uploadfilef" size="20"></td>
    </tr>
    <tr height="40"><td></td>
    <td><input type="submit" value="가입">&nbsp;&nbsp;&nbsp;

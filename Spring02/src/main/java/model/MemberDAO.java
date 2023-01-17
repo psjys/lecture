@@ -55,6 +55,9 @@ public class MemberDAO {
 					vo.setInfo(rs.getString(6));
 					vo.setPoint(rs.getDouble(7));
 					vo.setBirthday(rs.getString(8));
+					vo.setRid(rs.getString(9));
+					vo.setUploadfile(rs.getString(10));
+					
 					list.add(vo);
 
 				} while (rs.next()); // rs.next가 있는 동안 반복
@@ -109,7 +112,7 @@ public class MemberDAO {
 
 	// 3. insert
 	public int insert(MemberVO vo) {
-		sql = "insert into member values(?, ?, ?, ?, ?, ?, ?, ?)";
+		sql = "insert into member values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			pst = cn.prepareStatement(sql);
 			pst.setString(1, vo.getId());
@@ -120,6 +123,8 @@ public class MemberDAO {
 			pst.setString(6, vo.getInfo());
 			pst.setDouble(7, vo.getPoint());
 			pst.setString(8, vo.getBirthday());
+			pst.setString(9, vo.getRid());
+			pst.setString(10, vo.getUploadfile());
 
 			return pst.executeUpdate();
 

@@ -13,7 +13,7 @@
 </head>
 <body>
 <h2>** StudentList Spring02_MVC2 **</h2>
-<table width=100% border="1px">
+<table width=100% border="1px" style = "text-align:center">
 	<tr bgcolor="Lavender">
 		<th>I D</th>
 		<th>P W</th>
@@ -23,6 +23,8 @@
 		<th>Info</th>
 		<th>Point</th>
 		<th>Birthday</th>
+		<th>추천인</th>
+		<th>Image</th>
 	</tr>
 	<c:if test="${not empty banana}">
 		<c:forEach var="s" items="${banana}" >
@@ -43,6 +45,8 @@
 			<td>${s.info}</td>
 			<td>${s.point}</td>
 			<td>${s.birthday}</td>
+			<td>${s.rid}</td>
+			<td><img alt="memberImage" src="${s.uploadfile}" width=50px height=50px></td>
 		</tr>
 		</c:forEach>
 	</c:if>

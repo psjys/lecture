@@ -1,5 +1,7 @@
 package vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 //** VO (Value Object) , DTO (Data Transfer Object)
@@ -33,6 +35,9 @@ public class MemberVO {
 	private String info;
 	private Double point;
 	private String birthday;
+	private String rid;		 // 추천인
+	private String uploadfile; // uploadFile_Path
 	
+	private MultipartFile uploadfilef;
 
 } // class 

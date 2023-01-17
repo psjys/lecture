@@ -50,8 +50,10 @@
 				&nbsp;&nbsp;<a href="bdelete?seq=${apple.seq}">[글삭제]</a>
 	</c:if>
 	<c:if test="${not empty loginID}">
-		&nbsp;&nbsp;<a href="rinsert">댓글</a>
+		&nbsp;&nbsp;<a href="rinsert?root=${apple.root}&step=${apple.step}&indent=${apple.indent}">댓글</a>
+		<!-- 댓글 입력시에는 부모글의 root, step, indent가 필요하기 때문에 같이 전송 -->
 	</c:if>
+	<hr>
 	<%-- <c:if test="${not empty loginID}">
 				&nbsp;&nbsp;<a
 					href="/Web02/board/rinsertForm.jsp?root=${apple.root}&step=${apple.step}&indent=${apple.indent}">[답글]</a><br>

@@ -147,16 +147,44 @@ public class BoardController {
 		// => get : rinsertForm
 		// => post : service 처리 (실제처리)
 		@RequestMapping (value="/rinsert", method=RequestMethod.GET)
-		public ModelAndView rinsertForm (ModelAndView mv) {
+		public ModelAndView rinsertForm (ModelAndView mv, BoardVO vo ) {
+			// => vo 에는 전달된 부모글의 root, step, indent 가 담겨있고,
+			//	  이 값들을 View에 숨겨 놔야함 (hidden 으로) ->댓글입력 시 필요하므로 
+			// => 매핑메서드의 인자로 정의된 vo는 request.setAttribute 와 동일 scope
+			//	  단, 클래스명의 첫글자를 소문자로 ... ${boardVO.root}
+			//	  그러므로 아래와 같은 구문은 필요없음 (mv.addObject("apple", vo);)
+			
+//			mv.addObject("apple", vo);
+			
 			mv.setViewName("/board/rinsertForm");
 			return mv;
 		} // rinsertForm
 		
 		@RequestMapping (value="/rinsert", method=RequestMethod.POST)
-		public ModelAndView rinsert (ModelAndView mv) {
-			// 내일 작성 
+		public ModelAndView rinsert (ModelAndView mv, BoardVO vo, RedirectAttributes rttr) {
+			// ** Service 
+			// => 성공 : rediect blist
+			// => 실패 : 재입력 유도 (/board/rinsertForm 으로)
+			String uri = "redirect:blist";
 			
-			mv.setViewName("/board/rinsertForm");
+			// ** vo 의 값 
+			// => id, title, content : 사용 
+			// => 부모의 root : 동일
+			// => 부모의 step : step + 1
+			// => 부모의 indent : indent + 1 
+			vo.setStep(vo.getStep()+1);
+			vo.setIndent(vo.getIndent()+1);
+			
+			if (service.rinsert(vo)>0) {
+				// 성공
+				rttr.addFlashAttribute("message", "댓글 등록 성공");
+			} else {
+				// 실패 
+				uri = "/board/rinsertForm";
+				mv.addObject("message", "댓글 등록 실패");
+			}
+			
+			mv.setViewName(uri);
 			return mv;
 		} // rinsert
 	

@@ -43,4 +43,8 @@ public class BoardService {
 	public int countUp(BoardVO vo) {
 		return dao.countUp(vo);
 	}
+	// 댓글 등록 
+	public int rinsert (BoardVO vo) {
+		return dao.rinsert(vo);
+	}
 }

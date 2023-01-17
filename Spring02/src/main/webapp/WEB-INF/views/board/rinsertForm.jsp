@@ -5,11 +5,11 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>** Reply Insert Web_MVC2 **</title>
+	<title>** Reply Insert Spring02_MVC2 **</title>
 	<link rel="stylesheet" type="text/css" href="resource/myLib/myStyle.css" >
 </head>
 <body>
-<h2>** Reply Insert Web_MVC2 **</h2>
+<h2>** Reply Insert Spring02_MVC2 **</h2>
 <form action="rinsert" method="post">
 <table>
 	<tr height="40"><td bgcolor="hotpink">I D</td>
@@ -18,6 +18,13 @@
 		<td><input type="text" name="title" placeholder="반드시 입력하세요~~"></td></tr>
 	<tr height="40"><td bgcolor="hotpink">Content</td>
 		<td><textarea rows="5" cols="50" name="content"></textarea></td>
+	</tr>
+	<tr height="40"><td></td>
+		<td>
+			<input type="hidden" name="root" value=${boardVO.root}>
+			<input type="hidden" name="step" value=${boardVO.step}>,
+			<input type="hidden" name="indent" value=${boardVO.indent}>
+		</td>
 	</tr>
 	<tr><td></td>
 		<td><input type="submit" value="등록">&nbsp;&nbsp;
