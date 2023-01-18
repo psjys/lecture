@@ -2,7 +2,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
-	
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+
+	<!-- JUnit SpringDAO의 DI 설정 : memberDAO, MemberVO -->
+	<bean class="model.MemberDAO" lazy-init="true" />
+	<bean class="vo.MemberVO" lazy-init="true" />
+
+
+	<!-- Mybatis 설정 : interface 방식, root-context 에 설정 **************************** 
+		=> DAO 에서의 sql 구문을 xml (Mapper) 로 처리 => DB_Connection, Mybatis 설정 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/mydb?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true" />
+		<property name="username" value="root" />
+		<property name="password" value="mysql" />
+	</bean>
+	
 </beans>

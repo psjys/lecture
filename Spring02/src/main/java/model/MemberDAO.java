@@ -141,7 +141,7 @@ public class MemberDAO {
 
 	// 4. update
 	public int update(MemberVO vo) {
-		sql = "update member set password=?, name=?, age=?, jno=?, info=?, point=?,birthday=? where id=?";
+		sql = "update member set password=?, name=?, age=?, jno=?, info=?, point=?,birthday=?, rid=?, uploadfile=? where id=?";
 		try {
 			pst = cn.prepareStatement(sql);
 			pst.setString(1, vo.getPassword());
@@ -151,7 +151,9 @@ public class MemberDAO {
 			pst.setString(5, vo.getInfo());
 			pst.setDouble(6, vo.getPoint());
 			pst.setString(7, vo.getBirthday());
-			pst.setString(8, vo.getId());
+			pst.setString(8, vo.getRid());
+			pst.setString(9, vo.getUploadfile());
+			pst.setString(10, vo.getId());
 
 			return pst.executeUpdate();
 		} catch (Exception e) {

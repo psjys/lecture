@@ -217,10 +217,52 @@ public class MemberController {
 
 	// ** Member Update **
 	@RequestMapping(value = "/mupdate", method = RequestMethod.POST)
-	public ModelAndView mupdate(HttpServletRequest request, ModelAndView mv, MemberVO vo) {
+	public ModelAndView mupdate(HttpServletRequest request, 
+			ModelAndView mv, MemberVO vo) throws Exception {
 		// 1) 요청분석
 		// => 한글처리(web.xml 에서 Filter 설정, request 처리
 		// => request 처리 ( 매핑메서드의 매개변수로 VO를 정의하면 자동처리 )
+		
+		// ** Image 처리 
+		
+		String realPath = request.getRealPath("/");
+		System.out.println("** realpath => " + realPath);
+
+		// 2) 위의 값을 이용해서 실제저장위치 확인
+		// => 개발중인지, 배포했는지 에 따라 결정
+		if (realPath.contains(".eclipse.")) // 개발 중 (배포 전 : eclipse 개발환경)
+			realPath = "/Users/s116/Desktop/project1/Spring02/src/main/webapp/resources/uploadImage/";
+		else
+			realPath += "resources/uploadImage/";
+
+		// 3) 폴더 만들기 (File 클래스활용)
+		// => 위의 저장경로에 폴더가 없는 경우 (uploadImage가 없는경우) 만들어 준다
+		File f1 = new File(realPath);
+		if (!f1.exists())
+			f1.mkdir();
+
+		// 4) 기본 이미지 지정하기
+		String file1, file2 = "resources/uploadImage/basicman4.png";
+		
+		// 5) MultipartFile
+		// => 업로드한 파일에 대한 모든 정보를 가지고 있으며 이의 처리를 위한 메서드를 제공한다.
+		// -> String getOriginalFilename(),
+		// -> void transferTo(File destFile),
+		// -> boolean isEmpty()
+
+		MultipartFile uploadfilef = vo.getUploadfilef(); // file 의 내용 및 파일명 등 전송된 정보들
+		if (uploadfilef != null && !uploadfilef.isEmpty()) {
+			// ** New File 선택한 경우 => 이때만 newFile 을 vo 에 set 
+			// 5.1) 물리적 저장경로(file1) 에 Image 저장
+			file1 = realPath + uploadfilef.getOriginalFilename(); // 저장경로 완성 
+			uploadfilef.transferTo(new File(file1));
+			
+			// 5.2) Table 저장 (file2) 준비
+			file2 = "resources/uploadImage/" + uploadfilef.getOriginalFilename();
+			// 5.3) newFile 을 vo 에 set 
+			vo.setUploadfile(file2);
+		} // Image를 선택함 
+		
 
 		// 2) Service 실행
 		// => 성공 -> 로그인 유도, memberDetail

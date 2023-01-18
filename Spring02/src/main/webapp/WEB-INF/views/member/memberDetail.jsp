@@ -44,6 +44,15 @@
 		<th bgcolor="Yellow">Birthday</th>
 		<td>${apple.birthday}</td>
 	</tr>
+	<tr height=30>
+		<th bgcolor="Yellow">추천인</th>
+		<td>${apple.rid}</td>
+	</tr>
+	<tr height=30>
+		<th bgcolor="Yellow">Image</th>
+		<td><img src="${apple.uploadfile}" width = "70" height="90"></td>
+	</tr>
+	
 </table>
 </c:if>
 <c:if test="${empty apple}">
