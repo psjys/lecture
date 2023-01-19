@@ -48,6 +48,7 @@
 	<c:if test="${loginID==apple.id || loginID=='admin'}">
 				&nbsp;&nbsp;<a href="bdetail?jCode=U&seq=${apple.seq}">[글수정]</a>
 				&nbsp;&nbsp;<a href="bdelete?seq=${apple.seq}">[글삭제]</a>
+				<!-- root 추가 : 삭제시 원글삭제 or 답글삭제 확인을 위함 -->
 	</c:if>
 	<c:if test="${not empty loginID}">
 		&nbsp;&nbsp;<a href="rinsert?root=${apple.root}&step=${apple.step}&indent=${apple.indent}">댓글</a>

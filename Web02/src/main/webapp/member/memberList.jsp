@@ -1,6 +1,6 @@
 <%@page import="java.util.List"%>
 <%@page import="vo.MemberVO"%>
-<%@page import="service.MemberService"%>
+<%@page import="service.MemberServiceImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>** MemberList Web02_MVC2 **</title>
 <%
-MemberService service = new MemberService();
+MemberServiceImpl service = new MemberServiceImpl();
 List<MemberVO> list = service.selectList();
 %>
 </head>

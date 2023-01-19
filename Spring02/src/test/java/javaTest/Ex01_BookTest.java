@@ -30,7 +30,7 @@ class Book {
 //오픈 소스 형태로 개발되며 계속 업그레이드 되고 있음.
 //JUnit4 부터 에너테이션 적용 ( Java 가 5 부터 언어적 개선이 이루어짐에 따른 변화임 )
 //=> @ 종류 : @Before - @Test - @After
-//-> 하나의 클래스에서 @ 들을 반복사용하면 오류는 안나지만, 마지막 @만 실행됨
+//-> 하나의 클래스에서 @ 들을 반복사용하면 오류는 안나지만, 앞 쪽 @이 실행됨
 //=> @ 적용 메서드 : non static, void 로 정의 해야 함.
 
 //** org.junit.Assert 가 지원하는 다양한 Test용 Method 
@@ -39,6 +39,14 @@ class Book {
 //3) assertTrue(a) : a가 참인지 확인
 //4) assertNotNull(a) : a객체가 Null 이 아님을 확인
 //5) assertArrayEquals(a,b) : 배열 a와b가 일치함을 확인
+
+//=> 자동 import 가 안되는경우
+//프로젝트 우클릭 -> Build Path -> Configure Build Path.. 
+//    -> Libraries -> Add Library  -> JUnit5
+// @Test  : import org.junit
+//=> pom.xml
+//-> junit version : 4.12 로 수정
+//-> dependency 추가 ( Spring MVC Mybatis Test )
 
 public class Ex01_BookTest {
 	

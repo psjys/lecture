@@ -311,7 +311,7 @@ public class MemberController {
 		}
 		// => 관리자에 의한 강제 탈퇴 확인 :
 		// Parameter로 전달된 id를 삭제해야함 (이미 vo에 담겨있음)
-		if (!loginID.equals("admin") && vo.getId() != null && vo.getId().length() < 1) {
+		if (!(loginID.equals("admin") && vo.getId() != null)) {
 			// loginID를 삭제하는 경우
 			vo.setId(loginID);
 		} // else 면 vo에 담겨있는 id 를 삭제하면 됨

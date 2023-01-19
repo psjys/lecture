@@ -147,8 +147,21 @@ public class BoardDAO {
    } //update
    
    // ** Delete
+   // => 댓글 기능 추가 후 원글 삭제인지 댓글 삭제인지 구분 해야함 -> root값 필요 
+   // => 원글 삭제 -> 동일한 root 는 모두 삭제
+   // => 댓글 삭제 -> 해당 seq만 삭제 
    public int delete(BoardVO vo) {
-      sql="delete from board where seq=?";
+	   // 원글인지 댓글인지 구별 
+	   if (vo.getSeq()==vo.getRoot() ) {
+		   // => 원글 삭제 
+		   sql="delete from board where root=?";
+
+	   } else {
+		   // => 댓글 삭제
+		   sql="delete from board where seq=?";
+		   
+	   }
+	   
       try {
          pst=cn.prepareStatement(sql);
          pst.setInt(1, vo.getSeq());

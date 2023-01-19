@@ -1,11 +1,10 @@
-package service;
+package mapperInterface;
 
 import java.util.List;
 
-import vo.GroupDTO;
 import vo.MemberVO;
 
-public interface MemberService {
+public interface MemberMapper {
 
 	// 1. selectList
 	List<MemberVO> selectList(); 
@@ -21,5 +20,5 @@ public interface MemberService {
 
 	// 5. delete
 	int delete(MemberVO vo);
-
-} // class 
+	
+} // interface 

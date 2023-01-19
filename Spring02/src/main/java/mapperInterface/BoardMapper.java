@@ -1,11 +1,10 @@
-package service;
+package mapperInterface;
 
 import java.util.List;
 
 import vo.BoardVO;
 
-public interface BoardService {
-
+public interface BoardMapper {
 	// 1. selectList
 	List<BoardVO> selectList();
 
@@ -26,5 +25,6 @@ public interface BoardService {
 
 	// 댓글 등록 
 	int rinsert(BoardVO vo);
-
-}
+	int stepUpdate(BoardVO vo);
+	
+} // interface 
