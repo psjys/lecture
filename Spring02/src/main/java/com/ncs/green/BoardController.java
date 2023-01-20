@@ -103,17 +103,17 @@ public class BoardController {
 		// ** Service 
 		// => 성공 : boardDetail
 		// => 실패 : bupdateForm (재수정 유도) 
-		String uri = "/board/boardDetail";
+		String uri = "redirect:bdetail?seq=" + vo.getSeq();
 		
 		// => 수정 후 결과 View 출력 시 사용하기 위해
 		//	  수정하지 않는 값들도 전달 받아서 보관 
-		mv.addObject("apple", vo);
 		
 		if (service.update(vo)>0) {
 			// => 성공 : message 처리 
 			mv.addObject("message", "~~ 글 수정 성공 ~~");
 		} else {
 			// => 실패 : message, uri 처리
+			mv.addObject("apple", vo);
 			mv.addObject("message", "~~ 글 수정 실패 다시 시도하세요 ~~");
 			uri = "/board/bupdateForm";
 		}
