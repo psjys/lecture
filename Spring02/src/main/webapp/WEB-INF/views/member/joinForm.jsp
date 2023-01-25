@@ -38,7 +38,8 @@
       <td><input type="text" name="age" size="20" placeholder="정수"></td>
    </tr>
    <tr height="40"><td bgcolor="lightBlue">Jno</td>
-      <td><select name="jno">
+      <td>
+      <select name="jno">
          <option value="1">1조:굉장해엄청나</option>
          <option value="2">2조:구해조</option>
          <option value="3">3조:백업은 기본이조</option>

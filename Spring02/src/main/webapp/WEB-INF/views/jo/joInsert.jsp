@@ -5,19 +5,28 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>** jo Insert myBatis **</title>
+	<title>** Jo Insert myBatis **</title>
 	<link rel="stylesheet" type="text/css" href="resource/myLib/myStyle.css" >
 </head>
 <body>
-<h2>** jo Insert Web_MVC2 **</h2>
+<h2>** Jo Insert myBatis **</h2>
 <form action="jinsert" method="post">
 <table>
-	<tr height="40"><td bgcolor="Linen">I D</td>
-		<td><input type="text" name="id" value="${loginID}" size="20" readonly></td></tr>
-	<tr height="40"><td bgcolor="Linen">Title</td>
-		<td><input type="text" name="title" placeholder="반드시 입력하세요~~"></td></tr>
-	<tr height="40"><td bgcolor="Linen">Content</td>
-		<td><textarea rows="5" cols="50" name="content"></textarea></td>
+	<tr height="40">
+		<td bgcolor="Linen">조 번호</td>
+		<td><input type="text" name="jno"></td>
+	</tr>
+	<tr height="40">
+		<td bgcolor="Linen">조 이름</td>
+		<td><input type="text" name="jname"></td>
+	</tr>
+	<tr height="40">
+		<td bgcolor="Linen">조장</td>
+		<td><input type="text" name="chief"></td>
+	</tr>
+	<tr height="40">
+		<td bgcolor="Linen">note</td>
+		<td><textarea rows="5" cols="50" name="note"></textarea></td>
 	</tr>
 	<tr><td></td>
 		<td><input type="submit" value="등록">&nbsp;&nbsp;
@@ -31,7 +40,7 @@
  ${requestScope.message}<br>
 </c:if>
 <hr>
-&nbsp;&nbsp;<a href="blist">boardList</a>
+&nbsp;&nbsp;<a href="jlist">JoList</a>
 &nbsp;&nbsp;<a href="javascript:history.go(-1)">이전으로</a>
 &nbsp;&nbsp;<a href="home">[Home]</a>
 </body>

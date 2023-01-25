@@ -38,5 +38,6 @@
 <hr>
 &nbsp;<a href="mlist">MemberList</a>&nbsp;
 &nbsp;<a href="blist">BoardList</a>&nbsp;
+&nbsp;<a href="jlist">joList</a>&nbsp;
 </body>
 </html>
