@@ -5,42 +5,36 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>** Board Update myBatis **</title>
-	<link rel="stylesheet" type="text/css" href="resource/myLib/myStyle.css" >
+	<title>** Jo Update Spring_MVC2 **</title>
+	<link rel="stylesheet" type="text/css" href="resources/myLib/myStyle.css">
 </head>
 <body>
-<h2>** Board Update myBatis **</h2>
+<h2>** Jo Update Spring_MVC2 **</h2>
 <hr>
-<form action="jupdate" method="post">
+<form action="jupdate" method="Post">
 	<table>
-		<tr height="40"><td bgcolor="MistyRose">조 번호</td>
-			<td><input type="text" name="jno" value="${apple.jno}" size="20" readonly></td></tr>
-								<!-- 서버에서 필요한 정보 -->
-		<tr height="40"><td bgcolor="MistyRose">조 이름</td>
-			<td><input type="text" name="jname" value="${apple.jname}" size="20"></td>
-		</tr>
-		<tr height="40"><td bgcolor="MistyRose">조장</td> 
-			<td><input type="text" name="chief" value="${apple.chief}"></td>
-		</tr>
-								<!-- 서버에서 필요한 정보 -->
-		<tr height="40"><td bgcolor="MistyRose">Note</td>
-			<td><textarea rows="5" cols="50" name="note">${apple.note}</textarea></td>
-								<!-- 서버에서 필요한 정보 -->
-		</tr>
-		
-		<tr><td></td>
-			<td><input type="submit" value="글수정">&nbsp;&nbsp;
-				<input type="reset" value="취소">
-			</td>
-		</tr>
-	</table>
+	<tr height="40"><td bgcolor="Linen">Jno</td>
+		<td><input type="text" name="jno" value="${apple.jno}" size="20" readonly></td></tr>
+	<tr height="40"><td bgcolor="Linen">Chief</td>
+		<td><input type="text" name="chief" value="${apple.chief}" size="20"></td></tr>
+	<tr height="40"><td bgcolor="Linen">JoName</td>
+		<td><input type="text" name="jname" value="${apple.jname}" size="20"></td></tr>
+	<tr height="40"><td bgcolor="Linen">Note</td>
+		<td><input type="text" name="note" value="${apple.note}" size="20"></td></tr>
+	<tr><td></td>
+		<td><input type="submit" value="수정">&nbsp;&nbsp;
+			<input type="reset" value="취소">
+		</td></tr>
+</table>
 </form>	
-<c:if test="${not empty requestScope.message}">
+<c:if test="${not empty message}">
 <hr>
-${requestScope.message}<br>
+${message}<br>
 </c:if>
 <hr>
-	&nbsp;&nbsp;<a href="jdelete?jno=${apple.jno}">[조 삭제]</a>
+<c:if test="${not empty loginID}">
+	&nbsp;&nbsp;<a href="jdelete?jno=${apple.jno}">[조삭제]</a>
+</c:if>
 &nbsp;&nbsp;<a href="jlist">joList</a>
 &nbsp;&nbsp;<a href="javascript:history.go(-1)">이전으로</a>
 &nbsp;&nbsp;<a href="home">[Home]</a>

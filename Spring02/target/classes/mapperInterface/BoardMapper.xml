@@ -3,6 +3,22 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapperInterface.BoardMapper">
 
+<!-- ** Criteria PageList 
+   => MySql : limit a , b ( a개 제외하고 a+1 부터 b개 )  적용 -->
+   
+	<select id="criList" resultType="vo.BoardVO">
+		select seq, id, title, regdate, cnt, root, step, indent 
+		from board
+		order by root desc, step asc
+		limit #{sno}, #{rowsPerPage}
+	</select>
+	
+	<select id="criTotalCount" resultType="int">
+		select count(*) from board
+	</select>
+	
+<!-- =================================== -->
+	
 	<select id="selectList" resultType="vo.BoardVO">
 		select seq, id, title, regdate, cnt, root, step, indent 
 		from board

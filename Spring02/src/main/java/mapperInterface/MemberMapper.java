@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import criTest.Criteria;
+import vo.BoardVO;
 import vo.MemberVO;
 
 public interface MemberMapper {
@@ -28,6 +30,9 @@ public interface MemberMapper {
    List<MemberVO> selectList2();  
    
    // ** *********************************
+   
+   // ** Criteria PageList
+   List<BoardVO> criList(Criteria cri);
    
    // ** selectListJo
    List<MemberVO> selectListJo(MemberVO vo); 

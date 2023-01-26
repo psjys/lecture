@@ -2,11 +2,13 @@ package mapperInterface;
 
 import java.util.List;
 
+import criTest.Criteria;
 import vo.BoardVO;
 
 public interface BoardMapper {
 	// 1. selectList
 	List<BoardVO> selectList();
+	int criTotalCount();
 
 	// 2. selectOne : Detail
 	BoardVO selectOne(BoardVO vo);
@@ -26,5 +28,7 @@ public interface BoardMapper {
 	// 댓글 등록 
 	int rinsert(BoardVO vo);
 	int stepUpdate(BoardVO vo);
+
+	List<BoardVO> criList(Criteria cri);
 	
 } // interface 

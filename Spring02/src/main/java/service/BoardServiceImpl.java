@@ -2,11 +2,10 @@ package service;
 
 import java.util.List;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import criTest.Criteria;
 import mapperInterface.BoardMapper;
 import vo.BoardVO;
 
@@ -24,6 +23,16 @@ public class BoardServiceImpl implements BoardService {
 	// => BoardMapper interface 로 교체,
 	//	  이 Mapper 를 통해서 BoardMapper.xml 의 SQL 구문 접근 
 	BoardMapper mapper;
+	
+	// ** Criteria PageList
+	@Override
+	public List<BoardVO> criList(Criteria cri) {
+		return mapper.criList(cri);
+	}
+	@Override
+	public int criTotalCount() {
+		return mapper.criTotalCount();
+	}
 	
 	// 1. selectList
 	@Override

@@ -2,10 +2,14 @@ package service;
 
 import java.util.List;
 
+import criTest.Criteria;
 import vo.BoardVO;
 
 public interface BoardService {
-
+	
+	// ** Criteria PageList
+	List<BoardVO> criList(Criteria cri);
+	int criTotalCount();
 	// 1. selectList
 	List<BoardVO> selectList();
 

@@ -5,10 +5,14 @@
 <mapper namespace="mapperInterface.JoMapper">
 
 <!-- Join 기능 추가 : 조장이름 출력하기 
-   => 조 와 조장이름 출력시 조장이 없어도 출력가능
+   => 조와 조장이름 출력시 조장이 없어도 출력가능
    select j.jno, j.chief, j.jname, j.note , m.name  
    from memjo j LEFT OUTER JOIN member m
    ON j.chief=m.id
+   => 기본형 (동등 조인) : 조장이 없는 조는 출력 안됨 
+   select j.jno, j.chief, j.jname, j.note , m.name  
+   from jo j, member m
+   ON j.chief=m.id 
 -->
 <select id="selectList" resultType="vo.JoVO">
    select j.jno, j.chief, j.jname, j.note , m.name  

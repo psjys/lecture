@@ -43,7 +43,7 @@ public class JoController {
    
    // ** JoDetail
    // => 아랫쪽에 조원목록 출력
-   // => memjo Table에서 selectOne  ->  apple 
+   // => jo Table에서 selectOne  ->  apple 
    // => member Table에서 조건검색 jno=#{jno}  ->  banana 
    @RequestMapping(value="/jdetail", method=RequestMethod.GET)
    public ModelAndView jdetail(HttpServletRequest request, HttpServletResponse response, 
@@ -79,7 +79,10 @@ public class JoController {
    
    // ** Insert 
    @RequestMapping(value="/jinsertf")
-   public ModelAndView jinsertf(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+   public ModelAndView jinsertf(HttpServletRequest request, 
+		   HttpServletResponse response, ModelAndView mv) {
+	   // ** member ID 읽어오기
+	   mv.addObject("banana", mservice.selectList());
       mv.setViewName("/jo/jinsertForm");
       return mv;
    }

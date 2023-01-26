@@ -39,5 +39,9 @@
 &nbsp;<a href="mlist">MemberList</a>&nbsp;
 &nbsp;<a href="blist">BoardList</a>&nbsp;
 &nbsp;<a href="jlist">joList</a>&nbsp;
+<br>
+&nbsp;<a href="bcrilist">bCriList</a>
+&nbsp;<a href="mcrilist">mCriList</a>
+
 </body>
 </html>

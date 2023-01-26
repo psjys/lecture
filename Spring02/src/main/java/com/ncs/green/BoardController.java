@@ -9,15 +9,39 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import criTest.Criteria;
+import criTest.PageMaker;
 import service.BoardService;
-import service.BoardServiceImpl;
 import vo.BoardVO;
 
 @Controller
 public class BoardController {
 	@Autowired
 	BoardService service;
-
+	
+	// ** Criteria 
+	@RequestMapping(value="/bcrilist", method=RequestMethod.GET)
+	public ModelAndView bcrilist(ModelAndView mv, Criteria cri, PageMaker pageMaker) {
+		// 1) Criteria 처리
+		// => rowsPerPage, currPage 값은 Parameter 를 전달 : 자동으로 set 
+		// => 그러므로 currPage 를 이용해서 setSnoEno 만 하면 됨 
+		cri.setSnoEno();
+		
+		// 2) Service 처리 
+		mv.addObject("banana", service.criList(cri));
+		
+		
+		// 3) View 처리 => PageMaker 
+		// => cri, totalRowsCount (DB에서 읽어온다)
+		pageMaker.setCriteria(cri);
+		pageMaker.setTotalRowsCount(service.criTotalCount());
+		
+		
+		mv.addObject("pageMaker", pageMaker);
+		mv.setViewName("/board/bCriList"); 
+		return mv;
+	} // bcrilist 
+	
 	// ** BoardList / blist
 	@RequestMapping(value = "/blist")
 	public ModelAndView blist(ModelAndView mv) {
