@@ -3,9 +3,19 @@ package mapperInterface;
 import java.util.List;
 
 import criTest.Criteria;
+import criTest.SearchCriteria;
 import vo.BoardVO;
 
 public interface BoardMapper {
+	// ** Board Checj List 
+	// => SearchCriteria, 
+	List<BoardVO> checkList(SearchCriteria cri);
+	int checkCount(SearchCriteria cri);
+	
+	// ** SearchCriteria PageList
+	List<BoardVO> searchList (SearchCriteria cri);
+	int searchTotalCount(SearchCriteria cri);
+	
 	// 1. selectList
 	List<BoardVO> selectList();
 	int criTotalCount();

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import criTest.Criteria;
 import criTest.PageMaker;
+import criTest.SearchCriteria;
 import service.BoardService;
 import vo.BoardVO;
 
@@ -19,25 +19,58 @@ public class BoardController {
 	@Autowired
 	BoardService service;
 	
+	// ** Board Check List *************************** 
+	// => SearchCriteria,  PageMaker 적용하고, mapper에 반복문 적용 
+	@RequestMapping(value="/bchecklist")
+	public ModelAndView bchecklist(ModelAndView mv, SearchCriteria cri, PageMaker pageMaker) {
+	   // ** Paging 준비
+	   cri.setSnoEno();
+	   
+	   // 1) Check_Box 처리
+	   // => check 선택이 없는경우 check 는 null 값으로 
+	   //	 mapper 에서 정확하게 처리하기 위함
+	   if(cri.getCheck() != null && cri.getCheck().length < 1)
+		   	cri.setCheck(null);
+	   
+	   // 2) Service 실행
+	   // => 선택하지 않은경우, 선택한 경우 모두 mapper 의 Sql 로 처리
+	   mv.addObject("banana", service.checkList(cri));
+	      
+	   // 3) View 처리 => PageMaker
+	   pageMaker.setCriteria(cri);
+	   pageMaker.setTotalRowsCount(service.checkCount(cri));
+		
+		mv.addObject("pageMaker", pageMaker);
+	    mv.setViewName("board/bCheckList");
+	    return mv;
+	} //bchecklist
+	
+	
 	// ** Criteria 
+	// => ver01 : Criteria cri
+	// => ver02 : SearchCriteria cri
 	@RequestMapping(value="/bcrilist", method=RequestMethod.GET)
-	public ModelAndView bcrilist(ModelAndView mv, Criteria cri, PageMaker pageMaker) {
+	public ModelAndView bcrilist(ModelAndView mv, SearchCriteria cri, PageMaker pageMaker) {
 		// 1) Criteria 처리
 		// => rowsPerPage, currPage 값은 Parameter 를 전달 : 자동으로 set 
 		// => 그러므로 currPage 를 이용해서 setSnoEno 만 하면 됨 
 		cri.setSnoEno();
+		// ** ver02
+		// => SearchCriteria : searchType, keyword 는 Parameter 로 전달되어 자동으로 set 
+		
 		
 		// 2) Service 처리 
-		mv.addObject("banana", service.criList(cri));
+		// mv.addObject("banana", service.criList(cri)); // ver01
+		mv.addObject("banana", service.searchList(cri)); // ver02
 		
 		
 		// 3) View 처리 => PageMaker 
 		// => cri, totalRowsCount (DB에서 읽어온다)
 		pageMaker.setCriteria(cri);
-		pageMaker.setTotalRowsCount(service.criTotalCount());
-		
-		
+		//pageMaker.setTotalRowsCount(service.criTotalCount());  // ver01 : 전체 Rows 갯수 
+		pageMaker.setTotalRowsCount(service.searchTotalCount(cri)); // ver02 : 조건과 일치하는 Rows 갯수 
 		mv.addObject("pageMaker", pageMaker);
+		 
 		mv.setViewName("/board/bCriList"); 
 		return mv;
 	} // bcrilist 

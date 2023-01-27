@@ -40,8 +40,10 @@
 &nbsp;<a href="blist">BoardList</a>&nbsp;
 &nbsp;<a href="jlist">joList</a>&nbsp;
 <br>
-&nbsp;<a href="bcrilist">bCriList</a>
-&nbsp;<a href="mcrilist">mCriList</a>
+&nbsp;<a href="bcrilist">bCriList</a>&nbsp;
+&nbsp;<a href="bchecklist">bCheckList</a>&nbsp;
+&nbsp;<a href="mcrilist">mCriList</a>&nbsp;
+&nbsp;<a href="mchecklist">mCheckList</a>&nbsp;
 
 </body>
 </html>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import criTest.Criteria;
+import criTest.SearchCriteria;
 import mapperInterface.BoardMapper;
 import vo.BoardVO;
 
@@ -23,6 +24,27 @@ public class BoardServiceImpl implements BoardService {
 	// => BoardMapper interface 로 교체,
 	//	  이 Mapper 를 통해서 BoardMapper.xml 의 SQL 구문 접근 
 	BoardMapper mapper;
+	
+	// ** Board Check List 
+	@Override
+	public List<BoardVO> checkList(SearchCriteria cri) {
+		return mapper.checkList(cri);
+	}
+	
+	@Override
+	public int checkCount(SearchCriteria cri) {
+		return mapper.checkCount(cri);
+	}
+	
+	// ** SearchCriteria PageList
+	@Override
+	public List<BoardVO> searchList(SearchCriteria cri) {
+		return mapper.searchList(cri);
+	}
+	@Override
+	public int searchTotalCount(SearchCriteria cri) {
+		return mapper.searchTotalCount(cri);
+	}
 	
 	// ** Criteria PageList
 	@Override
