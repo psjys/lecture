@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans; http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="exam" class="spring.di.entity.NewlecExam">
+		<constructor-arg index="0" value="10" />
+		<constructor-arg index="1" value="20" />
+		<constructor-arg index="2" value="30" />
+		<constructor-arg index="3" value="40" />
+		<!-- -> toString 추가 !! -->
+	</bean>
+	<bean id="console" class="spring.di.ui.GridExamConsole">
+		<property name="exam" ref="exam" />
+	</bean>
+<util:list id="exams" list-class="java.util.ArrayList" >
+		<bean class="spring.di.entity.NewlecExam" p:kor="1" p:eng="1" />
+		<ref bean="exam" />
+</util:list>
+
+	<bean id="exams" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<bean class="spring.di.entity.NewlecExam" />
+				<ref bean="exam" />
+			</list>
+		</constructor-arg>
+
+</beans>
