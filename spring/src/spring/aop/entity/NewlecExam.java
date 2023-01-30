@@ -68,7 +68,7 @@ public class NewlecExam implements Exam {
 //		System.out.println(message);
 		return result;
 	}
-
+	
 	@Override
 	public float avg() {
 		float result = total() / 4.0f;

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import criTest.SearchCriteria;
 import mapperInterface.MemberMapper;
 import vo.MemberVO;
 
@@ -35,6 +36,23 @@ public class MemberServiceImpl implements MemberService {
    //   -> mapperInterface 와 패키지명, 화일명이 동일해야함
    @Autowired
    MemberMapper mapper;
+   
+   @Override
+   public List<MemberVO> searchList(SearchCriteria cri) {
+	   return mapper.searchList(cri);
+   }
+   @Override
+   public int searchTotalCount(SearchCriteria cri) {
+	   return mapper.searchTotalCount(cri);
+   }
+   @Override
+   public List<MemberVO> checkList(SearchCriteria cri) {
+	   return mapper.checkList(cri);
+   }
+   @Override
+   public int checkCount(SearchCriteria cri) {
+	   return mapper.checkCount(cri);
+   }
    
    // ** selectListJo
    @Override

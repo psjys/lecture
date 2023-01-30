@@ -46,8 +46,7 @@
 		<property name="advice" ref="logBeforeAdvice" />
 		<property name="mappedNames" value="total">
 			<list>
-				<value>total</value>
-				<value>avg</value>
+				<value>.*to.*</value>
 			</list>
 		</property>
 	</bean>

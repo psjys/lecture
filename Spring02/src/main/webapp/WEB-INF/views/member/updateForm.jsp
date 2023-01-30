@@ -20,7 +20,9 @@
 			</tr>
 			<tr height="40">
 				<td bgcolor="GreenYellow">Password</td>
-				<td><input type="password" name="password" size="20"
+				<td><span>password 변경은 별도 처리</span></td>
+					<!-- password 암호화 이후 type = "hidden" 으로 변경 -->
+				<td><input type="hidden" name="password" size="20"
 					value="${apple.password}"></td>
 			</tr>
 			<tr height="40">

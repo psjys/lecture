@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import criTest.PageMaker;
+import criTest.SearchCriteria;
 import service.MemberService;
 import vo.MemberVO;
 
@@ -22,6 +25,80 @@ public class MemberController {
 
 	@Autowired
 	MemberService service;
+	
+	@Autowired
+	// => 구현 클래스 BCryptPasswordEncoder 생성은 root~~~~.xml 에서 
+	PasswordEncoder passwordEncoder;
+	// ** PasswordEncoder interface 구현 클래스
+	// => Pbkdf2PasswordEncoder, BCryptPasswordEncoder, 
+	//    SCryptPasswordEncoder, StandardPasswordEncoder, 
+	//    NoOpPasswordEncoder
+	// => 대표적인 BCryptPasswordEncoder root-context.xml (적용) 또는 
+	//    servlet-context.xml 에 bean설정 후 @Autowired 가능	
+	
+	
+	
+	// ** Member Check List ***************************
+	// => SearchCriteria, PageMaker 적용하고, mapper에 반복문 적용
+	@RequestMapping(value = "/mchecklist")
+	public ModelAndView mchecklist(ModelAndView mv, SearchCriteria cri, PageMaker pageMaker) {
+		// ** Paging 준비
+		cri.setSnoEno();
+
+		// 1) Check_Box 처리
+		// => check 선택이 없는경우 check 는 null 값으로
+		// mapper 에서 정확하게 처리하기 위함
+		if (cri.getCheck() != null && cri.getCheck().length < 1)
+			cri.setCheck(null);
+
+		// 2) Service 실행
+		// => 선택하지 않은경우, 선택한 경우 모두 mapper 의 Sql 로 처리
+		mv.addObject("banana", service.checkList(cri));
+
+		// 3) View 처리 => PageMaker
+		pageMaker.setCriteria(cri);
+		pageMaker.setTotalRowsCount(service.checkCount(cri));
+
+		mv.addObject("pageMaker", pageMaker);
+		mv.setViewName("member/mCheckList");
+		return mv;
+	} // mchecklist
+
+	// ** Criteria pageList ===========================================
+	// => ver01 : Criteria cri
+	// => ver02 : SearchCriteria cri
+	@RequestMapping(value = "/mcrilist", method = RequestMethod.GET)
+	public ModelAndView mcrilist(ModelAndView mv, SearchCriteria cri, PageMaker pageMaker) {
+		// 1) Criteria 처리
+		// => rowsPerPage, currPage 값은 Parameter 를 전달 :
+		// 자동으로 set -> 그러므로 currPage 를 이용해서 setSnoEno 만 하면 됨
+
+		cri.setSnoEno();
+
+		// ** ver02
+		// => SearchCriteria : searchType, keyword 는 Parameter 로 전달되어 자동으로 set
+
+		// 2) Service 처리
+		// => SearchType 의 선택이 없는경우 SearchType 의 값은 null 값으로 set
+		// mapper 에서 정확하게 처리하기위함
+
+		if (cri.getSearchType() != null && cri.getSearchType().length() < 1) {
+			cri.setSearchType(null);
+		}
+
+		mv.addObject("banana", service.searchList(cri)); // ver02
+
+		// 3) View 처리 => PageMaker
+		// => cri, totalRowsCount (DB에서 읽어온다)
+		pageMaker.setCriteria(cri);
+		// pageMaker.setTotalRowsCount(service.criTotalCount()); // ver01 : 전체 Rows 갯수
+		pageMaker.setTotalRowsCount(service.searchTotalCount(cri)); // ver02 : 조건과 일치하는 Rows 갯수
+		mv.addObject("pageMaker", pageMaker);
+
+		mv.setViewName("/member/mCriList");
+		return mv;
+	} // mcrilist
+
 
 	@RequestMapping(value = "/mlist")
 	public ModelAndView mlist(ModelAndView mv) {
@@ -90,8 +167,10 @@ public class MemberController {
 		String uri = "/member/loginForm";
 		vo = service.selectOne(vo);
 		if (vo != null) {
-			// id 일치 -> password 확인
-			if (vo.getPassword().equals(password)) {
+			// id 일치 -> password 확인 : 암호화 이전
+			// if (vo.getPassword().equals(password)) {
+			// -> 암호화 이후 
+			if (passwordEncoder.matches(password, vo.getPassword())) {
 				// 로그인 성공 -> session 에 로그인정보 보관
 				request.getSession().setAttribute("loginID", vo.getId());
 				request.getSession().setAttribute("loginName", vo.getName());
@@ -137,8 +216,7 @@ public class MemberController {
 	} // mjoin
 
 	@RequestMapping(value = "/mjoin", method = RequestMethod.POST)
-	public ModelAndView mjoin(ModelAndView mv, MemberVO vo, 
-			HttpServletRequest request) throws IOException {
+	public ModelAndView mjoin(ModelAndView mv, MemberVO vo, HttpServletRequest request) throws IOException {
 		// 1) 요청분석
 		// => 한글처리(web.xml 에서 Filter 설정, request 처리
 		// => request 처리 ( 매핑메서드의 매개변수로 VO를 정의하면 자동처리 )
@@ -189,17 +267,23 @@ public class MemberController {
 		if (uploadfilef != null && !uploadfilef.isEmpty()) {
 			// ** Image를 선택함 -> Image저장 ( 경로_realPath + 화일명 )
 			// 1) 물리적 저장경로(file1) 에 Image 저장
-			file1 = realPath + uploadfilef.getOriginalFilename(); // 저장경로 완성 
+			file1 = realPath + uploadfilef.getOriginalFilename(); // 저장경로 완성
 			uploadfilef.transferTo(new File(file1));
-			
+
 			// 2) Table 저장 (file2) 준비
 			file2 = "resources/uploadImage/" + uploadfilef.getOriginalFilename();
 		}
-		
-		// ** 완성된 경로 vo 에 set & Service 처리 
-		vo.setUploadfile(file2); 
+
+		// ** 완성된 경로 vo 에 set & Service 처리
+		vo.setUploadfile(file2);
 		String uri = "/member/loginForm";
 		
+	    // *** PasswordEncoder (암호화 적용하기)
+	    // => BCryptPasswordEncoder 적용
+	    //    encode(rawData) -> digest 생성 & vo 에 set  
+		vo.setPassword(passwordEncoder.encode(vo.getPassword()));
+		
+
 		// 2) Service 실행
 		// => 성공 -> 로그인 유도, loginForm
 		// => 실패 -> joinForm 재가입 유도
@@ -217,14 +301,13 @@ public class MemberController {
 
 	// ** Member Update **
 	@RequestMapping(value = "/mupdate", method = RequestMethod.POST)
-	public ModelAndView mupdate(HttpServletRequest request, 
-			ModelAndView mv, MemberVO vo) throws Exception {
+	public ModelAndView mupdate(HttpServletRequest request, ModelAndView mv, MemberVO vo) throws Exception {
 		// 1) 요청분석
 		// => 한글처리(web.xml 에서 Filter 설정, request 처리
 		// => request 처리 ( 매핑메서드의 매개변수로 VO를 정의하면 자동처리 )
-		
-		// ** Image 처리 
-		
+
+		// ** Image 처리
+
 		String realPath = request.getRealPath("/");
 		System.out.println("** realpath => " + realPath);
 
@@ -243,7 +326,7 @@ public class MemberController {
 
 		// 4) 기본 이미지 지정하기
 		String file1, file2 = "resources/uploadImage/basicman4.png";
-		
+
 		// 5) MultipartFile
 		// => 업로드한 파일에 대한 모든 정보를 가지고 있으며 이의 처리를 위한 메서드를 제공한다.
 		// -> String getOriginalFilename(),
@@ -252,17 +335,16 @@ public class MemberController {
 
 		MultipartFile uploadfilef = vo.getUploadfilef(); // file 의 내용 및 파일명 등 전송된 정보들
 		if (uploadfilef != null && !uploadfilef.isEmpty()) {
-			// ** New File 선택한 경우 => 이때만 newFile 을 vo 에 set 
+			// ** New File 선택한 경우 => 이때만 newFile 을 vo 에 set
 			// 5.1) 물리적 저장경로(file1) 에 Image 저장
-			file1 = realPath + uploadfilef.getOriginalFilename(); // 저장경로 완성 
+			file1 = realPath + uploadfilef.getOriginalFilename(); // 저장경로 완성
 			uploadfilef.transferTo(new File(file1));
-			
+
 			// 5.2) Table 저장 (file2) 준비
 			file2 = "resources/uploadImage/" + uploadfilef.getOriginalFilename();
-			// 5.3) newFile 을 vo 에 set 
+			// 5.3) newFile 을 vo 에 set
 			vo.setUploadfile(file2);
-		} // Image를 선택함 
-		
+		} // Image를 선택함
 
 		// 2) Service 실행
 		// => 성공 -> 로그인 유도, memberDetail

@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import criTest.Criteria;
+import criTest.SearchCriteria;
 import vo.BoardVO;
 import vo.MemberVO;
 
@@ -16,6 +17,14 @@ public interface MemberMapper {
    // => 기본규칙: Mybatis 에서는 매개변수 Type은 무관하지만, 갯수는 1개만 허용
    // => @Param: mapper 에서 #{...} 적용, 복수갯수 사용 가능 
    MemberVO selectJoOne(@Param("id") String id, @Param("jno") Integer jno); 
+   
+   // ** Criteria pageList ver02 : SearchCriteria cri
+   List<MemberVO> searchList(SearchCriteria cri);
+   int searchTotalCount(SearchCriteria cri);
+   
+   List<MemberVO> checkList(SearchCriteria cri);
+   int checkCount(SearchCriteria cri);
+  
    
    // => @Select 적용 연습
    @Select("select * from member where id=#{id}")
