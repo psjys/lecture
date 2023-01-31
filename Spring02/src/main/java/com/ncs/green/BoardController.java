@@ -11,13 +11,40 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import criTest.PageMaker;
 import criTest.SearchCriteria;
+import lombok.extern.log4j.Log4j;
 import service.BoardService;
 import vo.BoardVO;
 
+@Log4j
 @Controller
 public class BoardController {
 	@Autowired
 	BoardService service;
+	
+	@RequestMapping(value="/log4jTest")
+	public String log4jTest() {
+	   // ** @Log4j Test
+	   // => lombok , log4j  dependency 필요함 (pom.xml 확인)
+	   // => 로깅레벨 단계 준수함 ( log4j.xml 의 아래 logger Tag 의 level 확인)
+	   //   TRACE > DEBUG > INFO > WARN > ERROR > FATAL(치명적인)
+	   //   <logger name="com.ncs.green">
+	   //      <level value="info" />
+	   //   </logger>   
+	      
+	   // => Logger 사용과의 차이점 : "{}" 지원안됨 
+		
+		log.warn("** 로깅레벨 warn Test");
+		log.error("** 로깅레벨 error Test");
+		log.debug("** 로깅레벨 debug Test");
+		log.trace("** 로깅레벨 trace Test");
+		
+		return "home";
+	} // log4j
+	
+	
+	
+	
+	
 	
 	// ** Board Check List *************************** 
 	// => SearchCriteria,  PageMaker 적용하고, mapper에 반복문 적용 

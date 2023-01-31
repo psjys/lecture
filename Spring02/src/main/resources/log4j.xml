@@ -37,7 +37,7 @@
 		<level value="info" />
 	</logger>
 
-	<!-- Root Logger -->
+	<!-- Root Logger : system 오류 level 조정  -->
 	<root>
 		<priority value="warn" />
 		<appender-ref ref="console" />

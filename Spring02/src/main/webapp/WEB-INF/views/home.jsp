@@ -46,7 +46,15 @@
 &nbsp;<a href="mchecklist">mCheckList</a>&nbsp;
 <br>
 &nbsp;<a href="bcrypt">BCrypt</a>&nbsp;
+&nbsp;<a href="log4jTest">log4jTest</a>&nbsp;
 
+<!-- * 계층적 uri & viewName 생략 Test * 
+      -> 요청명 : green/member/list  
+      -> Test Controller : MemberController2.java -->
+&nbsp;<a href="member/list">MList2</a>&nbsp;
+&nbsp;<a href="member/memberList2">vName 생략1</a>&nbsp;
+&nbsp;<a href="member/loginForm">vName 생략2</a>&nbsp;
+&nbsp;<a href="etest">Exception</a>&nbsp;
 
 </body>
 </html>
