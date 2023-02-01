@@ -35,13 +35,24 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+		
+		
 
-		<!-- AspectJ -->
+		<!-- ** AOP Test 1) AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>
+		<!-- 2) AspectJ Weaver : AOP 실습시에 반드시 추가해줄것 : weaver가 AOP에서 advice를 핵심기능에 
+			적용하는 설정 파일 -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>
+
+
 
 		<!-- Logging -->
 		<dependency>
@@ -145,14 +156,13 @@
 			<version>1.18.2</version>
 			<scope>provided</scope>
 		</dependency>
-		
-		      <!--@Log4j 사용을 위해 추가 : version 1.2.17 맞아야 함
-          https://mvnrepository.com/artifact/log4j/log4j -->
-      <dependency>
-         <groupId>log4j</groupId>
-         <artifactId>log4j</artifactId>
-         <version>1.2.17</version>
-      </dependency>
+
+		<!--@Log4j 사용을 위해 추가 : version 1.2.17 맞아야 함 https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
 
 		<!-- FileUpload -->
 		<dependency>

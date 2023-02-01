@@ -15,6 +15,8 @@
 		<config>src/main/java/lifeCycle01/lc01.xml</config>
 		<config>src/main/java/lifeCycle02_All/lc_All.xml</config>
 		<config>src/main/java/controllerM/member.xml</config>
+		<config>src/main/resources/aop01.xml</config>
+		<config>src/main/resources/aop02.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>

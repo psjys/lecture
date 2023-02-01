@@ -48,6 +48,8 @@ public class MemberController {
 		// 1) Check_Box 처리
 		// => check 선택이 없는경우 check 는 null 값으로
 		// mapper 에서 정확하게 처리하기 위함
+		
+		
 		if (cri.getCheck() != null && cri.getCheck().length < 1)
 			cri.setCheck(null);
 
@@ -287,7 +289,28 @@ public class MemberController {
 		// 2) Service 실행
 		// => 성공 -> 로그인 유도, loginForm
 		// => 실패 -> joinForm 재가입 유도
-		if (service.insert(vo) > 0) {
+		
+		
+	      // *** Transaction_AOP Test 
+	      /*   1. dependency 확인
+	         => AspectJ ,  AspectJ Weaver 
+	      
+	       2. servlet-context.xml AOP 설정
+	       
+	        3. Rollback Test
+	        3.1) Aop xml 적용전 => insert1 은 입력되고, insert2 에서  500_Dupl..Key  오류 발생
+	        3.2) Aop xml 적용후 => insert2 에서 오류발생시 모두 Rollback 되어 insert1, insert2 모두 입력 안됨
+	   
+	        3.1) Transaction 적용전 : 동일자료 2번 insert
+	          => 첫번째는 입력완료 되고, 두번째자료 입력시 Key중복 오류발생 (500 발생)
+	        3.2) Transaction 적용후 : 동일자료 2번 insert
+	          => 첫번째는 입력완료 되고, 두번째 자료입력시 Key중복 오류발생 하지만,
+	             rollback 되어 둘다 입력 안됨
+	       */
+		
+	    service.insert(vo) ; // insert1 -> Test 용
+		
+		if (service.insert(vo) > 0) {	// insert2 
 			mv.addObject("message", "~~ 회원가입 성공, 로그인 후 이용하세요 ~~");
 		} else {
 			mv.addObject("message", "~~ 회원가입 실패, Data 오류! 다시 하세요 ~~");
