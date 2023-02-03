@@ -11,6 +11,31 @@
 <script src="resources/myLib/jquery-3.2.1.min.js"></script>
 <script src="resources/myLib/inCheck.js"></script>
 <script>
+
+//** ID 중복 확인 
+// => UI 개선사항
+// => 중복확인 버튼 추가
+//    처음 : 중복확인_enable / submit_disable
+// => 중복확인 완료후 submit 이 가능하도록
+//    중복확인_disable / submit_enable
+// => 중복확인 기능 : function idDupCheck()
+//    id 확인요청 -> 서버로 전송 -> id , selectOne 결과 -> response: 사용가능/불가능 
+// => 서버측 : 컨트롤러에 idDupCheck 요청을 처리하는 매핑메서드, view_Page 작성   
+
+	function idDupCheck() {
+	   // 1) id 무결성 확인
+	  	if (iCheck == false ) iCheck = idCheck();
+	  	else {
+	   // 2) 서버로 확인요청 -> 결과는 새창으로 처리
+			let url='idDupCheck?id='+document.getElementById('id').value;
+	   		window.open(url, '_blank', 'width=400, height=300, resizable=yes, scrollbars=yes, toolbar=no, menubar=yes');
+	   		
+	  	}
+	   
+	} // idDupCheck
+
+
+//** 입력 값의 무결성 점검 ***********************
 	
 	// 1) 입력값의 무결성 점검 여부를 확인할 수 있는 변수 
 	// => 전역 변수 정의 (switch 변수)
@@ -28,34 +53,123 @@
 	// => focusout , enterKey 적용
 	// => 처리순서 : Tag 인식, Tag의 Value 가져오기 -> 무결성 확인  
 	
-	onload = function() {
-		// ** ID
+	onload=function() {	
+		// ** ID 
+		// => EnterKey, focusout 모두 적용
+		document.getElementById('id').addEventListener("keydown", 
+			(e) => { if ( e.which==13 ) {
+						e.preventDefault();
+						// => form 에 submit 이 있는경우
+						// => enter 누르면 자동 submit 발생되므로 이를 제거함
+						document.getElementById('idDup').focus(); 
+						} //if
+					});
 		document.getElementById('id').addEventListener("focusout", 
-				() => {iCheck = idCheck();});
+			() => { iCheck=idCheck(); } );
+		
+		// ** ID 중복 확인 버튼
+		document.getElementById('idDup').addEventListener("keydown", 
+			(e) => { if ( e.which==13 ) {
+						e.preventDefault();
+						// => form 에 submit 이 있는경우
+						// => enter 누르면 자동 submit 발생되므로 이를 제거함
+						document.getElementById('password').focus(); 
+						} //if
+					});
+		
 		// ** Password
-		document.getElementById('password').addEventListener("focusout",
-				()=> {pCheck=pwCheck();});
+		document.getElementById('password').addEventListener("keydown", 
+			(e) => { if ( e.which==13 ) {
+						e.preventDefault();
+						document.getElementById('password2').focus(); 
+						} //if
+					});
+		document.getElementById('password').addEventListener("focusout", 
+			() => { pCheck=pwCheck(); } );
 		
-		// ** Password 재입력 확인 : password 와 동일성 확인 
-		document.getElementById('password2').addEventListener("focusout",
-				()=> {p2Check=pw2Check();});
+		// ** Password 재입력 확인 : password 와 동일성 확인
+		document.getElementById('password2').addEventListener("keydown", 
+			(e) => { if ( e.which==13 ) {
+						e.preventDefault();
+						document.getElementById('name').focus(); 
+						} //if
+					});
+		document.getElementById('password2').addEventListener("focusout", 
+			() => { p2Check=pw2Check(); } );
+		
 		// ** Name
+		document.getElementById('name').addEventListener("keydown", 
+			(e) => { if ( e.which==13 ) {
+						e.preventDefault();
+						document.getElementById('age').focus(); 
+						} //if
+					});
 		document.getElementById('name').addEventListener("focusout", 
-				() => {nCheck = nmCheck();});
-		// ** Age 
-		document.getElementById('age').addEventListener("focusout", 
-				() => {aCheck = agCheck();});
+			() => { nCheck=nmCheck(); } );
 		
-		// ** point
+		// ** Age
+		document.getElementById('age').addEventListener("keydown", 
+			(e) => { if ( e.which==13 ) {
+						e.preventDefault();
+						document.getElementById('jno').focus(); 
+						} //if
+					});
+		document.getElementById('age').addEventListener("focusout", 
+			() => { aCheck=agCheck(); } );
+		
+		// ** Jno => EnterKey 만 적용
+		document.getElementById('jno').addEventListener("keydown", 
+			(e) => { if ( e.which==13 ) {
+						e.preventDefault();
+						document.getElementById('info').focus(); 
+						} //if
+					});
+		
+		// ** Info => EnterKey 만 적용
+		document.getElementById('info').addEventListener("keydown", 
+			(e) => { if ( e.which==13 ) {
+						e.preventDefault();
+						document.getElementById('point').focus(); 
+						} //if
+					});
+		
+		// ** Point
+		document.getElementById('point').addEventListener("keydown", 
+			(e) => { if ( e.which==13 ) {
+						e.preventDefault();
+						document.getElementById('birthday').focus(); 
+						} //if
+					});
 		document.getElementById('point').addEventListener("focusout", 
-				() => {oCheck = poCheck();});
+			() => { oCheck=poCheck(); } );
 		
 		// ** Birthday
+		document.getElementById('birthday').addEventListener("keydown", 
+			(e) => { if ( e.which==13 ) {
+						e.preventDefault();
+						document.getElementById('rid').focus(); 
+						} //if
+					});
 		document.getElementById('birthday').addEventListener("focusout", 
-				() => {bCheck = bdCheck();});
+			() => { bCheck=bdCheck(); } );
 		
+		// **rid, uploadfilef => EnterKey 만 적용
+		document.getElementById('rid').addEventListener("keydown", 
+				(e) => { if ( e.which==13 ) {
+							e.preventDefault();
+							document.getElementById('uploadfilef').focus(); 
+							} //if
+						});
+		
+		document.getElementById('uploadfilef').addEventListener("keydown", 
+				(e) => { if ( e.which==13 ) {
+							e.preventDefault();
+							document.getElementById('submit').focus(); 
+							} //if
+						});
+		
+	} // onload
 	
-	} // onload 
 	
 	// ** submit 판단 & 실행 
 	// => 모든 항목의 무결성을 확인 
@@ -108,7 +222,8 @@
 			<tr height="40">
 				<td bgcolor="lightBlue">I D</td>
 				<td><input type="text" name="id" size="20" id="id"
-					placeholder="영문과 숫자 10자 이내"><br> 
+					placeholder="영문과 숫자 10자 이내">
+					<button type="button" id="idDup" onclick="idDupCheck()" >ID 중복확인</button> <br>
 					<span id="iMessage" class="eMessage"></span></td>
 			</tr>
 			<tr height="40">
@@ -137,7 +252,7 @@
 			</tr>
 			<tr height="40">
 				<td bgcolor="lightBlue">Jno</td>
-				<td><select name="jno">
+				<td><select name="jno" id="jno">
 						<option value="1">1조:굉장해엄청나</option>
 						<option value="2">2조:구해조</option>
 						<option value="3">3조:백업은 기본이조</option>
@@ -148,7 +263,7 @@
 			</tr>
 			<tr height="40">
 				<td bgcolor="lightBlue">Info</td>
-				<td><input type="text" name="info" size="20" placeholder="자기소개"></td>
+				<td><input type="text" id="info" name="info" size="20" placeholder="자기소개"></td>
 			</tr>
 			<tr height="40">
 				<td bgcolor="lightBlue">Point</td>
@@ -163,7 +278,7 @@
 			</tr>
 			<tr height="40">
 				<td bgcolor="lightBlue">추천인_ID</td>
-				<td><input type="text" name="rid" size="20"></td>
+				<td><input type="text" id="rid" name="rid" size="20"></td>
 			</tr>
 			<tr height="40">
 				<td bgcolor="lightBlue">Image</td>
@@ -188,7 +303,7 @@
          //    그러므로 files[] 배열 형태의 속성을 가짐
             $('#uploadfilef').change(function(){
                if(this.files && this.files[0]) {
-                  var reader = new FileReader;
+                  let reader = new FileReader;
                   reader.readAsDataURL(this.files[0]);
                    reader.onload = function(e) {
                       $(".select_img").attr("src", e.target.result)
@@ -196,12 +311,12 @@
                    } // onload_function
                 } // if   
             }); //change
-         </script>
+         </script> 
 
 
 			<tr height="40">
 				<td></td>
-				<td><input type="submit" value="가입" onclick="return inCheck()">&nbsp;&nbsp;&nbsp;
+				<td><input type="submit" id="submit" value="가입" onclick="return inCheck()" disabled>&nbsp;&nbsp;&nbsp;
 					<!-- ** JavaScript 방식으로 type submit 활용 
          => onclick 이벤트를 가로채서, 무결성 점검을 하고, 
          => 오류 발생시에 submit 되는것을 막기위해 submit 이벤트를 제거함.

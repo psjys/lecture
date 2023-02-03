@@ -36,6 +36,26 @@ public class MemberController {
 	// => 대표적인 BCryptPasswordEncoder root-context.xml (적용) 또는 
 	//    servlet-context.xml 에 bean설정 후 @Autowired 가능	
 	
+	// ** ID 중복확인 **
+	@RequestMapping(value = "/idDupCheck")
+	public ModelAndView idDupCheck(ModelAndView mv, MemberVO vo) {
+		// 1) newID 보관
+		// => 존재하면 사용 불가
+		
+		if( service.selectOne(vo) != null) {
+			// 사용 불가 
+			mv.addObject("idUse", "F");
+			
+		} else {
+			// 사용 가능
+			mv.addObject("idUse", "T");
+		}
+		
+		
+		
+		mv.setViewName("/member/idDupCheck");
+		return mv;
+	} // idDupCheck
 	
 	
 	// ** Member Check List ***************************
