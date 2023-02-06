@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,32 @@ import criTest.PageMaker;
 import criTest.SearchCriteria;
 import service.MemberService;
 import vo.MemberVO;
+
+//*** JSON 제이슨, (JavaScript Object Notation) **********
+//=> 자바스크립트의 객체 표기법으로, 데이터를 전달 할 때 사용하는 표준형식.
+// 속성(key) 과 값(value) 이 하나의 쌍을 이룸
+    
+//** JAVA의 Data 객체 -> JSON 변환하기
+//1) GSON
+// : 자바 객체의 직렬화/역직렬화를 도와주는 라이브러리 (구글에서 만듦)
+// 즉, JAVA객체 -> JSON 또는 JSON -> JAVA객체
+    
+//2) @ResponseBody (매핑 메서드에 적용)
+// : 메서드의 리턴값이 View 를 통해 출력되지 않고 HTTP Response Body 에 직접 쓰여지게 됨.
+// 이때 쓰여지기전, 리턴되는 데이터 타입에 따라 종류별 MessageConverter에서 변환이 이뤄진다.
+// MappingJacksonHttpMessageConverter 를 사용하면 request, response 를 JSON 으로 변환
+// view (~.jsp) 가 아닌 Data 자체를 전달하기위한 용도
+// @JsonIgnore : VO 에 적용하면 변환에서 제외
+
+//3) jsonView
+//=> Spring 에서 MappingJackson2JsonView를 사용해서
+//  ModelAndView를 json 형식으로 반환해 준다.
+//=> 방법
+// -> pom dependency추가
+// -> 설정화일 xml 에 bean 등록 
+//  ( 안하면 /WEB-INF/views/jsonView.jsp 를 찾게되고  없으니 404 발생 )
+// -> return할 ModelAndView 생성시 View_Name을 "jsonView"로 설정
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
 
 @Controller
 public class MemberController {
@@ -36,6 +63,57 @@ public class MemberController {
 	// => 대표적인 BCryptPasswordEncoder root-context.xml (적용) 또는 
 	//    servlet-context.xml 에 bean설정 후 @Autowired 가능	
 	
+	/// ** Ajax MemberList 
+	@RequestMapping(value = "/axmlist")
+	public ModelAndView axmlist(ModelAndView mv) {
+		mv.addObject("banana", service.selectList());
+		mv.setViewName("/axTest/axMemberList");
+		return mv;
+	} // axmlist
+	
+	// ** Response 로 JsonData 전송 
+	@RequestMapping(value = "/jslogin", method=RequestMethod.POST)
+	public ModelAndView jslogin (HttpServletRequest request, HttpServletResponse response, ModelAndView mv, MemberVO vo) {
+		// 1) 요청분석
+		// => response 의 한글처리 (Ajax 요청 결과로 Data 전송시에는 필수) 
+		String password = vo.getPassword();
+		response.setContentType("text/html; charset=UTF-8");
+
+		// 2) Service 실행
+		// => 성공 -> 로그인정보 보관후, code="200" 
+		// => 실패 -> id 오류일 때 code="201" pw오류일 때 code="202"
+		String uri = "/member/loginForm";
+		vo = service.selectOne(vo);
+		if (vo != null) {
+			// id 일치 -> password 확인 : 암호화 이전
+			// if (vo.getPassword().equals(password)) {
+			
+			// -> 암호화 이후 
+			if (passwordEncoder.matches(password, vo.getPassword())) {
+				// 로그인 성공 -> session 에 로그인정보 보관, code="200"
+				request.getSession().setAttribute("loginID", vo.getId());
+				request.getSession().setAttribute("loginName", vo.getName());
+				mv.addObject("code", "200"); // 성공했을 때 이 값이다 
+				
+			} else {
+				// password 오류
+				mv.addObject("code", "202");
+				mv.addObject("message", "~~ password 오류 !! 다시 하세요 ~~");
+			}
+
+		} else { // id 오류
+			mv.addObject("code", "201");
+			mv.addObject("message", "~~ ID 오류 !! 다시 하세요 ~~");
+		}
+
+		// 3) View 처리 (Json Format Data 를 Response 로) 
+		// => viewName 을 "jsonView";
+		// => API 사용을 위한 dependency, 설정 필요함   
+		mv.setViewName("jsonView");
+		return mv;
+	} // jslogin 
+	
+	
 	// ** ID 중복확인 **
 	@RequestMapping(value = "/idDupCheck")
 	public ModelAndView idDupCheck(ModelAndView mv, MemberVO vo) {
@@ -50,8 +128,6 @@ public class MemberController {
 			// 사용 가능
 			mv.addObject("idUse", "T");
 		}
-		
-		
 		
 		mv.setViewName("/member/idDupCheck");
 		return mv;

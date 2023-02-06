@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>** Spring02_MVC2 LoginForm **</title>
 <link rel="stylesheet" type="text/css" href="resources/myLib/myStyle.css">
+
 </head>
 <body>
 	<h2>** Spring02_MVC2 LoginForm **</h2>
@@ -22,12 +23,17 @@
 			</tr>
 			<tr height="30">
 				<td></td>
-				<td><input type="submit" value="로그인">&nbsp;&nbsp; <input
-					type="reset" value="취소"></td>
+				<td>
+				<input type="submit" value="로그인">&nbsp;&nbsp; 
+				<input type="reset" value="취소">
+				<span id="axlogin" class="textlink" onclick="axlogin()">axLogin</span>
+				<span id="jslogin" class="textlink" onclick="jslogin()">jsLogin</span>
+				</td>
 			</tr>
 		</table>
 	</form>
 	<hr>
+	<span id="message"></span><br>
 	<c:if test="${not empty requestScope.message}">
 		=> message : ${requestScope.message}<br> 
 	</c:if>

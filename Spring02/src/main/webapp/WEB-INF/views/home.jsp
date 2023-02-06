@@ -6,6 +6,8 @@
 	<meta charset="UTF-8">
 	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="resources/myLib/myStyle.css">
+	<script src="resources/myLib/jquery-3.2.1.min.js"></script>
+    <script src="resources/myLib/axTest01.js"></script>
 </head>
 <body>
 <h1>
@@ -24,10 +26,13 @@
 <hr>
 <img alt="home" src="resources/images/tulips.png">
 <hr>
+<div id="resultArea"></div>
+<hr>
 <!-- Login 전 --> 
 <c:if test="${empty sessionScope.loginID }">
 	&nbsp;<a href="mlogin">Login</a>&nbsp;
 	&nbsp;<a href="mjoin">Join</a>&nbsp;
+	&nbsp;<span id="axloginf" class="textlink" onclick="axloginf()">axLogin</span>&nbsp;
 </c:if>
 <!-- Login 후 -->
 <c:if test="${not empty sessionScope.loginID }">
@@ -54,7 +59,10 @@
 &nbsp;<a href="member/list">MList2</a>&nbsp;
 &nbsp;<a href="member/memberList2">vName 생략1</a>&nbsp;
 &nbsp;<a href="member/loginForm">vName 생략2</a>&nbsp;
+<br>
 &nbsp;<a href="etest">Exception</a>&nbsp;
+&nbsp;<a href="axtestform">AjaxTest</a>&nbsp;
+
 
 </body>
 </html>

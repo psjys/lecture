@@ -334,4 +334,10 @@ public class HomeController {
 		return "home";
 	} // etest
 	
+	@GetMapping("/axtestform")
+	public ModelAndView axtestform(ModelAndView mv) {
+		mv.setViewName("/axTest/axTestForm");
+		return mv;
+	} // axtestform
+	
 } // class

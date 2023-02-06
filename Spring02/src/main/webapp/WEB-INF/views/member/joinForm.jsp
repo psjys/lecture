@@ -328,9 +328,10 @@
          => default : form 내부에서는  submit 와  동일하게 작동됨 
                      inCheck() 의 return 값에 따라 (true 면) submit 진행됨 
          => 단, type 속성을 선택하면 (button, reset, submit 등) 속성에 맞게 실행됨
-            예) button 을 선택하면 submit 은 실행되지않음   --></td>
+            예) button 을 선택하면 submit 은 실행되지않음   -->
+            <span class="textlink" onclick="axjoin()">axJoin</span>
+            </td>
 			</tr>
-
 		</table>
 	</form>
 	<!-- <hr>
