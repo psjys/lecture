@@ -7,6 +7,9 @@ import criTest.SearchCriteria;
 import vo.BoardVO;
 
 public interface BoardService {
+	
+	List<BoardVO> idList(BoardVO vo);
+	
 	// ** Board Checj List 
 	// => SearchCriteria, 
 	List<BoardVO> checkList(SearchCriteria cri);

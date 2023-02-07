@@ -25,6 +25,11 @@ public class BoardServiceImpl implements BoardService {
 	//	  이 Mapper 를 통해서 BoardMapper.xml 의 SQL 구문 접근 
 	BoardMapper mapper;
 	
+	@Override
+	public List<BoardVO> idList(BoardVO vo) {
+		return mapper.idList(vo);
+	}
+	
 	// ** Board Check List 
 	@Override
 	public List<BoardVO> checkList(SearchCriteria cri) {

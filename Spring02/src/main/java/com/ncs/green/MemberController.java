@@ -63,7 +63,24 @@ public class MemberController {
 	// => 대표적인 BCryptPasswordEncoder root-context.xml (적용) 또는 
 	//    servlet-context.xml 에 bean설정 후 @Autowired 가능	
 	
-	/// ** Ajax MemberList 
+	// ** ajax Member delete **
+	// => 관리자 기능 : session 삭제가 필요 없음
+		@RequestMapping(value = "/axdelete", method = RequestMethod.POST)
+		public ModelAndView axdelete(ModelAndView mv, MemberVO vo) {
+			
+			if (service.delete(vo) > 0) {
+				mv.addObject("code", "200");
+				
+			} else {
+				mv.addObject("code", "201");
+			}
+			mv.setViewName("jsonView");
+			return mv;
+
+		} // axdelete
+
+	
+	// ** Ajax MemberList 
 	@RequestMapping(value = "/axmlist")
 	public ModelAndView axmlist(ModelAndView mv) {
 		mv.addObject("banana", service.selectList());
