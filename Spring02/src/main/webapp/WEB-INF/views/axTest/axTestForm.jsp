@@ -23,7 +23,7 @@
 &nbsp;<span class="textlink" onclick="axjoinf()" >AxJoinF</span>&nbsp;
 &nbsp;<span class="textlink" onclick="axmlist()" >AxMList</span>&nbsp;
 &nbsp;<span class="textlink" onclick="axblist()" >AxBList</span>&nbsp;
-&nbsp;<span class="textlink">AxBCri</span>&nbsp;
+&nbsp;<span class="textlink" onclick="axBoardcri('axbcri')" >AxBCri</span>&nbsp;
 <a href="home" >[Home]</a>
 <hr>
 <div id="resultArea1"></div>

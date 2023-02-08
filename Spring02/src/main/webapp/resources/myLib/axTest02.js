@@ -162,3 +162,61 @@ function jsBDetail2(e, seq, spanId) {
         $('#' + spanId).html('');
     }
 } // jsBDetail2
+
+// Test 3. seq 에 마우스 오버시에 별도의 DIV에 글내용 표시 되도록 하기 
+// => div 출력위치 : 마우스 포인터 위치
+// => 마우스포인터 위치인식
+//     - event객체 (이벤트핸들러 첫번째 매개변수) 가 제공
+//     - e.pageX, e.pageY : 전체 Page 기준
+//     - e.clientX, e.clientY : 보여지는 화면 기준-> page Scroll 시에 불편함
+
+function jsBDetail3(e, seq) {
+    // 1) 마우스 포인터 위치값 
+    let mleft = e.pageX;
+    let mtop = e.pageY;
+    console.log('** mleft => ' + mleft);
+    console.log('** mtop => ' + mtop);
+
+    // 2) ajax
+    $.ajax({
+        type: 'Get',
+        url: 'jsbdetail?seq=' + seq,
+        success: (resultData) => {
+            // span에 이전에 출력했던 글은 삭제 후 새글 출력 
+            $('.content').html('');
+            $('#content').html(resultData.content)
+                .css({
+                    // div 위치를 지정해서 표시 
+                    display: 'block',
+                    left: mleft,
+                    top: mtop
+                }); // css
+        },
+        error: () => {
+            $('#resultArea2').html('Error 발생');
+        }
+    }); // ajax
+}
+
+function jsBDetail4() {
+    $('#content').css('display', 'none');
+    // jQuery 메서드 
+    // => $('#content').show() / $('#content').hide()
+} // jsBDetail4 
+
+// ** bCriList 를 Ajax로 구현
+// => 검색조건 & Paging , Ajax 구현
+function axBoardcri(url) {
+    $.ajax({
+        type: 'Get',
+        url: url,
+        success: (resultPage) => {
+            $('#resultArea1').html(resultPage);
+        },
+        error: () => {
+            $('#resultArea1').html('~~ Error 발생 !!! ~~~');
+        }
+    }); //ajax
+    $('#resultArea2').html('');
+} //axBoardcri
+

@@ -10,8 +10,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -63,21 +65,54 @@ public class MemberController {
 	// => 대표적인 BCryptPasswordEncoder root-context.xml (적용) 또는 
 	//    servlet-context.xml 에 bean설정 후 @Autowired 가능	
 	
+	// ** Image(File) DownLoad
+	// => 전달받은 path 와 파일명으로 file 객체를 만들어 view 로 보냄
+	@GetMapping("/dnload")
+	public ModelAndView dnload(HttpServletRequest request, ModelAndView mv,
+								@RequestParam("dnfile") String dnfile ) {
+							// => 동일기능 String dnfile = request.getParameter("dnfile");
+		// 1) 파일 & path 확인
+		// => 요청 Parameter 를 확인, fileName 
+		String realPath = request.getRealPath("/"); // 오래돼서 지원하지 않는 메서드 
+		String fileName = dnfile.substring(dnfile.lastIndexOf("/")+1);
+		// dnfile => resource 
+		
+		// => realPath 확인, 개발중인지, 배포했는지에 따라 결정
+		// => 해당 file 찾기
+		
+		if (realPath.contains(".eclipse.")) // 개발 중 (배포 전 : eclipse 개발환경)
+			realPath = "/Users/s116/Desktop/project1/Spring02/src/main/webapp/resources/uploadImage/"+fileName;
+			// eclipse 환경에서 개발 중인 상태 (배포 전)
+		else
+			realPath += "resources/uploadImage/"+fileName; // 톰캣 서버 배포 후 
+		
+		
+		// 2) 해당 파일 (path+fileName) 객체화
+		File file = new File(realPath);
+		mv.addObject("downloadFile", file);
+		
+		// 3) response 처리 (response 의 body 에 담아줌)
+		// => Java File 객체 -> File 정보를 response 에 전달
+		mv.setViewName("downloadView");
+		
+		return mv;
+	} // dnload
+	
+	
+	
 	// ** ajax Member delete **
 	// => 관리자 기능 : session 삭제가 필요 없음
-		@RequestMapping(value = "/axdelete", method = RequestMethod.POST)
-		public ModelAndView axdelete(ModelAndView mv, MemberVO vo) {
-			
-			if (service.delete(vo) > 0) {
-				mv.addObject("code", "200");
+	@RequestMapping(value = "/axdelete", method = RequestMethod.POST)
+	public ModelAndView axdelete(ModelAndView mv, MemberVO vo) {
+		if (service.delete(vo) > 0) {
+			mv.addObject("code", "200");
 				
-			} else {
-				mv.addObject("code", "201");
-			}
-			mv.setViewName("jsonView");
-			return mv;
-
-		} // axdelete
+		} else {
+			mv.addObject("code", "201");
+		}
+		mv.setViewName("jsonView");
+		return mv;
+	} // axdelete
 
 	
 	// ** Ajax MemberList 

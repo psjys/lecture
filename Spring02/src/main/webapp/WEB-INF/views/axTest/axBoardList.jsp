@@ -41,7 +41,8 @@
 		<c:if test="${not empty banana}">
 			<c:forEach var="s" items="${banana}" varStatus="vs">
 				<tr height="30">
-					<td>${s.seq}</td>
+					<!-- Test 3. seq 에 마우스 오버시 DIV에 글내용 표시 -->
+					<td align="center"><span class="textlink" onmouseover="jsBDetail3(event, ${s.seq})" onmouseout="jsBDetail4()">${s.seq}</span></td>
 					<td>
 					<!-- 댓글 등록 후 indent 에 따른 들여쓰기 
 						=> 댓글의 경우에만 들여쓰기 적용 -->
@@ -68,7 +69,7 @@
                			 
                			 ** 1) onclick="jsBDetail1(${s.seq})"
               		-->
-					<a href="javascript:;" onclick="jsBDetail2(event, ${s.seq}, ${vs.count})">
+					<td><a href="javascript:;" onclick="jsBDetail2(event, ${s.seq}, ${vs.count})">
 						${s.title}</a></td>
 					<td>${s.id}</td>
 					<td>${s.regdate}</td>
@@ -83,6 +84,8 @@
 		** 출력할 자료가 1건도 없습니다 ** 
 	</c:if>
 	</table>
+	<div id="content"></div>
+	<hr>
 	<hr>
 	<c:if test="${sessionScope.loginID != null}">
 &nbsp;<a href="binsert">새글등록_F</a>&nbsp;

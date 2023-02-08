@@ -21,19 +21,36 @@ import vo.BoardVO;
 public class BoardController {
 	@Autowired
 	BoardService service;
-	
+
+	// ** Ajax Board_Search_List
+	@RequestMapping(value = "/axbcri", method = RequestMethod.GET)
+	public ModelAndView axbcri(ModelAndView mv, SearchCriteria cri, PageMaker pageMaker) {
+
+		// 1) Criteria 처리
+		cri.setSnoEno();
+
+		// 2) Service 처리
+		mv.addObject("banana", service.searchList(cri)); // ver02
+
+		// 3) View 처리 => PageMaker
+		pageMaker.setCriteria(cri);
+		pageMaker.setTotalRowsCount(service.searchTotalCount(cri)); // ver02 : 조건과 일치하는 Rows 갯수
+		mv.addObject("pageMaker", pageMaker);
+
+		mv.setViewName("/axTest/axbCriList");
+		return mv;
+	} // axblist
+
 	// ** JSON BoardDetail
 	@RequestMapping(value = "/jsbdetail", method = RequestMethod.GET)
 	public ModelAndView jsbdetail(ModelAndView mv, BoardVO vo, HttpServletResponse response) {
 		// ** jsonView 사용시에는 response 의 한글처리 필수
 		response.setContentType("text/html; charset=UTF-8");
-		
-			mv.addObject("content", service.selectOne(vo).getContent());
-			mv.setViewName("jsonView");
-			return mv;
-	} // axblist	
-	
-	
+		mv.addObject("content", service.selectOne(vo).getContent());
+		mv.setViewName("jsonView");
+		return mv;
+	} // axblist
+
 	// ** Ajax BoardList
 	@RequestMapping(value = "/axblist", method = RequestMethod.GET)
 	public ModelAndView axblist(ModelAndView mv) {
