@@ -340,4 +340,45 @@ public class HomeController {
 		return mv;
 	} // axtestform
 	
+	// *****************************************************
+	// ** WebSocket Echo Test ***************************
+	@GetMapping("/echo")
+	public ModelAndView echo (ModelAndView mv) {
+		mv.setViewName("/axTest/wsEcho");
+		return mv;
+	} // echo 	
+	
+	// ** WebSocket Chat Test **
+	@GetMapping("/chat")
+	public ModelAndView chat (ModelAndView mv) {
+		mv.setViewName("/axTest/wsChat");
+		return mv;
+	} // chat 
+	
+	// ************************************************   
+	// ** KaKaoMap Test *******************************
+	@RequestMapping(value="/greensn")
+	public ModelAndView greensn(ModelAndView mv) {
+	      mv.setViewName("kakaoMapJsp/map01_greenSN");
+	      return mv;
+	} //greensn
+	
+	@RequestMapping(value="/greenall")
+	public ModelAndView greenall(ModelAndView mv) {
+	      mv.setViewName("kakaoMapJsp/map02_greenAll");
+	      return mv;
+	} //greenall
+	
+	@RequestMapping(value="/jeju")
+	public ModelAndView jeju(ModelAndView mv) {
+	      mv.setViewName("kakaoMapJsp/map03_jeju");
+	      return mv;
+	} //jeju
+	
+	@RequestMapping(value="/gps")
+	public ModelAndView gps(ModelAndView mv) {
+	      mv.setViewName("kakaoMapJsp/map04_GPS");
+	      return mv;
+	} //gps
+	
 } // class

@@ -349,11 +349,11 @@ public class MemberController {
 		HttpSession session = request.getSession(false);
 //      -> false : session이 없을때는 null return
 		// (사용전에 반드시 null 확인해야함 -> NullPointerException 예방)
-		if (session != null) {
+		if (session != null) { 
 			session.invalidate(); // session 무효화
 			rttr.addFlashAttribute("message", "~~ Logout 성공 ~~");
 		}
-
+		
 		mv.setViewName("redirect:home");
 		return mv;
 	} // mlogout

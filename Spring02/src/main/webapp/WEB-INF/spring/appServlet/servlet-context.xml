@@ -5,7 +5,9 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
@@ -181,5 +183,21 @@
 		<aop:pointcut expression="execution(* com.ncs.green.*.*join(..))" id="myPointcut"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut"/>
 	</aop:config>
+	
+<!-- 웹 소켓 설정~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- ** echoHandler & chatHandler  설정
+     1) echoHandler 와 클라이언트 요청 매핑
+     2) echoHandler 빈 등록   
+     ** JUnit Spring Mybatis Test 할때는 주석처리 해야 함 -->
+     
+	<websocket:handlers>
+		<websocket:mapping handler="echoHandler" path="ws_echo"/>
+		<websocket:mapping handler="chatHandler" path="ws_chat"/>
+		
+	</websocket:handlers>
+	
+	<beans:bean id="echoHandler" class="socketTest.EchoHandler" />
+	<beans:bean id="chatHandler" class="socketTest.ChatHandler" />
+	
 </beans:beans>
 

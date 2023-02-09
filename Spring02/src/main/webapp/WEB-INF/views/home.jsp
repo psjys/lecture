@@ -62,7 +62,13 @@
 <br>
 &nbsp;<a href="etest">Exception</a>&nbsp;
 &nbsp;<a href="axtestform">AjaxTest</a>&nbsp;
-
-
+&nbsp;<a href="echo">WS_Echo</a>&nbsp;
+&nbsp;<a href="chat">WS_Chat</a>&nbsp;
+<br>
+&nbsp;<a href="greensn">GreenSN</a>
+&nbsp;&nbsp;<a href="greenall">GreenAll</a>
+&nbsp;&nbsp;<a href="jeju">JeJu</a>
+&nbsp;&nbsp;<a href="gps">GPS</a>
+<br>
 </body>
 </html>
