@@ -10,6 +10,7 @@
 <script src="resources/myLib/jquery-3.2.1.min.js"></script>
 <script src="resources/myLib/axTest01.js"></script>
 <script src="resources/myLib/axTest02.js"></script>
+<script src="resources/myLib/axTest03.js"></script>
 </head>
 <body>
 <h3>** Ajax Test Main Form **</h3>
@@ -24,6 +25,7 @@
 &nbsp;<span class="textlink" onclick="axmlist()" >AxMList</span>&nbsp;
 &nbsp;<span class="textlink" onclick="axblist()" >AxBList</span>&nbsp;
 &nbsp;<span class="textlink" onclick="axBoardcri('axbcri')" >AxBCri</span>&nbsp;
+&nbsp;<span class="textlink" onclick="rsLogin()" >rsLogin</span>&nbsp;
 <a href="home" >[Home]</a>
 <hr>
 <div id="resultArea1"></div>

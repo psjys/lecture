@@ -16,7 +16,7 @@ function axloginf() {
             document.getElementById('resultArea').innerHTML = 'error 발생';
         }
     }); // ajax
-} // axloginf
+}; // axloginf
 
 // ** axlogin 기능 
 function axlogin() {
