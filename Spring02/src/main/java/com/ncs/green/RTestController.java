@@ -1,8 +1,12 @@
 package com.ncs.green;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,7 +17,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -71,7 +77,8 @@ public class RTestController {
 
 	// 2) 사용자 정의 객체
 	// 2.1) 객체 Return1. : produces 지정한 경우
-	@GetMapping(value = "/getvo1", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+	@GetMapping(value = "/getvo1", produces = { MediaType.APPLICATION_JSON_VALUE, 
+												MediaType.APPLICATION_XML_VALUE })
 	// => produces
 	// - JSON 과 XML 방식의 데이터를 생성할 수 있도록 설정
 	// - Response Data Type을 제한 함으로 오류를 줄임
@@ -126,25 +133,50 @@ public class RTestController {
 	// http://localhost:8080/green/rest/incheck.json?jno=11&chief=가나다라
 	// => 502 Test: http://localhost:8080/green/rest/incheck?jno=5&chief=가나다라
 
-	// 4) ResposeEntity
-	@GetMapping(value = "/incheck", params = { "jno", "chief" })
-	public ResponseEntity<RestVO> incheck(Integer jno, String chief) {
-		// 1) 준비
-		// => ResponseEntity 정의 & Parameter 처리 (Service 처리)
-		ResponseEntity<RestVO> result = null;
-		RestVO vo = new RestVO(444, "사사사", chief, "Rest API Parameter Test ~~~");
-
-		// 2) 조건확인 (Service 결과 확인)
-		// => jno 값이 10~20 : 정상 , 아니면 오류
-		if (jno < 10 || jno > 20) { // 오류
-			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(vo);
-		} else { // 정상
-			result = ResponseEntity.status(HttpStatus.OK).body(vo);
-		}
-
-		return result;
-
-	} // incheck
+	   // 4) ResponseEntity
+	   // => ResponseEntity 와 쿼리스트링 Test 
+	   // => Parameter 를 쿼리스트링으로 전달하는 경우 서버에서는 
+	   //   - params 속성으로 처리가능
+	   //   - @RequestParam 으로 처리가능 : @RequestParam("jno") int jno -> MemberController, /dnload 참고
+	   
+	   //   @GetMapping(value="/incheck", params={"jno", "chief"})
+	   //   public ResponseEntity<RestVO> incheck(Integer jno, String chief) {
+	      
+	   // => params (매개변수와 매핑시 객체만 가능) @RequestParam (기본자료형 가능) 비교해보세요
+	   @GetMapping("/incheck")
+	   public ResponseEntity<RestVO> incheck(@RequestParam("jno") int jno, String chief) {
+	      // 1) 준비
+	      // => ResponseEntity 정의 & Parameter 처리 (Service 처리) 
+	      ResponseEntity<RestVO> result = null;
+	       RestVO vo = new RestVO(jno, "사사사", chief,"Rest API Parameter Test ~~~");
+	      // 2) 조건확인 (Service 결과 확인)
+	      // => jno 값이 10~20 : 정상, 아니면 오류
+	      if ( jno<10 || jno>20 ) {  // 오류
+	         result=ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(vo);
+	      }else {  // 정상
+	         result=ResponseEntity.status(HttpStatus.OK).body(vo);
+	      }
+	      return result;
+	   } //incheck
+	   
+//	@GetMapping(value = "/incheck", params = { "jno", "chief" })
+//	public ResponseEntity<RestVO> incheck(Integer jno, String chief) {
+//		// 1) 준비
+//		// => ResponseEntity 정의 & Parameter 처리 (Service 처리)
+//		ResponseEntity<RestVO> result = null;
+//		RestVO vo = new RestVO(444, "사사사", chief, "Rest API Parameter Test ~~~");
+//
+//		// 2) 조건확인 (Service 결과 확인)
+//		// => jno 값이 10~20 : 정상 , 아니면 오류
+//		if (jno < 10 || jno > 20) { // 오류
+//			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(vo);
+//		} else { // 정상
+//			result = ResponseEntity.status(HttpStatus.OK).body(vo);
+//		}
+//
+//		return result;
+//
+//	} // incheck
 
 	// 5) @PathVariable
 	// => URL 경로의 일부를 파라미터로 사용할 때 이용
@@ -152,7 +184,8 @@ public class RTestController {
 	// => 요청 URI 매핑에서 템플릿 변수를 설정하고 이를 매핑메서드 매개변수의 값으로 할당 시켜줌.
 	// 이 때 파라미터가 1개이면 @PathVariable 과 같이 name을 생략할 수 있다
 	@GetMapping("/product/{cate}/{pid}")
-	public String[] product(@PathVariable("cate") String cate, @PathVariable("pid") String pid) {
+	public String[] product(@PathVariable("cate") String cate, 
+							@PathVariable("pid") String pid) {
 		return new String[] { "** Category : " + cate, "** Product_ID : " + pid };
 	} // product
 
@@ -177,7 +210,8 @@ public class RTestController {
 	// => 요청_url형식으로 Data 전송 : rest/rsdetail1/banana/7
 	// => @PathVariable : 기본자료형은 사용할 수 없음
 	@GetMapping("/rsdetail1/{id}/{jno}")
-	public MemberVO rsdetail1(@PathVariable("id") String id, @PathVariable("jno") Integer jno) {
+	public MemberVO rsdetail1(@PathVariable("id") String id, 
+							  @PathVariable("jno") Integer jno) {
 		log.info("** rsdetail1 id =>" + id);
 		log.info("** rsdetail1 jno =>" + jno);
 		MemberVO vo = new MemberVO();
@@ -193,7 +227,8 @@ public class RTestController {
 	// 8) axRSJoDetail 2
 	// => ResponseEntity 적용
 	@GetMapping("/rsdetail2/{id}/{jno}")
-	public ResponseEntity<MemberVO> rsdetail2(@PathVariable("id") String id, @PathVariable("jno") Integer jno) {
+	public ResponseEntity<MemberVO> rsdetail2(@PathVariable("id") String id, 
+											  @PathVariable("jno") Integer jno) {
 		ResponseEntity<MemberVO> result = null;
 		
 		MemberVO vo = new MemberVO();
@@ -212,5 +247,95 @@ public class RTestController {
 		return result;
 		
 	} // rsdetail2
+	
+	// *** Rest API => Member Join
+	// ** Join1 : image 제외, json type 으로 요청 들어옴 
+	// => 요청 Data 가 JSON 임을 확인, Java 객체로 변환해야 사용가능
+	@PostMapping(value="/rsjoin1", 
+				 consumes = MediaType.APPLICATION_JSON_VALUE, // "application/json", 과 동일 
+				 produces = MediaType.TEXT_PLAIN_VALUE )   
+	// => Mapping 시 받는 데이터를 강제를 함으로 오류상황을 줄일 수 있다.
+	//    이것을 위해 사용하는것중 하나가 MediaType 이며,
+	//    받는 데이터를 제한할때 consumes (위에서는 Json 임을 강제함)
+	//    나가는 데이터를 제한할때 produces (위에서는 String을 Return 함을 강제함) 
+	// => consumes 를 설정하면 요청 Header에 보내는 Data가 json 임을 명시해야함. 
+	// => @RequestBody : Json -> Java 객체로 파싱	
+	public ResponseEntity<String> rsjoin1(HttpServletRequest request, 
+						  @RequestBody MemberVO vo) {
+		ResponseEntity<String> result = null;
+		log.info("rsJoin1 vo => "+vo);
+		
+		// => password 처리 
+		vo.setPassword(passwordEncoder.encode(vo.getPassword()));
+		int cnt = mservice.insert(vo);
+		if ( cnt > 0 ) {
+			// success 
+			result = ResponseEntity.status(HttpStatus.OK).body("Join Success");
+		} else {
+			result = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Join_Fail");
+		}
+		
+		return result;
+	} // rsjoin1
 
+	// ** Join2 : image 포함, "multipart/form-data" type 으로 요청 들어옴 
+	// => consumes 속성값 변경, 매개변수의 @RequestBody 필요없음
+	@PostMapping(value="/rsjoin2", 
+				 consumes = MediaType.MULTIPART_FORM_DATA_VALUE, // "multipart/form-data" 와 동일 
+				 produces = MediaType.TEXT_PLAIN_VALUE )   
+
+	public ResponseEntity<String> rsjoin2(HttpServletRequest request, MemberVO vo) throws IOException {
+		ResponseEntity<String> result = null;
+		log.info("rsJoin1 vo => "+vo);
+		
+		// => uploadfilef 처리 
+		String realPath = request.getRealPath("/");
+		System.out.println("** realpath => " + realPath);
+		
+		// 2) 위의 값을 이용해서 실제저장위치 확인
+		// => 개발중인지, 배포했는지 에 따라 결정
+		if (realPath.contains(".eclipse.")) // 개발 중 (배포 전 : eclipse 개발환경)
+			realPath = "/Users/s116/Desktop/project1/Spring02/src/main/webapp/resources/uploadImage/";
+		else
+			realPath += "resources/uploadImage/";
+
+		// ** 폴더 만들기 (File 클래스활용)
+		// => 위의 저장경로에 폴더가 없는 경우 (uploadImage가 없는경우) 만들어 준다
+		File f1 = new File(realPath);
+		if (!f1.exists())
+			f1.mkdir();
+		// => realPath 디렉터리가 존재하는지 검사 (uploadImage 폴더 존재 확인)
+		// 존재하지 않으면 디렉토리 생성
+
+		// ** 기본 이미지 지정하기
+		String file1, file2 = "resources/uploadImage/basicman4.png";
+		// ** MultipartFile
+		// => 업로드한 파일에 대한 모든 정보를 가지고 있으며 이의 처리를 위한 메서드를 제공한다.
+		// -> String getOriginalFilename(),
+		// -> void transferTo(File destFile),
+		// -> boolean isEmpty()
+
+		MultipartFile uploadfilef = vo.getUploadfilef(); // file 의 내용및 화일명 등 전송된 정보들
+		if (uploadfilef != null && !uploadfilef.isEmpty()) {
+			// ** Image를 선택함 -> Image저장 ( 경로_realPath + 화일명 )
+			// 1) 물리적 저장경로(file1) 에 Image 저장
+			file1 = realPath + uploadfilef.getOriginalFilename(); // 저장경로 완성
+			uploadfilef.transferTo(new File(file1));
+
+			// 2) Table 저장 (file2) 준비
+			file2 = "resources/uploadImage/" + uploadfilef.getOriginalFilename();
+		}
+		
+		// => password 처리 
+		vo.setPassword(passwordEncoder.encode(vo.getPassword()));
+		int cnt = mservice.insert(vo);
+		if ( cnt > 0 ) {
+			// success 
+			result = ResponseEntity.status(HttpStatus.OK).body("Join Success");
+		} else {
+			result = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Join_Fail");
+		}
+		
+		return result;
+	} // rsjoin2
 } // class

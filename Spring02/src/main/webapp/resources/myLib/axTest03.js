@@ -65,3 +65,82 @@ function rsDetail() {
         }
     }); //ajax
 } //rsDetail
+
+// *** Rest API => Member Join
+// ** Join1 : fileupload 제외, formData 를 JS 객체 -> JSON type 으로 전송 
+function axRSJoin1() {
+    // 1) Data 준비 
+    // => formData 를 JS 객체
+    let formData = {
+        id: document.getElementById('id').value,
+        password: document.getElementById('password').value,
+        name: document.getElementById('name').value,
+        info: document.getElementById('info').value,
+        birthday: document.getElementById('birthday').value,
+        jno: document.getElementById('jno').value,
+        age: document.getElementById('age').value,
+        point: document.getElementById('point').value,
+    }
+
+    // => JS객체 -> JSON Type 으로
+    //let formData = new FormData(document.getElementById('myForm'));
+    //let formData = $('#myForm').serialize();
+    // => 위 둘은 JSON.stringify 적용 안됨
+
+    let jsonData = JSON.stringify(formData);
+
+    // => 비교 출력 확인 
+    console.log('** formData => ' + formData);
+    console.log('** jsonData => ' + jsonData);
+
+    // 2) ajax 요청 
+    $.ajax({
+        type: 'post',
+        url: 'rest/rsjoin1',
+        data: jsonData, // JSON Type 
+        contentType: 'application/json',
+        // => JSON Type Data 요청
+        // => form 의 enctype="multipart/form-data" 과 무관하게 우선 적용됨      
+        success: (resultData) => {
+            // => 결과는 String 으로 전달 받음 
+            document.getElementById('resultArea1').innerHTML = resultData;
+            document.getElementById('resultArea2').innerHTML = '';
+        },
+        error: () => {
+            document.getElementById('resultArea2').innerHTML = '~~ Ajax Join Error ~~';
+        }
+    }); // ajax
+
+} // axRSJoin1 
+
+
+// ** Join2
+// => 모든 Data 포함, 기존 방식으로 요청하기
+// => image 처리위해 "multipart/form-data" 적용    
+// => rsjoin1 요청과 비교하면 컨트롤러 에서는 consumes 속성값 변경, 매개변수의 @RequestBody 필요없음
+//    만약 변경하지 않으면,
+//     ~.HttpMediaTypeNotSupportedException: Content type 'multipart/form-data;... 발생
+function axRSJoin2() {
+    // 1) Data 준비 
+    // => formData 를 JS 내장객체 FormData 에 담아서 전송 
+    let formData = new FormData(document.getElementById('myForm'));
+    console.log('** formData => ' + formData);
+
+    // 2) ajax 요청 
+    $.ajax({
+        type: 'post',
+        url: 'rest/rsjoin2',
+        processData: false,
+        contentType: false,
+        data: formData,
+        success: (resultData) => {
+            // => 결과는 String 으로 전달 받음 
+            document.getElementById('resultArea1').innerHTML = resultData;
+            document.getElementById('resultArea2').innerHTML = '';
+        },
+        error: () => {
+            document.getElementById('resultArea2').innerHTML = '~~ Ajax Join Error ~~';
+        }
+    }); // ajax
+
+} // axRSJoin2
