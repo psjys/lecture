@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapperInterface.JoMapper">
+
+<!-- Join 기능 추가 : 조장이름 출력하기 
+   => 조와 조장이름 출력시 조장이 없어도 출력가능
+   select j.jno, j.chief, j.jname, j.note , m.name  
+   from memjo j LEFT OUTER JOIN member m
+   ON j.chief=m.id
+   => 기본형 (동등 조인) : 조장이 없는 조는 출력 안됨 
+   select j.jno, j.chief, j.jname, j.note , m.name  
+   from jo j, member m
+   ON j.chief=m.id 
+-->
+<select id="selectList" resultType="vo.JoVO">
+   select j.jno, j.chief, j.jname, j.note , m.name  
+   from jo j LEFT OUTER JOIN member m
+   ON j.chief=m.id 
+</select>
+
+<select id="selectOne" resultType="vo.JoVO">
+   select * 
+   from jo 
+   where jno=#{jno}
+</select>
+
+<insert id="insert">
+   insert into jo 
+   values(#{jno},#{jname},#{chief},#{note})
+</insert>
+
+<update id="update">
+   update jo 
+   set chief=#{chief}, jname=#{jname}, note=#{note}
+   where jno=#{jno}
+</update>   
+   
+<delete id="delete">
+   delete from jo
+   where jno=#{jno}
+</delete>   
+   
+</mapper>  
