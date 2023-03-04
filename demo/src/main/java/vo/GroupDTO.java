@@ -1,9 +1,8 @@
 package vo;
 
-
 //** DTO (Data Transfer Object)
 //=> jo 별 통계값 처리를 위한 DTO 
-//=> private 멤버 변수 정의 
+//=> private 맴버변수, getter/setter, toString()
 
 public class GroupDTO {
 	private int jno;
@@ -13,7 +12,6 @@ public class GroupDTO {
 	private double avg;
 	private int min;
 	private int max;
-	
 	
 	public int getJno() {
 		return jno;
@@ -57,12 +55,9 @@ public class GroupDTO {
 	public void setMax(int max) {
 		this.max = max;
 	}
-	
-	// 출력 
 	@Override
 	public String toString() {
 		return "GroupDTO [jno=" + jno + ", count=" + count + ", sum=" + sum + ", avg=" + avg
 				+ ", min=" + min + ", max=" + max + ", jname=" + jname + "]";
 	}
-	
-} // class 
+} //class

@@ -1,5 +1,10 @@
 package vo;
 
+//** VO (Value Object) , DTO (Data Transfer Object)
+//=> 맴버변수 : private
+//=> 외부에서는 setter/getter 로 접근
+//=> @Override toString()
+
 public class MemberVO_OLD {
 	
 	private String id;
@@ -10,7 +15,6 @@ public class MemberVO_OLD {
 	private String info;
 	private Double point;
 	private String birthday;
-	
 	
 	public String getId() {
 		return id;
@@ -60,11 +64,10 @@ public class MemberVO_OLD {
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
-	
 	@Override
-	public String toString() { 
-		// parameter 에서 값이 잘 넘어왔는지 확인 가능 
+	public String toString() {
 		return "MemberVO [id=" + id + ", password=" + password + ", name=" + name + ", age=" + age + ", jno=" + jno
 				+ ", info=" + info + ", point=" + point + ", birthday=" + birthday + "]";
 	}
-} // class 
+
+} //class

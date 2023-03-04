@@ -6,28 +6,29 @@ import vo.BoardVO;
 
 public interface BoardMapper {
 	
-	// 1. selectList
+	// ** ajax ID BoardList
+	List<BoardVO> idList(BoardVO vo);
+	
+	// ** selectList
 	List<BoardVO> selectList();
-	int criTotalCount();
 
-	// 2. selectOne : Detail
+	// ** selectOne
 	BoardVO selectOne(BoardVO vo);
 
-	// 3. insert
+	// ** Insert
 	int insert(BoardVO vo);
 
-	// 4. update
+	// ** Update
 	int update(BoardVO vo);
 
-	// 5. delete 
+	// ** Delete
 	int delete(BoardVO vo);
 
-	// 조회수 증가 
+	// ** 조회수 증가
 	int countUp(BoardVO vo);
 
-	// 댓글 등록 
+	// ** Reply_Insert
 	int rinsert(BoardVO vo);
 	int stepUpdate(BoardVO vo);
 
-	
-} // interface 
+} //interface

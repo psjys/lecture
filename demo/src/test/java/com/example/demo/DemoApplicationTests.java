@@ -18,40 +18,42 @@ import org.springframework.test.context.junit4.SpringRunner;
 import mapperInterface.MemberMapper;
 import vo.MemberVO;
 
-@RunWith(SpringRunner.class)
+@RunWith(SpringRunner.class) 
+// => JUnit4 선택 (JUnit5부터  @RunWith는 지원되지않음)
 @SpringBootTest
 class DemoApplicationTests {
-
+	
 	@Autowired
 	private DataSource ds;
 	@Autowired
 	private SqlSessionFactory ssf;
+	
 	@Autowired
 	private MemberMapper mapper;
-
+	
 	private MemberVO vo = new MemberVO();
 
+	// Test1. DataSource
 	void contextLoads() throws SQLException {
-		// Test1. DataSource
-		System.out.println("** DataSource => " + ds);
+		System.out.println("** DataSource => "+ds);
 		Connection cn = ds.getConnection();
-		System.out.println("** Connection => " + cn);
+		System.out.println("** Connection => "+cn);
 		assertNotNull(cn);
 		cn.close();
 	}
-
-	// Test2. SqlSessionFactory 연결확인
-	// => SqlSessionFactory 만 자동주입 받으면 생성됨
-	// => DataSource 선언 없어도 됨.
-//	@Test
+	
+	// Test2. SqlSessionFactory 연결확인 
+	// => SqlSessionFactory 만 자동주입 받으면 생성됨 
+	// => DataSource 선언 없어도 됨. 
+	
 	void testSqlSession() throws Exception {
-		System.out.println("** SqlSessionFactory => " + ssf);
+		System.out.println("** SqlSessionFactory => "+ssf);
 		assertNotNull(ssf);
 	}
 
 	// Test3. Mapper
-	// 3.1) insert
-//	@Test
+	//3.1) insert
+
 	void testInsert() {
 		vo.setId("boot");
 		vo.setPassword("12345!");
@@ -64,25 +66,23 @@ class DemoApplicationTests {
 		vo.setBirthday("1999-09-09");
 		// => 성공:1 , 실패:0
 		assertEquals(mapper.insert(vo), 1);
-
-	} // testInsert
+	} //testInsert
 	
-	// 3.2) selectList 
-//	@Test
+	//3.2) selectList
+	
 	void testList() {
 		System.out.println("** selectList Test **");
-		for(MemberVO m : mapper.selectList() ) {
+		for ( MemberVO m : mapper.selectList() ) {
 			System.out.println(m);
 		}
-		
- 	} // testList
+	} //testList
 	
-	// Test4. xml Mapper 
+	// Test4. xml Mapper
 	@Test
 	void testDetail() {
-		vo.setId("boot");
-		System.out.println("** selectOne Test **");
+		vo.setId("banana");
+		System.out.println("** xml selectOne Test **");
 		System.out.println(mapper.selectOne(vo));
-	} // testDetail 
-
-} // class
+	} //testDetail
+	
+} //class
